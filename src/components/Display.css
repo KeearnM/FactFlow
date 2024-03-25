@@ -1,0 +1,126 @@
+/*
+ARTICLES & STORIES CARD DISPLAY CSS
+*/
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center aligns the cards horizontally */
+}
+
+.card {
+  width: 25rem;
+  margin: 0.2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-img-top {
+  max-width: 250px; /* Maximum width */
+  max-height: 250px; /* Maximum height */
+  width: auto; /* Ensure aspect ratio is maintained */
+  height: auto; /* Ensure aspect ratio is maintained */
+  display: block; /* Remove any inline spacing issues */
+  margin: 0 auto; /* Center the image if it's smaller than the max dimensions */
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-body p {
+  font-size: 0.9rem; /* Small font size for Published and Updated dates */
+  display: inline-block; /* Display side by side */
+  margin-right: 1rem; /* Space between Published and Updated */
+}
+
+.card-title .small,
+.card-body .small {
+  font-size: 0.8rem; /* Small font size for Published and Updated dates */
+  display: inline-block; /* Display side by side */
+  margin-right: 1rem; /* Space between Published and Updated */
+}
+
+.card-title {
+  color: orangered; /* Oranged color for the title */
+  text-decoration: none; /* Remove underline */
+}
+
+.card-title:hover {
+  text-decoration: none; /* Remove underline on hover */
+  color: orangered;
+  font-weight: bold;
+}
+
+.card-body a {
+  text-decoration: none; /* Remove underline on hover */
+  color: black;
+  /* font-weight: bold; */
+}
+
+.card.expanded {
+  max-height: none;
+}
+
+.card-body.collapsible {
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.card-body.collapsible.expanded {
+  max-height: 1000px; /* high value to accommodate large content */
+}
+
+/*
+LOADER ANIMATION CSS
+HTML: <div className="loader"></div>
+*/
+
+.loader,
+.loader:before,
+.loader:after {
+  width: 35px;
+  aspect-ratio: 1;
+  box-shadow: 0 0 0 3px inset black;
+  position: relative;
+  animation: 1.5s infinite 0.5s;
+  animation-name: l7-1, l7-2;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 5px);
+  animation-delay: 1s, 0s;
+}
+.loader:after {
+  left: -40px;
+  animation-delay: 0s, 1s;
+}
+@keyframes l7-1 {
+  0%,
+  55%,
+  100% {
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  20%,
+  30% {
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+}
+@keyframes l7-2 {
+  0%,
+  55%,
+  100% {
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  20%,
+  30% {
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 50%;
+  }
+}
