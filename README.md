@@ -6,9 +6,21 @@
 
 ## Technologies Used
 
+- MongoDB
+- Express
+- React
+- Node.js
+- JS
+- HTML5
+- CSS
+- npm
+- Material UI
+
 ## Getting Started
 
-- Create an account at https://www.goperigon.com/
+- Get your API keys by creating an account at:
+  - Perigon API https://www.goperigon.com/
+  - Gemini API
 - Create .env file and add the following (double check Perigon's website for the latest URL/version):
   - VITE_PERIGON_ARTICLES_URL=https://api.goperigon.com/v1/all
   - VITE_PERIGON_STORIES_URL=https://api.goperigon.com/v1/stories/all

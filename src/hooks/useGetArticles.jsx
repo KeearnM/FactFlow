@@ -1,5 +1,15 @@
-import React from "react";
-import { useState, useEffect } from "react";
+/*=============================================================================
+ | Purpose:  FETCH ARTICLE DATA FROM PERIGON API USING PARAMETERS PASSED AS 
+ |           PROPS TO TAILOR THE API CALL.
+ |           API DOC: https://docs.goperigon.com/reference/all-news
+ |
+ | Input / Parameters:  SEARCH TERM (Q), FROM ().
+ |   
+ | Output / Returns:  DESCRIBE THE OUTPUT IT PRODUCES.
+ |
+ *===========================================================================*/
+
+import React, { useState, useEffect } from "react";
 
 const useGetArticles = () => {
   const [articles, setArticles] = useState([]);

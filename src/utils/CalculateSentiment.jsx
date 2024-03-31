@@ -47,7 +47,8 @@ const CalculateSentiment = ({ sentimentArr }) => {
   return (
     <div>
       {/* Rendering the icon only if it's available */}
-      {icon && <span>{icon}</span>} <span>{sentiment}</span>
+      {icon && <span>{icon}</span>}
+      <span>{sentiment}</span>
     </div>
   );
 };
