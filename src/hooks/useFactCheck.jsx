@@ -4,8 +4,10 @@
  |           API DOC: Takes in a article and return the fact check result from gemini
  |
  | Input / Parameters:  DESCRIBE THE INPUT IT REQUIRES. => the article will be the input
+ |
  |   
  | Output / Returns:  DESCRIBE THE OUTPUT IT PRODUCES. => the result via the result state
+ | example: const { factCheck, loading, result, error } = useFactCheck();
  |
  *===========================================================================*/
 
