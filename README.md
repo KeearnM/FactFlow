@@ -17,6 +17,15 @@
   `npm i`
 - Install react-router-dom
   `npm install react-router-dom`
+- Install react-pro-sidebar
+  `npm install react-pro-sidebar`
+- Install Material UI
+  `npm install @mui/material @emotion/react @emotion/styled`
+- Install Material UI Icons
+  `npm install @mui/icons-material`
+
+NOTE: If you run into dependency errors just run
+`npm config set legacy-peer-deps true`
 
 ## Features
 

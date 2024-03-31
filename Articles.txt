@@ -1,3 +1,14 @@
+/*=============================================================================
+ | Purpose:  EXPLAIN WHAT THIS FUNCTION DOES TO SUPPORT THE CORRECT
+ |           OPERATION OF THE PROGRAM, AND HOW IT DOES IT.
+ |
+ | Input / Parameters:  DESCRIBE THE INPUT IT REQUIRES.
+ |   
+ | Output / Returns:  DESCRIBE THE OUTPUT IT PRODUCES.
+ |
+ *===========================================================================*/
+
+
 {
     "status": 200,
     "numResults": 10000,

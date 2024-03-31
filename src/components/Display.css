@@ -1,82 +1,28 @@
-/*
-ARTICLES & STORIES CARD DISPLAY CSS
-*/
+/*=====================================
+| 
+| ARTICLES & STORIES CARD DISPLAY CSS 
+| 
+*=====================================*/
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center; /* Center aligns the cards horizontally */
+  font-family: "Roboto", sans-serif;
 }
-
-.card {
-  width: 25rem;
-  margin: 0.2rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.card-img-top {
-  max-width: 250px; /* Maximum width */
-  max-height: 250px; /* Maximum height */
-  width: auto; /* Ensure aspect ratio is maintained */
-  height: auto; /* Ensure aspect ratio is maintained */
-  display: block; /* Remove any inline spacing issues */
-  margin: 0 auto; /* Center the image if it's smaller than the max dimensions */
-}
-
-.card-body {
-  padding: 1rem;
-}
-
-.card-body p {
-  font-size: 0.9rem; /* Small font size for Published and Updated dates */
-  display: inline-block; /* Display side by side */
-  margin-right: 1rem; /* Space between Published and Updated */
-}
-
-.card-title .small,
-.card-body .small {
-  font-size: 0.8rem; /* Small font size for Published and Updated dates */
-  display: inline-block; /* Display side by side */
-  margin-right: 1rem; /* Space between Published and Updated */
-}
-
 .card-title {
-  color: orangered; /* Oranged color for the title */
-  text-decoration: none; /* Remove underline */
+  text-decoration: none; /* Remove underline on link */
 }
 
 .card-title:hover {
   text-decoration: none; /* Remove underline on hover */
-  color: orangered;
-  font-weight: bold;
 }
 
-.card-body a {
-  text-decoration: none; /* Remove underline on hover */
-  color: black;
-  /* font-weight: bold; */
-}
-
-.card.expanded {
-  max-height: none;
-}
-
-.card-body.collapsible {
-  overflow: hidden;
-  transition: max-height 0.5s ease-out;
-}
-
-.card-body.collapsible.expanded {
-  max-height: 1000px; /* high value to accommodate large content */
-}
-
-/*
-LOADER ANIMATION CSS
-Loaded from: 
-HTML: <div className="loader"></div>
-*/
+/*=====================================
+| LOADER ANIMATION CSS
+| Loaded from: 
+| HTML: <div className="loader"></div>
+*=====================================*/
 
 .loader,
 .loader:before,

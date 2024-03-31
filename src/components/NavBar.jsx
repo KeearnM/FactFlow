@@ -1,6 +1,22 @@
+/*=============================================================================
+ | Purpose:  USE REACT-ROUTER-DOM COMPONENTS TO CREATE A CUSTOMIZABLE TOP
+ |           NAVIGATION BAR THAT WILL ALSO INCLUDE THE APP LOGO AND LOGIN
+ |           BUTTON.
+ |           DOCUMENTATION: https://www.npmjs.com/package/react-router-dom
+ |           ICONS FROM MATERIAL UI: https://mui.com/material-ui/material-icons/
+ |
+ | Input / Parameters:  NA.
+ |   
+ | Output / Returns:  NAVIGATES XXXXXX <<<< UPDATE LATER
+ |
+ *===========================================================================*/
+
 import React from "react";
 import styles from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
+
+// importing icons from MUI Icons
+import LoginIcon from "@mui/icons-material/Login";
 
 /*====================
 CREATE NAVBAR & SET ITS NAVIGATION LOGIC
@@ -43,6 +59,11 @@ const NavBar = () => {
             >
               Main
             </NavLink>
+          </li>
+          <li>
+            <button className={styles.loginButton}>
+              Login <LoginIcon />
+            </button>
           </li>
         </ul>
       </nav>

@@ -1,0 +1,53 @@
+<div className="card-container">
+        {articles.map((article) => (
+
+
+
+          <div className="card" key={article.articleId}>
+            <img
+              src={article.imageUrl}
+              className="card-img-top"
+              alt="Article Image"
+            ></img>
+            <div className="card-body">
+              <p className="small">
+                Pub. <FormatDate updatedAt={article.pubDate} />
+              </p>
+              <p className="small">
+                Updt. <FormatDate updatedAt={article.refreshDate} />
+              </p>
+              <a href={article.url} target="_blank">
+                {" "}
+                <h5 className="card-title">{article.title}</h5>
+              </a>
+              <a href={article.url} target="_blank">
+                <p className="small">
+                  <PersonOutlineIcon /> {article.authorsByline}
+                </p>
+              </a>
+              <a href={article.url} target="_blank">
+                <p className="small">
+                  <LinkIcon /> {article.source.domain}
+                </p>
+              </a>
+
+              <div className="card-text">{article.summary}</div>
+            </div>
+          </div>
+
+
+
+
+        ))}
+      </div>
+
+
+
+       <ExpandMore
+                expand={expanded}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              >
+
+              <Collapse in={expanded} timeout="auto" unmountOnExit>
