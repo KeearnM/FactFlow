@@ -43,7 +43,9 @@ const useFactCheck = () => {
         safetySettings,
       });
 
-      const prompt = toBeCheck;
+      const promptRequest =
+        "can you extract the claims from this article and do a fact check on them with external sources and also display each with the headers [claims], [Source] and [Verification]";
+      const prompt = toBeCheck + promptRequest;
       const response = await model.generateContent(prompt);
       const text = await response.response.text();
       setResult(text);
