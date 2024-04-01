@@ -1853,7 +1853,7 @@ const DisplayArticles = () => {
       <div className="card-container">
         {articles.map((article) => (
           <Card
-            sx={{ maxWidth: 400, margin: 0.8, borderRadius: 5 }}
+            sx={{ maxWidth: 350, margin: 0.8, borderRadius: 5 }}
             key={article.articleId}
           >
             <CardContent style={{ paddingBottom: 0 }}>
@@ -1947,6 +1947,9 @@ const DisplayArticles = () => {
         ))}
       </div>
     </div>
+
+    // const { factCheck, loading, result, error } = useFactCheck()
+    // factCheck({article.summary})
   );
 };
 

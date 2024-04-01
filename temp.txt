@@ -40,14 +40,13 @@
 
         ))}
       </div>
-
-
-
-       <ExpandMore
-                expand={expanded}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-              >
-
-              <Collapse in={expanded} timeout="auto" unmountOnExit>
+                <Typography variant="body2">
+                  <LinkIcon /> {article.source.domain}
+                </Typography>
+              </CardContent>
+              <CardContent>
+                <Typography variant="body2">
+                  <PersonOutlineIcon />
+                  {article.authorsByline}
+                </Typography>
+              </CardContent>
