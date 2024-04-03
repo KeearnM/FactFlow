@@ -15,7 +15,7 @@ import React, { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const useFactCheck = () => {
-  const API_KEY = import.meta.env.GEMINI_KEY;
+  const API_KEY = import.meta.env.VITE_GEMINI_KEY;
   const genAI = new GoogleGenerativeAI(API_KEY);
 
   //without this safety settings, gemini won't return most prompts due to the safety fiters

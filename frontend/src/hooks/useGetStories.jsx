@@ -1,3 +1,14 @@
+/*=============================================================================
+ | Purpose:  FETCH STORIES DATA FROM PERIGON API USING PARAMETERS PASSED AS 
+ |           PROPS TO TAILOR THE API CALL.
+ |           API DOC: https://docs.goperigon.com/reference/stories-1
+ |
+ | Input / Parameters:  .
+ |   
+ | Output / Returns:  DESCRIBE THE OUTPUT IT PRODUCES.
+ |
+ *===========================================================================*/
+
 import React from "react";
 import { useState, useEffect } from "react";
 
