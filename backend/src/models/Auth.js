@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { SmartCollections } = require("./SmartCollections");
 
 const AuthSchema = new mongoose.Schema(
   {
@@ -9,7 +10,7 @@ const AuthSchema = new mongoose.Schema(
     smartCollections: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "SmartCollection",
+        ref: "SmartCollections",
       },
     ], //using an array of object because this is a one to many relationship
   },
