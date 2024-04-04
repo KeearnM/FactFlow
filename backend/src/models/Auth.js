@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
-const { SmartCollections } = require("./SmartCollections");
+const SmartCollections = require("../models/SmartCollections");
 
 const AuthSchema = new mongoose.Schema(
   {
+    firstName: { type: String, require: true },
+    lastName: { type: String, require: true },
     email: { type: String, require: true },
     hash: { type: String, require: true },
     role: { type: String, require: true, default: "user" },
