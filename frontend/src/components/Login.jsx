@@ -74,10 +74,10 @@ const Login = ({ handleClose }) => {
   //user registration
   const registerUser = async () => {
     const res = await fetchData("/auth/register", "PUT", {
-      registrationFirstName,
-      registrationLastName,
-      registrationEmail,
-      registrationPassword,
+      firstName: registrationFirstName,
+      lastName: registrationLastName,
+      email: registrationEmail,
+      password: registrationPassword,
       //   registrationRole,
     });
 
@@ -95,14 +95,15 @@ const Login = ({ handleClose }) => {
   //user login
   const loginUser = async () => {
     const res = await fetchData("/auth/login", "POST", {
-      loginEmail,
-      loginPassword,
+      email: loginEmail,
+      password: loginPassword,
     });
 
     if (res.ok) {
       userCtx.setAccessToken(res.data.access);
       const decoded = jwtDecode(res.data.access); //decode to get claims
-      userCtx.setRole(decoded.role); //get your role from your claims
+      //   userCtx.setRole(decoded.role); //get your role from your claims
+      alert("Login!");
     } else {
       alert(JSON.stringify(res.data));
     }
@@ -111,25 +112,20 @@ const Login = ({ handleClose }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    {
-      showLogin &&
-        console.log(
-          `loginEmail= ${loginEmail} loginPassword= ${loginPassword}`
-        );
-      //if login call the login endpoint
-    }
-    {
-      !showLogin &&
-        console.log(
-          `registrationFirstName= ${registrationFirstName} registrationLastName= ${registrationLastName} registrationEmail= ${registrationEmail} registrationPassword= ${registrationPassword}`
-        );
-      //if registration call the registration endpoint
+    if (showLogin) {
+      console.log(`loginEmail= ${loginEmail} loginPassword= ${loginPassword}`);
+      loginUser(); //if login call the login endpoint
+    } else if (!showLogin) {
+      console.log(
+        `registrationFirstName= ${registrationFirstName} registrationLastName= ${registrationLastName} registrationEmail= ${registrationEmail} registrationPassword= ${registrationPassword}`
+      );
+      registerUser(); //if registration call the registration endpoint
     }
   };
 
-  useEffect(() => {
-    getRoles();
-  }, []);
+  //   useEffect(() => {
+  //     getRoles();
+  //   }, []);
 
   return (
     <div>

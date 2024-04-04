@@ -14,6 +14,7 @@
 import React, { useState } from "react";
 import styles from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
+import UserContext from "../context/user";
 
 // importing icons from MUI Icons
 import LoginIcon from "@mui/icons-material/Login";
@@ -24,6 +25,7 @@ CREATE NAVBAR & SET ITS NAVIGATION LOGIC
 ====================*/
 
 const NavBar = () => {
+  const [accessToken, setAccessToken] = useState("");
   const [openLoginModal, setOpenLoginModal] = useState(false);
 
   const handleOpenLoginModal = () => {
@@ -82,7 +84,9 @@ const NavBar = () => {
         </ul>
       </nav>
       {/* Render the Login component conditionally */}
-      {openLoginModal && <Login handleClose={handleCloseLoginModal} />}
+      <UserContext.Provider value={{ accessToken, setAccessToken }}>
+        {openLoginModal && <Login handleClose={handleCloseLoginModal} />}
+      </UserContext.Provider>
     </header>
   );
 };
