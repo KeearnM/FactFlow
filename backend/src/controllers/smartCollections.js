@@ -52,7 +52,9 @@ const getAllSmartCollections = async (req, res) => {
 // add new collection
 const addSmartCollection = async (req, res) => {
   try {
-    const newCollection = {};
+    const newCollection = {
+      topic: req.body.topic,
+    };
     await SmartCollectionsModel.create(newCollection);
 
     res.json({ status: "ok", msg: "collection saved" });
@@ -68,4 +70,8 @@ const addSmartCollection = async (req, res) => {
 
 // get content of one collection
 
-module.exports = { seedSmartCollection, getAllSmartCollections };
+module.exports = {
+  seedSmartCollection,
+  getAllSmartCollections,
+  addSmartCollection,
+};
