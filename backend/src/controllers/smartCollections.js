@@ -1,7 +1,4 @@
 const SmartCollectionsModel = require("../models/SmartCollections");
-// import users model
-
-// --------------------------------------------------------------- //
 
 // seed collection
 const seedSmartCollection = async (req, res) => {
