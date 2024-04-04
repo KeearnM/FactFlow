@@ -52,7 +52,9 @@ const getAllSmartCollections = async (req, res) => {
 // add new collection
 const addSmartCollection = async (req, res) => {
   try {
-    const newCollection = {};
+    const newCollection = {
+      topic: req.body.topic,
+    };
     await SmartCollectionsModel.create(newCollection);
 
     res.json({ status: "ok", msg: "collection saved" });
@@ -62,10 +64,43 @@ const addSmartCollection = async (req, res) => {
   }
 };
 
+// update content of one collection
+const patchSmartCollection = async (req, res) => {
+  try {
+    const response = await SmartCollectionsModel.findByIdAndUpdate(
+      req.params.id,
+      {
+        topic: req.body.topic,
+      }
+    );
+    res.json({ status: "ok", msg: "collection updated" });
+  } catch (error) {
+    console.error(error.message);
+    res.status(400).json({ status: "error", msg: "error updating collection" });
+  }
+};
+
 // delete collection
+const deleteSmartCollection = async (req, res) => {
+  try {
+    const response = await SmartCollectionsModel.findByIdAndDelete(
+      req.params.id
+    );
+    res.json({ status: "ok", msg: "collection deleted" });
+  } catch (error) {
+    console.error(error.message);
+    res.status(400).json({ status: "error", msg: "error deleting collection" });
+  }
+};
 
 // get collections by user (Object) ID
 
 // get content of one collection
 
-module.exports = { seedSmartCollection, getAllSmartCollections };
+module.exports = {
+  seedSmartCollection,
+  getAllSmartCollections,
+  addSmartCollection,
+  patchSmartCollection,
+  deleteSmartCollection,
+};

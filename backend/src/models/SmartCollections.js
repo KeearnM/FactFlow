@@ -12,7 +12,7 @@ const SmartCollectionsSchema = new mongoose.Schema(
         return new Date(date).toLocaleString();
       },
     },
-    minClusterSize: { type: Number, min: 5 },
+    minClusterSize: { type: Number, min: 5, default: 5 },
     sortBy: { type: String, default: "createdAt" },
   },
   { collection: "smartCollections" }
