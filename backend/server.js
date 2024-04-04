@@ -28,6 +28,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api", smartCollections);
 // app.use("/auth", auth);
 
+//-----Testing section for the login/registration auth (can be deleted once smart collection schema is out)
+const { authUser, authAdmin } = require("./src/middleware/auth");
+app.get("/", authUser, (req, res) => {
+  res.send("running - user and admin");
+}); //basic testing to make sure everything works
+
+app.get("/admin", authAdmin, (req, res) => {
+  res.send("running - admin only");
+}); //basic testing to make sure everything works
+//---------------------------------------------------------------------
+
 const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
