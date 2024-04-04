@@ -87,6 +87,7 @@ const Login = ({ handleClose }) => {
       setRegistrationEmail("");
       setRegistrationPassword("");
       //   setRegistrationRole("");
+      alert("Registered!");
     } else {
       alert(JSON.stringify(res.data));
     }
