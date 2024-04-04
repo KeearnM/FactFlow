@@ -45,10 +45,22 @@ const Login = ({ handleClose }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    {
+      showLogin &&
+        console.log({
+          email: data.get("email"),
+          password: data.get("password"),
+        });
+    }
+    {
+      !showLogin &&
+        console.log({
+          firstName: data.get("firstName"),
+          lastName: data.get("lastName"),
+          email: data.get("email"),
+          password: data.get("password"),
+        });
+    }
   };
 
   return (
@@ -113,6 +125,7 @@ const Login = ({ handleClose }) => {
                 sx={{ mt: 1 }}
               >
                 {showLogin ? (
+                  /*========================  LOGIN SCREEN ======================== */
                   <Grid>
                     <TextField
                       margin="normal"
@@ -152,6 +165,7 @@ const Login = ({ handleClose }) => {
                     </Grid>
                   </Grid>
                 ) : (
+                  /*========================  REGISTRATION SCREEN ======================== */
                   <Grid container spacing={2}>
                     <Grid item xs={12} sm={6}>
                       <TextField
@@ -166,12 +180,12 @@ const Login = ({ handleClose }) => {
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
+                        autoComplete="family-name"
+                        name="lastName"
                         required
                         fullWidth
                         id="lastName"
                         label="Last Name"
-                        name="lastName"
-                        autoComplete="family-name"
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -208,7 +222,7 @@ const Login = ({ handleClose }) => {
                     </Grid>
                   </Grid>
                 )}
-
+                {/*========================  SUBMIT BUTTON ========================*/}
                 <ThemeProvider theme={theme}>
                   <Button
                     type="submit"
