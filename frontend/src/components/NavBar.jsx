@@ -11,18 +11,29 @@
  |
  *===========================================================================*/
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
 
 // importing icons from MUI Icons
 import LoginIcon from "@mui/icons-material/Login";
+import Login from "./Login";
 
 /*====================
 CREATE NAVBAR & SET ITS NAVIGATION LOGIC
 ====================*/
 
 const NavBar = () => {
+  const [openLoginModal, setOpenLoginModal] = useState(false);
+
+  const handleOpenLoginModal = () => {
+    setOpenLoginModal(true);
+  };
+
+  const handleCloseLoginModal = () => {
+    setOpenLoginModal(false);
+  };
+
   return (
     <header className={styles.navbar}>
       <nav>
@@ -61,12 +72,17 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li>
-            <button className={styles.loginButton}>
+            <button
+              className={styles.loginButton}
+              onClick={handleOpenLoginModal}
+            >
               Login <LoginIcon />
             </button>
           </li>
         </ul>
       </nav>
+      {/* Render the Login component conditionally */}
+      {openLoginModal && <Login handleClose={handleCloseLoginModal} />}
     </header>
   );
 };
