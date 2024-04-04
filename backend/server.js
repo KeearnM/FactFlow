@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api", smartCollections);
-app.use("/auth", auth);
+// app.use("/auth", auth);
 
 const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => {
