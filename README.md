@@ -70,6 +70,8 @@
 - Install Material UI Icons
 
   `npm install @mui/icons-material`
+- Install Google Gemini
+  `npm install @google/generative-ai`
 
 **NOTE:** If you run into dependency errors just run:
 `npm config set legacy-peer-deps true`
