@@ -93,10 +93,6 @@ const deleteSmartCollection = async (req, res) => {
   }
 };
 
-// get collections by user (Object) ID
-
-// get content of one collection
-
 module.exports = {
   seedSmartCollection,
   getAllSmartCollections,
