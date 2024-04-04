@@ -70,8 +70,12 @@
 - Install Material UI Icons
 
   `npm install @mui/icons-material`
+
 - Install Google Gemini
   `npm install @google/generative-ai`
+
+- Install jwt-decode
+  `npm i jwt-decode`
 
 **NOTE:** If you run into dependency errors just run:
 `npm config set legacy-peer-deps true`
