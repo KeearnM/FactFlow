@@ -13,7 +13,10 @@
  |
  *===========================================================================*/
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import useFetch from "../hooks/useFetch";
+import UserContext from "../context/user";
+import { jwtDecode } from "jwt-decode";
 
 //importing MaterialUI components and icons
 import Box from "@mui/material/Box";
@@ -40,28 +43,90 @@ const theme = createTheme({
 });
 
 const Login = ({ handleClose }) => {
+  const fetchData = useFetch();
+
+  //for login
+  const userCtx = useContext(UserContext);
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  //for registration
+  const [roles, setRoles] = useState([]);
+  const [registrationFirstName, setRegistrationFirstName] = useState("");
+  const [registrationLastName, setRegistrationLastName] = useState("");
+  const [registrationEmail, setRegistrationEmail] = useState("");
+  const [registrationPassword, setRegistrationPassword] = useState("");
+  //   const [registrationRole, setRegistrationRole] = useState("");
+
+  //to control if Login or Registration screen show at the Modal
   const [showLogin, setShowLogin] = useState(true);
+
+  //get user roles (user, admin, etc)
+  //   const getRoles = async () => {
+  //     const res = await fetchData("/roles");
+  //     if (res.ok) {
+  //       setRoles(res.data);
+  //     } else {
+  //       console.log(res.data);
+  //     }
+  //   };
+
+  //user registration
+  const registerUser = async () => {
+    const res = await fetchData("/auth/register", "PUT", {
+      firstName: registrationFirstName,
+      lastName: registrationLastName,
+      email: registrationEmail,
+      password: registrationPassword,
+      //   registrationRole,
+    });
+
+    if (res.ok) {
+      setRegistrationFirstName("");
+      setRegistrationLastName("");
+      setRegistrationEmail("");
+      setRegistrationPassword("");
+      //   setRegistrationRole("");
+      alert("Registered!");
+    } else {
+      alert(JSON.stringify(res.data));
+    }
+  };
+
+  //user login
+  const loginUser = async () => {
+    const res = await fetchData("/auth/login", "POST", {
+      email: loginEmail,
+      password: loginPassword,
+    });
+
+    if (res.ok) {
+      userCtx.setAccessToken(res.data.access);
+      const decoded = jwtDecode(res.data.access); //decode to get claims
+      //   userCtx.setRole(decoded.role); //get your role from your claims
+      alert("Login!");
+    } else {
+      alert(JSON.stringify(res.data));
+    }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    {
-      showLogin &&
-        console.log({
-          email: data.get("email"),
-          password: data.get("password"),
-        });
-    }
-    {
-      !showLogin &&
-        console.log({
-          firstName: data.get("firstName"),
-          lastName: data.get("lastName"),
-          email: data.get("email"),
-          password: data.get("password"),
-        });
+    if (showLogin) {
+      console.log(`loginEmail= ${loginEmail} loginPassword= ${loginPassword}`);
+      loginUser(); //if login call the login endpoint
+    } else if (!showLogin) {
+      console.log(
+        `registrationFirstName= ${registrationFirstName} registrationLastName= ${registrationLastName} registrationEmail= ${registrationEmail} registrationPassword= ${registrationPassword}`
+      );
+      registerUser(); //if registration call the registration endpoint
     }
   };
+
+  //   useEffect(() => {
+  //     getRoles();
+  //   }, []);
 
   return (
     <div>
@@ -136,6 +201,7 @@ const Login = ({ handleClose }) => {
                       name="email"
                       autoComplete="email"
                       autoFocus
+                      onChange={(e) => setLoginEmail(e.target.value)}
                     />
                     <TextField
                       margin="normal"
@@ -146,6 +212,7 @@ const Login = ({ handleClose }) => {
                       type="password"
                       id="password"
                       autoComplete="current-password"
+                      onChange={(e) => setLoginPassword(e.target.value)}
                     />
                     <Grid container>
                       <Grid item xs>
@@ -176,6 +243,9 @@ const Login = ({ handleClose }) => {
                         id="firstName"
                         label="First Name"
                         autoFocus
+                        onChange={(e) =>
+                          setRegistrationFirstName(e.target.value)
+                        }
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -186,6 +256,9 @@ const Login = ({ handleClose }) => {
                         fullWidth
                         id="lastName"
                         label="Last Name"
+                        onChange={(e) =>
+                          setRegistrationLastName(e.target.value)
+                        }
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -196,6 +269,7 @@ const Login = ({ handleClose }) => {
                         label="Email Address"
                         name="email"
                         autoComplete="email"
+                        onChange={(e) => setRegistrationEmail(e.target.value)}
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -207,6 +281,9 @@ const Login = ({ handleClose }) => {
                         type="password"
                         id="password"
                         autoComplete="new-password"
+                        onChange={(e) =>
+                          setRegistrationPassword(e.target.value)
+                        }
                       />
                     </Grid>
                     <Grid container justifyContent="flex-end">
