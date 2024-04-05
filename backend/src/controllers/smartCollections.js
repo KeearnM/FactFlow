@@ -8,21 +8,27 @@ const seedSmartCollection = async (req, res) => {
     await SmartCollectionsModel.create([
       {
         topic: "Market",
+        auth: "660e4f16f4607111a6830cfb", // addition of auth Object ID in the seed content
       },
       {
         topic: "Tech Startups",
+        auth: "660e4f16f4607111a6830cfb",
       },
       {
         topic: "Animal Nutrition",
+        auth: "660e4f16f4607111a6830cfb",
       },
       {
         topic: "US elections",
+        auth: "660e4f16f4607111a6830cfb",
       },
       {
         topic: "Maritime shipping",
+        auth: "660e4f16f4607111a6830cfb",
       },
       {
         topic: "Switzerland",
+        auth: "660e4f16f4607111a6830cfb",
       },
     ]);
 
@@ -51,6 +57,7 @@ const addSmartCollection = async (req, res) => {
   try {
     const newCollection = {
       topic: req.body.topic,
+      auth: req.params.id, // to check if auth Object ID should be included in each SmartCollection creation - body or params
     };
     await SmartCollectionsModel.create(newCollection);
 
