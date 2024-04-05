@@ -21,6 +21,6 @@ router.post("/login", validateLogin, errorCheck, login);
 router.post("/refresh", validateRefresh, errorCheck, refresh);
 router.get("/seed", seedUsers);
 router.get("/allUser", getAllAuth);
-router.get("/update", validateRegister, errorCheck, update);
+router.get("/update/:id", validateRegister, errorCheck, update);
 
 module.exports = router;
