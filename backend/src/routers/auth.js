@@ -1,5 +1,12 @@
 const express = require("express");
-const { register, login, refresh, seedUsers } = require("../controllers/auth");
+const {
+  register,
+  login,
+  refresh,
+  seedUsers,
+  getAllAuth,
+  update,
+} = require("../controllers/auth");
 const { errorCheck } = require("../validators/errorCheck");
 const {
   validateLogin,
@@ -13,5 +20,7 @@ router.put("/register", validateRegister, errorCheck, register);
 router.post("/login", validateLogin, errorCheck, login);
 router.post("/refresh", validateRefresh, errorCheck, refresh);
 router.get("/seed", seedUsers);
+router.get("/allUser", getAllAuth);
+router.get("/update", validateRegister, errorCheck, update);
 
 module.exports = router;
