@@ -4,7 +4,11 @@ const NotFound = () => {
   return (
     <div>
       <br />
-      <h2 className="text-center">Uh-oh...404 page not found</h2>
+      <h2 className="text-center">Uh-oh...</h2>
+      <img
+        src="/src/assets/factFlow_404.png"
+        style={{ display: "block", margin: "auto" }}
+      ></img>
     </div>
   );
 };
