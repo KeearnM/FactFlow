@@ -63,22 +63,7 @@ const NavBar = () => {
               Main
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? styles.active : "")}
-              to="/main"
-            >
-              Main
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? styles.active : "")}
-              to="/main"
-            >
-              Main
-            </NavLink>
-          </li> */}
+  */}
           <li style={{ marginLeft: "auto" }}>
             <button
               className={styles.loginButton}
