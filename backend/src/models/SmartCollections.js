@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
+const { Auth } = require("./Auth");
 
 const SmartCollectionsSchema = new mongoose.Schema(
   {
-    // users: {type: mongoose.Schema.Types.ObjectId
-    // ref: "Auth"}
     topic: { type: String, required: true, minLength: 1, maxLength: 20 },
     from: {
       type: String,
@@ -14,6 +13,7 @@ const SmartCollectionsSchema = new mongoose.Schema(
     },
     minClusterSize: { type: Number, min: 5, default: 5 },
     sortBy: { type: String, default: "createdAt" },
+    auth: { type: mongoose.Schema.Types.ObjectId, ref: "Auth" },
   },
   { collection: "smartCollections" }
 );

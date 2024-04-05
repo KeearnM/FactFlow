@@ -41,15 +41,21 @@ const NavBar = () => {
       <nav>
         <ul>
           <li>
-            <img
-              src="/src/assets/factFlow_logo.png"
-              width="192"
-              height="35"
-              className="d-inline-block align-top"
-              alt=""
-            ></img>
+            <NavLink
+              style={{ textDecoration: "none", borderBottom: "none" }}
+              className={(navData) => (navData.isActive ? styles.active : "")}
+              to="/main"
+            >
+              <img
+                src="/src/assets/factFlow_logo.png"
+                width="192"
+                height="35"
+                className="d-inline-block align-top"
+                alt=""
+              ></img>
+            </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               className={(navData) => (navData.isActive ? styles.active : "")}
               to="/main"
@@ -57,23 +63,8 @@ const NavBar = () => {
               Main
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? styles.active : "")}
-              to="/main"
-            >
-              Main
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? styles.active : "")}
-              to="/main"
-            >
-              Main
-            </NavLink>
-          </li>
-          <li>
+  */}
+          <li style={{ marginLeft: "auto" }}>
             <button
               className={styles.loginButton}
               onClick={handleOpenLoginModal}

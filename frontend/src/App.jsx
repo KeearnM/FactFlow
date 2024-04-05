@@ -23,8 +23,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate replace to="/main" />} />
             <Route path="main" element={<Main />} />
-            {/* <Route path="main" element={<Main2 />} /> */}
-            {/* <Route path="main" element={<Main3 />} /> */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

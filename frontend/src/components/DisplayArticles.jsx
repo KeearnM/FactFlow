@@ -1,3 +1,13 @@
+/*=============================================================================
+ | Purpose:  EXPLAIN WHAT THIS FUNCTION DOES TO SUPPORT THE CORRECT
+ |           OPERATION OF THE PROGRAM, AND HOW IT DOES IT.
+ |
+ | Input / Parameters:  DESCRIBE THE INPUT IT REQUIRES.
+ |   
+ | Output / Returns:  DESCRIBE THE OUTPUT IT PRODUCES.
+ |
+ *===========================================================================*/
+
 import React, { useState } from "react";
 import useGetArticles from "/src/hooks/useGetArticles";
 import FormatDate from "/src/utils/FormatDate";
@@ -9,14 +19,17 @@ import LinkIcon from "@mui/icons-material/Link";
 
 //importing card related components from MUI
 import { styled } from "@mui/material/styles";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
+import Masonry from "@mui/lab/Masonry";
+import {
+  Typography,
+  Card,
+  CardHeader,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Collapse,
+  IconButton,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CalculateSentiment from "../utils/CalculateSentiment";
 
@@ -1850,7 +1863,7 @@ const DisplayArticles = () => {
       <h3 className="text-center">Top Articles</h3>
       <p className="text-center">Found {numResults} Articles</p>
 
-      <div className="card-container">
+      <Masonry columns={3} spacing={2}>
         {articles.map((article) => (
           <Card
             sx={{ maxWidth: 350, margin: 0.8, borderRadius: 5 }}
@@ -1924,7 +1937,6 @@ const DisplayArticles = () => {
                   </Typography>
                 </div>
               </CardContent>
-
               <ExpandMore
                 expand={expandedMap[article.articleId] || false}
                 onClick={() => handleExpandClick(article.articleId)}
@@ -1945,7 +1957,7 @@ const DisplayArticles = () => {
             </Collapse>
           </Card>
         ))}
-      </div>
+      </Masonry>
     </div>
 
     // const { factCheck, loading, result, error } = useFactCheck()
