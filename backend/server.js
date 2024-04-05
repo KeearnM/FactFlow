@@ -8,6 +8,7 @@ const rateLimit = require("express-rate-limit");
 
 const smartCollections = require("./src/routers/smartCollections");
 const auth = require("./src/routers/auth");
+const role = require("./src/routers/role");
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/api", smartCollections);
 app.use("/auth", auth);
+app.use("/role", role);
 
 //-----Testing section for the login/registration auth (can be deleted once smart collection schema is out)
 const { authUser, authAdmin } = require("./src/middleware/auth");

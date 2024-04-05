@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const Auth = require("../models/Auth");
 
 const authUser = (req, res, next) => {
   if (!("authorization" in req.headers)) {
@@ -20,17 +21,19 @@ const authUser = (req, res, next) => {
   }
 };
 
-const authAdmin = (req, res, next) => {
+const authAdmin = async (req, res, next) => {
   if (!("authorization" in req.headers)) {
     return res.status(400).json({ status: "error", msg: "no token found" });
   }
-
   const token = req.headers["authorization"].replace("Bearer ", "");
   if (token) {
     try {
       const decoded = jwt.verify(token, process.env.ACCESS_SECRET);
 
-      if (decoded.role === "admin") {
+      const user = await Auth.findById(decoded.id).populate("role");
+      console.log(decoded.id);
+
+      if (user && user.role.role === "admin") {
         req.decoded = decoded;
         next();
       } else {
