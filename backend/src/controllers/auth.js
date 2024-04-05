@@ -114,4 +114,35 @@ const refresh = (req, res) => {
   }
 };
 
-module.exports = { register, login, refresh, seedUsers };
+const update = async (req, res) => {
+  try {
+    const hash = await bcrypt.hash(req.body.password, 12);
+    const newAuth = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      hash,
+      role: req.body.role || "user",
+      smartCollections: req.body.smartCollections,
+    };
+    await AuthModel.findByIdAndUpdate(req.params.id, newAuth);
+    res.json({ status: "ok", msg: "user updated" });
+  } catch (error) {
+    console.error(error.message);
+    res.status({ status: "error", msg: "User not updated" });
+  }
+};
+
+const getAllAuth = async (req, res) => {
+  const allAuth = await AuthModel.find().populate("smartCollections");
+  res.json(allAuth);
+  try {
+    const allAuth = await AuthModel.find().populate("smartCollections");
+    res.json(allAuth);
+  } catch (error) {
+    console.error(error.message);
+    res.json({ status: "error", msg: "Error encountered when fetching all" });
+  }
+};
+
+module.exports = { register, login, refresh, seedUsers, update, getAllAuth };
