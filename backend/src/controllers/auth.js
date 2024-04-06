@@ -15,7 +15,7 @@ const seedUsers = async (req, res) => {
         lastName: "Johnson",
         email: "dwaynemail@gmail.com",
         hash: "$2b$12$ZGYAzqoSxnrhZZm.fsuM9.nd/KXSdqJmerXg/FGYbcDrqsnmQOtCa",
-        role: "user",
+        role: "66100b626d6defdb0da425bf",
       },
       {
         _id: "660e4f5df4607111a6830cff",
@@ -23,7 +23,7 @@ const seedUsers = async (req, res) => {
         lastName: "Admin",
         email: "admin@gmail.com",
         hash: "$2b$12$ZGYAzqoSxnrhZZm.fsuM9.nd/KXSdqJmerXg/FGYbcDrqsnmQOtCa",
-        role: "admin",
+        role: "66100b626d6defdb0da425be",
       },
     ]);
     res.json({ status: "ok", msg: "seeding successful" });
@@ -71,6 +71,7 @@ const login = async (req, res) => {
 
     //store the payload inside 'claims'
     const claims = {
+      id: auth._id,
       email: auth.email,
       role: auth.role,
     };
@@ -98,6 +99,7 @@ const refresh = (req, res) => {
 
     //store the payload inside the claims
     const claims = {
+      id: auth_id,
       email: decoded.email,
       role: decoded.role,
     };
@@ -134,10 +136,8 @@ const update = async (req, res) => {
 };
 
 const getAllAuth = async (req, res) => {
-  const allAuth = await AuthModel.find().populate("smartCollections");
-  res.json(allAuth);
   try {
-    const allAuth = await AuthModel.find().populate("smartCollections");
+    const allAuth = await AuthModel.find().populate("role");
     res.json(allAuth);
   } catch (error) {
     console.error(error.message);
