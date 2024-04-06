@@ -7,7 +7,7 @@ const AuthSchema = new mongoose.Schema(
     lastName: { type: String, require: true },
     email: { type: String, require: true },
     hash: { type: String, require: true },
-    role: { type: mongoose.Schema.Types.ObjectId, require: true, ref: "Role" },
+    role: { type: mongoose.Schema.Types.ObjectId, require: true, ref: "Roles" },
     created_at: { type: Date, default: Date.now },
     smartCollections: [
       {
