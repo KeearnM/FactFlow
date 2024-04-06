@@ -56,6 +56,7 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
+  console.log(process.env.ACCESS_SECRET);
   try {
     const auth = await AuthModel.findOne({ email: req.body.email });
     if (!auth) {
@@ -81,7 +82,7 @@ const login = async (req, res) => {
       jwtid: uuidv4(),
     });
 
-    const refresh = jwt.sign(claims, process.env.ACCESS_SECRET, {
+    const refresh = jwt.sign(claims, process.env.REFRESH_SECRET, {
       expiresIn: "30d",
       jwtid: uuidv4(),
     });
@@ -93,18 +94,17 @@ const login = async (req, res) => {
   }
 };
 
-const refresh = (req, res) => {
+const refresh = async (req, res) => {
   try {
-    const decoded = jwt.verify(req.body.refresh, process.env.ACCESS_SECRET);
+    const decoded = jwt.verify(req.body.refresh, process.env.REFRESH_SECRET);
 
     //store the payload inside the claims
     const claims = {
-      id: auth_id,
       email: decoded.email,
       role: decoded.role,
     };
 
-    const access = jwt.sign(claims, process.env.REFRESH_SECRET, {
+    const access = jwt.sign(claims, process.env.ACCESS_SECRET, {
       expiresIn: "20m",
       jwtid: uuidv4(),
     });
