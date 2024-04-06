@@ -24,11 +24,11 @@ const seedSmartCollection = async (req, res) => {
       },
       {
         topic: "Maritime shipping",
-        auth: "660e4f16f4607111a6830cfb",
+        auth: "660e4f5df4607111a6830cff",
       },
       {
         topic: "Switzerland",
-        auth: "660e4f16f4607111a6830cfb",
+        auth: "660e4f5df4607111a6830cff",
       },
     ]);
 
@@ -97,10 +97,27 @@ const deleteSmartCollection = async (req, res) => {
   }
 };
 
+// get smartCollections by user ObjectID
+const getCollectionByUserID = async (req, res) => {
+  try {
+    const smartCollections = await SmartCollectionsModel.find({
+      auth: req.params.id,
+    });
+    res.json(smartCollections);
+  } catch (error) {
+    console.error(error.message);
+    res.status(400).json({
+      status: "error",
+      msg: "error getting smart collection by user ID",
+    });
+  }
+};
+
 module.exports = {
   seedSmartCollection,
   getAllSmartCollections,
   addSmartCollection,
   patchSmartCollection,
   deleteSmartCollection,
+  getCollectionByUserID,
 };

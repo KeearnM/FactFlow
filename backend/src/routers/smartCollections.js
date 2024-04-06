@@ -5,6 +5,7 @@ const {
   addSmartCollection,
   patchSmartCollection,
   deleteSmartCollection,
+  getCollectionByUserID,
 } = require("../controllers/smartCollections");
 const {
   validateIdInParam,
@@ -30,6 +31,7 @@ router.patch(
   errorCheck,
   patchSmartCollection
 );
-router.delete("/:id", deleteSmartCollection);
+router.delete("/:id", validateIdInParam, errorCheck, deleteSmartCollection);
+router.get("/:id", validateIdInParam, errorCheck, getCollectionByUserID);
 
 module.exports = router;
