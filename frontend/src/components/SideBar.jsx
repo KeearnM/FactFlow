@@ -10,9 +10,10 @@
  |
  *===========================================================================*/
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import styles from "./SideBar.module.css";
+import UserContext from "../context/user";
 
 // importing icons from MUI Icons
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
@@ -22,9 +23,11 @@ import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlin
 import MemoryOutlinedIcon from "@mui/icons-material/MemoryOutlined";
 import AttractionsOutlinedIcon from "@mui/icons-material/AttractionsOutlined";
 import MenuOpenOutlinedIcon from "@mui/icons-material/MenuOpenOutlined";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 
 const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const userCtx = useContext(UserContext);
 
   const toggleSidebar = () => {
     setCollapsed(!collapsed);
@@ -37,7 +40,7 @@ const SideBar = () => {
     >
       <Menu>
         <MenuItem
-          icon={<MenuOpenOutlinedIcon />}
+          icon={collapsed ? <MenuOutlinedIcon /> : <MenuOpenOutlinedIcon />}
           onClick={() => {
             toggleSidebar();
           }}
@@ -58,6 +61,16 @@ const SideBar = () => {
         <MenuItem icon={<AccountBalanceOutlinedIcon />}> Politics</MenuItem>
         <MenuItem icon={<MemoryOutlinedIcon />}> Tech</MenuItem>
         <MenuItem icon={<AttractionsOutlinedIcon />}> Entertainment</MenuItem>
+
+        {/* render the additional side bar links if user is logged in */}
+        {/* {userCtx && userCtx.role === "user" ? ( */}
+        {userCtx ? (
+          <MenuItem>
+            <p className={styles.sidebar}>Feed</p>
+          </MenuItem>
+        ) : (
+          ""
+        )}
       </Menu>
     </Sidebar>
   );

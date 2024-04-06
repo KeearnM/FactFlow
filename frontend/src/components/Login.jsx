@@ -56,7 +56,9 @@ const Login = ({ handleClose }) => {
   const [registrationLastName, setRegistrationLastName] = useState("");
   const [registrationEmail, setRegistrationEmail] = useState("");
   const [registrationPassword, setRegistrationPassword] = useState("");
-  const [registrationRole, setRegistrationRole] = useState("");
+  const [registrationRole, setRegistrationRole] = useState(
+    "66100b626d6defdb0da425bf"
+  ); //its expecting the objectID and not the user or admin...
 
   //to control if Login or Registration screen show at the Modal
   const [showLogin, setShowLogin] = useState(true);
@@ -87,8 +89,9 @@ const Login = ({ handleClose }) => {
       setRegistrationLastName("");
       setRegistrationEmail("");
       setRegistrationPassword("");
-      setRegistrationRole("");
+      setRegistrationRole("66100b626d6defdb0da425bf");
       alert("Registered!");
+      setShowLogin("true");
     } else {
       alert(JSON.stringify(res.data));
     }
@@ -106,6 +109,8 @@ const Login = ({ handleClose }) => {
       const decoded = jwtDecode(res.data.access); //decode to get claims
       userCtx.setRole(decoded.role); //get your role from your claims
       alert("Login!");
+      console.log(userCtx.role);
+      handleClose(); //to close the modal after successful login
     } else {
       alert(JSON.stringify(res.data));
     }

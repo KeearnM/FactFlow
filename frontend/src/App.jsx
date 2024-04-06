@@ -9,24 +9,32 @@
  |
  *===========================================================================*/
 
-import React, { Suspense } from "react";
+import React, { Suspense, useContext, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 const Main = React.lazy(() => import("./pages/Main"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 import Layout from "./components/Layout";
+import UserContext from "./context/user";
 
 function App() {
+  const [accessToken, setAccessToken] = useState("");
+  const [role, setRole] = useState("");
+
   return (
     <>
-      <Suspense fallback={<h1>loading...</h1>}>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Navigate replace to="/main" />} />
-            <Route path="main" element={<Main />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
-      </Suspense>
+      <UserContext.Provider
+        value={{ accessToken, setAccessToken, role, setRole }}
+      >
+        <Suspense fallback={<h1>loading...</h1>}>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Navigate replace to="/main" />} />
+              <Route path="main" element={<Main />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Layout>
+        </Suspense>
+      </UserContext.Provider>
     </>
   );
 }
