@@ -41,10 +41,12 @@ const SideBar = () => {
           onClick={() => {
             toggleSidebar();
           }}
-        >
-          {" "}
-          <p className={styles.sidebar}>Top Articles</p>
-        </MenuItem>
+        ></MenuItem>
+        {!collapsed && (
+          <MenuItem>
+            <p className={styles.sidebar}>Top Articles</p>
+          </MenuItem>
+        )}
         <SubMenu icon={<AttachMoneyOutlinedIcon />} label="Finance">
           {" "}
           <MenuItem>Test</MenuItem>

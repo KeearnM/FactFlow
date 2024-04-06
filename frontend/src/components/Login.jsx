@@ -13,7 +13,7 @@
  |
  *===========================================================================*/
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import useFetch from "../hooks/useFetch";
 import UserContext from "../context/user";
 import { jwtDecode } from "jwt-decode";
@@ -56,20 +56,21 @@ const Login = ({ handleClose }) => {
   const [registrationLastName, setRegistrationLastName] = useState("");
   const [registrationEmail, setRegistrationEmail] = useState("");
   const [registrationPassword, setRegistrationPassword] = useState("");
-  //   const [registrationRole, setRegistrationRole] = useState("");
+  const [registrationRole, setRegistrationRole] = useState("");
 
   //to control if Login or Registration screen show at the Modal
   const [showLogin, setShowLogin] = useState(true);
 
-  //get user roles (user, admin, etc)
-  //   const getRoles = async () => {
-  //     const res = await fetchData("/roles");
-  //     if (res.ok) {
-  //       setRoles(res.data);
-  //     } else {
-  //       console.log(res.data);
-  //     }
-  //   };
+  //   get user roles (user, admin, etc)
+  const getRoles = async () => {
+    const res = await fetchData("/roles");
+    if (res.ok) {
+      setRoles(res.data);
+      console.log("Got Roles!" + res.data);
+    } else {
+      console.log(res.data);
+    }
+  };
 
   //user registration
   const registerUser = async () => {
@@ -78,7 +79,7 @@ const Login = ({ handleClose }) => {
       lastName: registrationLastName,
       email: registrationEmail,
       password: registrationPassword,
-      //   registrationRole,
+      role: registrationRole,
     });
 
     if (res.ok) {
@@ -86,7 +87,7 @@ const Login = ({ handleClose }) => {
       setRegistrationLastName("");
       setRegistrationEmail("");
       setRegistrationPassword("");
-      //   setRegistrationRole("");
+      setRegistrationRole("");
       alert("Registered!");
     } else {
       alert(JSON.stringify(res.data));
@@ -103,7 +104,7 @@ const Login = ({ handleClose }) => {
     if (res.ok) {
       userCtx.setAccessToken(res.data.access);
       const decoded = jwtDecode(res.data.access); //decode to get claims
-      //   userCtx.setRole(decoded.role); //get your role from your claims
+      userCtx.setRole(decoded.role); //get your role from your claims
       alert("Login!");
     } else {
       alert(JSON.stringify(res.data));
@@ -124,9 +125,9 @@ const Login = ({ handleClose }) => {
     }
   };
 
-  //   useEffect(() => {
-  //     getRoles();
-  //   }, []);
+  useEffect(() => {
+    getRoles();
+  }, []);
 
   return (
     <div>
