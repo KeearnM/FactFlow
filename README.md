@@ -71,6 +71,12 @@
 
   `npm install @mui/icons-material`
 
+- Install Material UI Date picker
+  `npm install @mui/x-date-pickers`
+
+- Install Material UI 'dayjs'
+  `npm install dayjs`
+
 - Install Google Gemini
   `npm install @google/generative-ai`
 
