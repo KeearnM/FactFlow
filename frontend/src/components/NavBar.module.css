@@ -31,7 +31,17 @@
 }
 
 .loginButton {
-  background-color: transparent;
+  /* background-color: transparent; */
+  background-color: darkolivegreen;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.logoutButton {
+  /* background-color: transparent; */
+  background-color: darkred;
   border: 1px solid white;
   color: white;
   padding: 8px 16px;
