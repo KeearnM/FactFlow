@@ -174,8 +174,8 @@ const SideBar = () => {
         {/* render the additional side bar links if user is logged in */}
         {userCtx.accessToken ? (
           <SubMenu icon={<CreateNewFolderIcon />} label="Feed">
-            <Link to="/Feed">
-              <MenuItem>All Collections</MenuItem>
+            <Link to="/Feed" className={styles.feed}>
+              <MenuItem>View All</MenuItem>
             </Link>
             {smartCollection.map((item) => {
               return <MenuItem>{item.q}</MenuItem>;

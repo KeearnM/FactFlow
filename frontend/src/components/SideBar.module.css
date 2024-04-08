@@ -10,3 +10,8 @@
   font-weight: 600;
   letter-spacing: 0.5px;
 }
+
+.feed {
+  text-decoration: none;
+  color: #000000;
+}
