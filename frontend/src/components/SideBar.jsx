@@ -53,7 +53,7 @@ const SideBar = () => {
 
   useEffect(() => {
     getCollectionByUserID();
-    console.log(userCtx.loggedUserId);
+    // console.log(userCtx.loggedUserId);
   }, [userCtx.loggedUserId]);
 
   const toggleSidebar = () => {

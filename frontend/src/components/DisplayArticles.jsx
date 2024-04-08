@@ -69,17 +69,19 @@ const DisplayArticles = () => {
     setSearchParams(location.state?.searchParams || {});
   }, [location.state?.searchParams]);
 
-  useGetArticles(
-    searchParams,
-    articles,
-    setArticles,
-    numResults,
-    setNumResults,
-    isLoading,
-    setIsLoading,
-    error,
-    setError
-  );
+  //runs as the page opens for the first time
+
+  // useGetArticles(
+  //   searchParams,
+  //   articles,
+  //   setArticles,
+  //   numResults,
+  //   setNumResults,
+  //   isLoading,
+  //   setIsLoading,
+  //   error,
+  //   setError
+  // );
 
   //function to set the expanded <> collapsible when clicked
   const handleExpandClick = (articleId) => {
