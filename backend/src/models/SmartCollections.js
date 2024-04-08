@@ -3,7 +3,7 @@ const { Auth } = require("./Auth");
 
 const SmartCollectionsSchema = new mongoose.Schema(
   {
-    topic: { type: String, required: true, minLength: 1, maxLength: 20 },
+    q: { type: String, required: true, minLength: 1, maxLength: 30 },
     from: {
       type: String,
       default: () => {
