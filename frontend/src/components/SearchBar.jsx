@@ -225,38 +225,41 @@ const SearchBar = () => {
   };
 
   const handleSearchClick = () => {
-    // console.log("searchValue: " + searchValue);
-    // console.log("selectedCountry: " + selectedCountry.countryCode);
-    // console.log("selectedSource: " + selectedSource.sourceCode);
-    // console.log("selectedCategories: " + selectedCategories);
-    // console.log("selectedTopics: " + selectedTopics);
-    // console.log("selectedFromDate: " + selectedFromDate);
-    // console.log("selectedToDate: " + selectedToDate);
-    // console.log("selectedSortBy: " + selectedSortBy);
-    // console.log("showReprints: " + showReprints);
-    // console.log("paywall: " + paywall);
-    // console.log("excludeLabel: " + excludeLabel);
+    // const searchParams = [
+    //   { key: "q", value: searchValue },
+    //   {
+    //     key: "country",
+    //     value: selectedCountry ? selectedCountry.countryCode : null,
+    //   },
+    //   {
+    //     key: "sourceGroup",
+    //     value: selectedSource ? selectedSource.sourceCode : null,
+    //   },
+    //   { key: "category", value: selectedCategories.join(", ") },
+    //   { key: "topic", value: selectedTopics.join(", ") },
+    //   { key: "from", value: selectedFromDate },
+    //   { key: "to", value: selectedToDate },
+    //   { key: "sortBy", value: selectedSortBy },
+    //   { key: "showReprints", value: showReprints.toString() },
+    //   { key: "paywall", value: paywall.toString() },
+    //   { key: "excludeLabel", value: excludeLabel.join(", ") },
+    // ];
 
-    const searchParams = [
-      { key: "q", value: searchValue },
-      {
-        key: "country",
-        value: selectedCountry ? selectedCountry.countryCode : null,
-      },
-      {
-        key: "sourceGroup",
-        value: selectedSource ? selectedSource.sourceCode : null,
-      },
-      { key: "category", value: selectedCategories.join(", ") },
-      { key: "topic", value: selectedTopics.join(", ") },
-      { key: "from", value: selectedFromDate },
-      { key: "to", value: selectedToDate },
-      { key: "sortBy", value: selectedSortBy },
-      { key: "showReprints", value: showReprints.toString() },
-      { key: "paywall", value: paywall.toString() },
-      { key: "excludeLabel", value: excludeLabel.join(", ") },
-    ];
-
+    const searchParams = {
+      q: searchValue,
+      country: selectedCountry ? selectedCountry.countryCode : null,
+      sourceGroup: selectedSource ? selectedSource.sourceCode : null,
+      category: selectedCategories.join(", "),
+      topic: selectedTopics.join(", "),
+      from: selectedFromDate,
+      to: selectedToDate,
+      sortBy: selectedSortBy,
+      showReprints: showReprints.toString(),
+      paywall: paywall.toString(),
+      excludeLabel: excludeLabel.join(", "),
+    };
+    console.log("SearchBar");
+    console.log(searchParams);
     //pass the search paraments state to the Main page, where DisplayArticles is being rendered and will capture it
     navigate("/Main", { state: { searchParams } });
   };

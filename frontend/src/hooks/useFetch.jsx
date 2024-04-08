@@ -1,3 +1,16 @@
+/*=============================================================================
+ | Purpose:  FETCH ARTICLE DATA FROM PERIGON API USING PARAMETERS PASSED AS 
+ |           PROPS TO TAILOR THE API CALL.
+ |           
+ |
+ | Input / Parameters:  ENDPOINT (BACKEND ENPOINT BEING USED FOR SPECIFIC FETCH),
+ |                      METHOD (e.g. POST, GET, PUT, DELETE), BODY (BODY REQ) AND
+ |                      TOKEN (FOR LOGIN)
+ |
+ | Output / Returns:  RETURN fetchData FUNCTION THAT WILL CONTAIN RETURN VALUE
+ |
+ *===========================================================================*/
+
 const useFetch = () => {
   const fetchData = async (endpoint, method, body, token) => {
     const res = await fetch(import.meta.env.VITE_SERVER + endpoint, {

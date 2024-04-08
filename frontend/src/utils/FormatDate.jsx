@@ -33,7 +33,7 @@ const FormatDate = ({ updatedAt }) => {
   } else if (hoursDifference > 1 && hoursDifference < 24) {
     updatedAtString = `${hoursDifference}h ago`;
   } else if (hoursDifference > 24 && hoursDifference < 240) {
-    const daysDifference = hoursDifference / 24;
+    const daysDifference = Math.floor(hoursDifference / 24);
     updatedAtString = `${daysDifference} days ago`;
   } else {
     // Format the date in "23 Mar 2024 4:31PM" format like

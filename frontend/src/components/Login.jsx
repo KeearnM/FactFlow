@@ -107,22 +107,23 @@ const Login = ({ handleClose }) => {
     if (res.ok) {
       userCtx.setAccessToken(res.data.access);
       const decoded = jwtDecode(res.data.access); //decode to get claims
-      const userRes = await fetchData(
-        `/auth/${decoded.userId}`,
-        "GET",
-        {},
-        { Authorization: `Bearer ${res.data.access}` }
-      );
-      if (userRes.ok) {
-        const populatedUser = userRes.data;
-        userCtx.setRole(decoded.role); //get your role from your claims
-        alert("Login!");
-        console.log(userCtx.role);
-        handleClose(); //to close the modal after successful login
-      } else {
-        console.log("Error fetching user data");
-        console.log(userRes.data);
-      }
+      alert("Logged in! Yay");
+      //   const userRes = await fetchData(
+      //     `/auth/${decoded.userId}`,
+      //     "GET",
+      //     {},
+      //     { Authorization: `Bearer ${res.data.access}` }
+      //   );
+      //   if (userRes.ok) {
+      //     const populatedUser = userRes.data;
+      //     userCtx.setRole(decoded.role); //get your role from your claims
+      //     alert("Login!");
+      //     console.log(userCtx.role);
+      //     handleClose(); //to close the modal after successful login
+      //   } else {
+      //     console.log("Error fetching user data");
+      //     console.log(userRes.data);
+      //   }
     } else {
       alert(JSON.stringify(res.data));
     }
