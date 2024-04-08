@@ -9,7 +9,7 @@
  |
  *===========================================================================*/
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 const useGetArticles = (
   searchParams,
@@ -84,11 +84,11 @@ const useGetArticles = (
           url.searchParams.append("from", isoDate);
         }
         if (to) {
-          url.searchParams.append("from", to);
+          url.searchParams.append("to", to);
         }
         url.searchParams.append("sortBy", sortBy);
         url.searchParams.append("showReprints", showReprints);
-
+        url.searchParams.append("paywall", paywall);
         if (excludeLabel) {
           const excludedLabels = searchParams.excludeLabel.split(", ");
           excludedLabels.forEach((labelItem) => {
@@ -96,14 +96,13 @@ const useGetArticles = (
           });
         }
 
-        //categories and topics excludeLabel are arrays
-
         //parameters that will always be present
         url.searchParams.append("searchTranslation", "false");
-        // url.searchParams.append("paywall", paywall);
         url.searchParams.append("page", "0");
         url.searchParams.append("size", "40");
         url.searchParams.append("showNumResults", "false");
+
+        console.log(url.toString());
 
         const response = await fetch(url, {
           method: "GET",

@@ -520,7 +520,7 @@ const SearchBar = () => {
                         }}
                       />
                     }
-                    label="No Paywalled"
+                    label="No Paywalled Sources"
                   />
                   <FormControlLabel
                     control={
