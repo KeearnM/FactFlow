@@ -65,12 +65,12 @@ const SideBar = () => {
         {/* render the additional side bar links if user is logged in */}
         {/* {userCtx && userCtx.role === "user" ? ( */}
         {userCtx ? (
-          // =======
+          // ===WHAT WE WANT TO SHOW ON THE SIDEBAR AFTER LOGIN====
           <MenuItem>
             <p className={styles.sidebar}>Feed</p>
           </MenuItem>
         ) : (
-          // ======
+          // ===END OF WHAT WE WANT TO SHOW ON THE SIDEBAR AFTER LOGIN====
           ""
         )}
       </Menu>
