@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FormControl,
   FormControlLabel,
@@ -36,6 +37,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 //for the from to date pickers
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs from "dayjs";
 import "dayjs/locale/en-gb"; //for format DD/MM/YYYY
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -121,6 +123,7 @@ const ExpandMore = styled((props) => {
 }));
 
 const SearchBar = () => {
+  const navigate = useNavigate();
   //search bar - Perigon API Param 'q'
   const [showClearIcon, setShowClearIcon] = useState("none");
   const [searchValue, setSearchValue] = useState("");
@@ -222,24 +225,47 @@ const SearchBar = () => {
   };
 
   const handleSearchClick = () => {
-    console.log("searchValue: " + searchValue);
-    console.log("selectedCountry: " + selectedCountry.countryCode);
-    console.log("selectedSource: " + selectedSource.sourceCode);
-    console.log("selectedCategories: " + selectedCategories);
-    console.log("selectedTopics: " + selectedTopics);
-    console.log("selectedFromDate: " + selectedFromDate);
-    console.log("selectedToDate: " + selectedToDate);
-    console.log("selectedSortBy: " + selectedSortBy);
-    console.log("showReprints: " + showReprints);
-    console.log("paywall: " + paywall);
-    console.log("excludeLabel: " + excludeLabel);
+    // console.log("searchValue: " + searchValue);
+    // console.log("selectedCountry: " + selectedCountry.countryCode);
+    // console.log("selectedSource: " + selectedSource.sourceCode);
+    // console.log("selectedCategories: " + selectedCategories);
+    // console.log("selectedTopics: " + selectedTopics);
+    // console.log("selectedFromDate: " + selectedFromDate);
+    // console.log("selectedToDate: " + selectedToDate);
+    // console.log("selectedSortBy: " + selectedSortBy);
+    // console.log("showReprints: " + showReprints);
+    // console.log("paywall: " + paywall);
+    // console.log("excludeLabel: " + excludeLabel);
+
+    const searchParams = [
+      { key: "q", value: searchValue },
+      {
+        key: "country",
+        value: selectedCountry ? selectedCountry.countryCode : null,
+      },
+      {
+        key: "sourceGroup",
+        value: selectedSource ? selectedSource.sourceCode : null,
+      },
+      { key: "category", value: selectedCategories.join(", ") },
+      { key: "topic", value: selectedTopics.join(", ") },
+      { key: "from", value: selectedFromDate },
+      { key: "to", value: selectedToDate },
+      { key: "sortBy", value: selectedSortBy },
+      { key: "showReprints", value: showReprints.toString() },
+      { key: "paywall", value: paywall.toString() },
+      { key: "excludeLabel", value: excludeLabel.join(", ") },
+    ];
+
+    //pass the search paraments state to the Main page, where DisplayArticles is being rendered and will capture it
+    navigate("/Main", { state: { searchParams } });
   };
 
   return (
     <Card style={{ backgroundColor: "whitesmoke" }} elevation={0}>
       <CardHeader
         title="Find News from the best sources, tailored to you"
-        subheader="if you want to get fancy you can use operators like AND, OR, NOT or quotation marks (embrace your search phrase with them for exact match) to further refine your search."
+        subheader="If you want to get fancy you can use operators like AND, OR, NOT or quotation marks (embrace your search phrase with them for exact match) to further refine your search."
       />
 
       <Box display="flex" alignItems="center">
@@ -270,7 +296,7 @@ const SearchBar = () => {
         />
         {/*========== Submit Search Button ==========*/}
         <Button
-          style={{ marginLeft: 5 }}
+          style={{ marginLeft: 5, backgroundColor: "black" }}
           size="large"
           variant="contained"
           onClick={handleSearchClick}

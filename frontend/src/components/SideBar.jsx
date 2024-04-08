@@ -65,10 +65,12 @@ const SideBar = () => {
         {/* render the additional side bar links if user is logged in */}
         {/* {userCtx && userCtx.role === "user" ? ( */}
         {userCtx ? (
+          // =======
           <MenuItem>
             <p className={styles.sidebar}>Feed</p>
           </MenuItem>
         ) : (
+          // ======
           ""
         )}
       </Menu>

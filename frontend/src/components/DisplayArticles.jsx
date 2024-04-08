@@ -8,10 +8,11 @@
  |
  *===========================================================================*/
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useGetArticles from "/src/hooks/useGetArticles";
 import FormatDate from "/src/utils/FormatDate";
 import "/src/components/Display.css";
+import { useLocation } from "react-router-dom";
 
 // importing icons from MUI Icons
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
@@ -45,7 +46,17 @@ const ExpandMore = styled((props) => {
 }));
 
 const DisplayArticles = () => {
-  // const { articles, numResults, isLoading, error } = useGetArticles(); //uncomment for real API calls
+  //receive searchParams from sibling component SearchBar utilizng useNavigate and useLocation from react-router-dom
+  const location = useLocation();
+  const searchParams = location.state?.searchParams;
+
+  //make API call to useGetArticles everytime we receive new seearchParams
+  useEffect(() => {
+    console.log("DisplayArticles");
+    console.log(searchParams);
+    // const { articles, numResults, isLoading, error } =
+    //   useGetArticles(searchParams); //uncomment for real API calls
+  }, [searchParams]);
 
   //using dummy data to save real API calls
   const { articles, numResults, isLoading, error } = {
