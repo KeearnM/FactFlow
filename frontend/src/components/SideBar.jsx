@@ -10,10 +10,11 @@
  |
  *===========================================================================*/
 
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import styles from "./SideBar.module.css";
 import UserContext from "../context/user";
+import useFetch from "../hooks/useFetch";
 
 // importing icons from MUI Icons
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
@@ -24,10 +25,36 @@ import MemoryOutlinedIcon from "@mui/icons-material/MemoryOutlined";
 import AttractionsOutlinedIcon from "@mui/icons-material/AttractionsOutlined";
 import MenuOpenOutlinedIcon from "@mui/icons-material/MenuOpenOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 
 const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const userCtx = useContext(UserContext);
+  const [smartCollection, setSmartCollection] = useState([]);
+  const fetchData = useFetch();
+
+  // get smartCollection Object by user ID
+  const getCollectionByUserID = async () => {
+    const id = userCtx.loggedUserId;
+    const res = await fetchData(
+      "/api/" + id,
+      "GET",
+      undefined,
+      userCtx.accessToken
+    );
+
+    if (res.ok) {
+      setSmartCollection(res.data);
+    } else {
+      alert(JSON.stringify(res.data));
+      console.log(res.data);
+    }
+  };
+
+  useEffect(() => {
+    getCollectionByUserID();
+    console.log(userCtx.loggedUserId);
+  }, [userCtx.loggedUserId]);
 
   const toggleSidebar = () => {
     setCollapsed(!collapsed);
@@ -66,9 +93,12 @@ const SideBar = () => {
         {/* {userCtx && userCtx.role === "user" ? ( */}
         {userCtx ? (
           // ===WHAT WE WANT TO SHOW ON THE SIDEBAR AFTER LOGIN====
-          <MenuItem>
-            <p className={styles.sidebar}>Feed</p>
-          </MenuItem>
+
+          <SubMenu icon={<CreateNewFolderIcon />} label="Feed">
+            {smartCollection.map((item) => {
+              return <MenuItem>{item.topic}</MenuItem>;
+            })}
+          </SubMenu>
         ) : (
           // ===END OF WHAT WE WANT TO SHOW ON THE SIDEBAR AFTER LOGIN====
           ""
