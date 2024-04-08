@@ -5,7 +5,7 @@ const Feed = () => {
   return (
     <div>
       {/* YOUR COMPONENT HERE */}
-      {/* <DisplayStories></DisplayStories> */}
+      <DisplayStories></DisplayStories>
     </div>
   );
 };

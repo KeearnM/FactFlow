@@ -25,14 +25,22 @@ const useGetStories = () => {
 
       try {
         const url = new URL(import.meta.env.VITE_PERIGON_STORIES_URL);
+
         url.searchParams.append("nameExists", "true");
-        url.searchParams.append("from", "2023-03-01");
+        url.searchParams.append("q", "US Elections");
+        const twoWeeksAgo = new Date();
+        twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
+        const isoDate = twoWeeksAgo.toISOString();
+        url.searchParams.append("from", isoDate);
+        // url.searchParams.append("from", "2023-03-01");
         url.searchParams.append("minClusterSize", "5");
         url.searchParams.append("page", "0");
         url.searchParams.append("size", "10");
         url.searchParams.append("sortBy", "createdAt");
         url.searchParams.append("showNumResults", "false");
         url.searchParams.append("showDuplicates", "false");
+
+        console.log(url.toString());
 
         const response = await fetch(url, {
           method: "GET",
