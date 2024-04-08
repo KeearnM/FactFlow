@@ -56,6 +56,7 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
+  console.log("logged in");
   try {
     const auth = await AuthModel.findOne({ email: req.body.email });
     if (!auth) {
@@ -85,7 +86,6 @@ const login = async (req, res) => {
       expiresIn: "30d",
       jwtid: uuidv4(),
     });
-    console.log(auth._id);
     res.json({ access, refresh, id: auth._id });
   } catch (error) {
     console.error(error.message);
