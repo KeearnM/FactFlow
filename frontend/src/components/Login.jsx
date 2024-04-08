@@ -106,6 +106,7 @@ const Login = ({ handleClose }) => {
 
     if (res.ok) {
       userCtx.setAccessToken(res.data.access);
+      userCtx.setLoggedUserId(res.data.id);
       const decoded = jwtDecode(res.data.access); //decode to get claims
       alert("Logged in! Yay");
       //   const userRes = await fetchData(
