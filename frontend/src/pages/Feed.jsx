@@ -1,7 +1,7 @@
 import React from "react";
 import DisplayStories from "../components/DisplayStories";
 
-const SmartCollection = () => {
+const Feed = () => {
   return (
     <div>
       {/* YOUR COMPONENT HERE */}
@@ -10,4 +10,4 @@ const SmartCollection = () => {
   );
 };
 
-export default SmartCollection;
+export default Feed;
