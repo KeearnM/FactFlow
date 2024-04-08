@@ -12,17 +12,17 @@ const validateIdInBody = [
 
 const validateAddSmartCollectionData = [
   body("topic", "topic is required").not().isEmpty(),
-  body("topic", "must have a min of 1 and a max of 20 characters").isLength({
+  body("topic", "must have a min of 1 and a max of 30 characters").isLength({
     min: 1,
-    max: 20,
+    max: 30,
   }),
 ];
 
 const validateUpdateSmartCollectionData = [
   body("topic", "topic is required").not().isEmpty(), // optional() is to validate for optional parts of the request payload
-  body("topic", "must have a min of 1 and a max of 20 characters").isLength({
+  body("topic", "must have a min of 1 and a max of 30 characters").isLength({
     min: 1,
-    max: 20,
+    max: 30,
   }),
 ];
 

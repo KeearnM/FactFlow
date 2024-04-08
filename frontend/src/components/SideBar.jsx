@@ -178,7 +178,7 @@ const SideBar = () => {
               <MenuItem>All Collections</MenuItem>
             </Link>
             {smartCollection.map((item) => {
-              return <MenuItem>{item.topic}</MenuItem>;
+              return <MenuItem>{item.q}</MenuItem>;
             })}
           </SubMenu>
         ) : (
