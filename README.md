@@ -40,51 +40,62 @@
 
 - Create your .env and add the database path (like below for localhost)
 
-  ` DATABASE=mongodb://127.0.0.1:27017/factflow`
+  `DATABASE=mongodb://127.0.0.1:27017/factflow`
+
+  `ACCESS_SECRET=<YOUR_ACCESS_SECRET>`
+
+  `REFRESH_SECRET=<YOUR_REFRESH_SECRET>`
+
+  **NOTE:** We've generated our ACCESS and REFRESH secrets using https://www.random.org/strings/
 
 ### Frontend Configuration
 
 - Get your API keys by creating an account at:
   - Perigon API https://www.goperigon.com/
-  - Gemini API
-- Create .env file and add the following (double check Perigon's website for the latest URL/version):
-  - VITE_PERIGON_ARTICLES_URL=https://api.goperigon.com/v1/all
-  - VITE_PERIGON_STORIES_URL=https://api.goperigon.com/v1/stories/all
-  - VITE_PERIGON_API_KEY=<YOUR_API_KEY>
-- Go to the project frontend folder and install react-app
+  - Gemini API https://ai.google.dev/tutorials/setup
+- Create .env file and add the following (double check Gemini and Perigon's website for the latest URL/version):
 
-  `npm i`
+  `VITE_PERIGON_ARTICLES_URL=https://api.goperigon.com/v1/all`
 
-- Install react-router-dom
+  `VITE_PERIGON_STORIES_URL=https://api.goperigon.com/v1/stories/all`
 
-  `npm install react-router-dom`
+  `VITE_PERIGON_API_KEY=<YOUR_API_KEY>`
 
-- Install react-pro-sidebar
+  `VITE_GEMINI_KEY=<YOUR_API_KEY>`
 
-  `npm install react-pro-sidebar`
+  `VITE_SERVER=http://localhost:5002`
 
-- Install Material UI
+- Install the packages:
 
-  `npm install @mui/material @emotion/react @emotion/styled`
+  - Go to the project frontend folder and install react-app:
+    `npm i`
 
-- Install Material UI Icons
+  - Install react-router-dom:
+    `npm install react-router-dom`
 
-  `npm install @mui/icons-material`
+  - Install react-pro-sidebar:
+    `npm install react-pro-sidebar`
 
-- Install Material UI Date picker
-  `npm install @mui/x-date-pickers`
+  - Install Material UI:
+    `npm install @mui/material @emotion/react @emotion/styled`
 
-- Install Material UI 'dayjs'
-  `npm install dayjs`
+  - Install Material UI Icons:
+    `npm install @mui/icons-material`
 
-- Install Google Gemini
-  `npm install @google/generative-ai`
+  - Install Material UI Date picker:
+    `npm install @mui/x-date-pickers`
 
-- Install jwt-decode
-  `npm i jwt-decode`
+  - Install Material UI 'dayjs':
+    `npm install dayjs`
 
-**NOTE:** If you run into dependency errors just run:
-`npm config set legacy-peer-deps true`
+  - Install Google Gemini:
+    `npm install @google/generative-ai`
+
+  - Install jwt-decode:
+    `npm i jwt-decode`
+
+  **NOTE:** If you run into dependency errors just run:
+  `npm config set legacy-peer-deps true`
 
 ## Features
 

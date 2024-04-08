@@ -15,7 +15,7 @@ import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import styles from "./SideBar.module.css";
 import UserContext from "../context/user";
 import useFetch from "../hooks/useFetch";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // importing icons from MUI Icons
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
@@ -33,6 +33,8 @@ const SideBar = () => {
   const userCtx = useContext(UserContext);
   const [smartCollection, setSmartCollection] = useState([]);
   const fetchData = useFetch();
+
+  const navigate = useNavigate();
 
   // get smartCollection Object by user ID
   const getCollectionByUserID = async () => {
@@ -60,6 +62,53 @@ const SideBar = () => {
   const toggleSidebar = () => {
     setCollapsed(!collapsed);
   };
+
+  const handleMenuItemClick = (menuItem) => {
+    let searchParams = {};
+
+    switch (menuItem) {
+      case "Finance":
+        searchParams = {
+          q: "Finance",
+          category: "Finance",
+        };
+        break;
+      case "Sports":
+        searchParams = {
+          q: "Sports",
+          category: "Sports",
+        };
+        break;
+      case "Business":
+        searchParams = {
+          q: "Business",
+          category: "Business",
+        };
+        break;
+      case "Politics":
+        searchParams = {
+          q: "Politics",
+          category: "Politics",
+        };
+        break;
+      case "Tech":
+        searchParams = {
+          q: "Tech",
+          category: "Tech",
+        };
+        break;
+      case "Entertainment":
+        searchParams = {
+          q: "Entertainment",
+          category: "Entertainment",
+        };
+        break;
+    }
+
+    // Pass the search parameters state to the Main page
+    navigate("/Main", { state: { searchParams } });
+  };
+
   return (
     <Sidebar
       className={styles.sidebar}
@@ -78,22 +127,52 @@ const SideBar = () => {
             <p className={styles.sidebar}>Top Articles</p>
           </MenuItem>
         )}
-        <SubMenu icon={<AttachMoneyOutlinedIcon />} label="Finance">
+
+        <MenuItem
+          icon={<AttachMoneyOutlinedIcon />}
+          onClick={() => handleMenuItemClick("Finance")}
+        >
           {" "}
-          <MenuItem>Test</MenuItem>
-          <MenuItem>Test 2</MenuItem>
-          <MenuItem>Test 3</MenuItem>
-        </SubMenu>
-        <MenuItem icon={<DirectionsRunOutlinedIcon />}> Sports</MenuItem>
-        <MenuItem icon={<WorkOutlineOutlinedIcon />}> Business</MenuItem>
-        <MenuItem icon={<AccountBalanceOutlinedIcon />}> Politics</MenuItem>
-        <MenuItem icon={<MemoryOutlinedIcon />}> Tech</MenuItem>
-        <MenuItem icon={<AttractionsOutlinedIcon />}> Entertainment</MenuItem>
+          Finance
+        </MenuItem>
+        <MenuItem
+          icon={<DirectionsRunOutlinedIcon />}
+          onClick={() => handleMenuItemClick("Sports")}
+        >
+          {" "}
+          Sports
+        </MenuItem>
+        <MenuItem
+          icon={<WorkOutlineOutlinedIcon />}
+          onClick={() => handleMenuItemClick("Business")}
+        >
+          {" "}
+          Business
+        </MenuItem>
+        <MenuItem
+          icon={<AccountBalanceOutlinedIcon />}
+          onClick={() => handleMenuItemClick("Politics")}
+        >
+          {" "}
+          Politics
+        </MenuItem>
+        <MenuItem
+          icon={<MemoryOutlinedIcon />}
+          onClick={() => handleMenuItemClick("Tech")}
+        >
+          {" "}
+          Tech
+        </MenuItem>
+        <MenuItem
+          icon={<AttractionsOutlinedIcon />}
+          onClick={() => handleMenuItemClick("Entertainment")}
+        >
+          {" "}
+          Entertainment
+        </MenuItem>
 
         {/* render the additional side bar links if user is logged in */}
         {userCtx.accessToken ? (
-          // ===WHAT WE WANT TO SHOW ON THE SIDEBAR AFTER LOGIN====
-
           <SubMenu icon={<CreateNewFolderIcon />} label="Feed">
             <Link to="/SmartCollection">
               <MenuItem>All Collections</MenuItem>
@@ -103,7 +182,6 @@ const SideBar = () => {
             })}
           </SubMenu>
         ) : (
-          // ===END OF WHAT WE WANT TO SHOW ON THE SIDEBAR AFTER LOGIN====
           ""
         )}
       </Menu>

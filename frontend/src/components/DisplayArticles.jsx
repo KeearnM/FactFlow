@@ -50,6 +50,7 @@ const ExpandMore = styled((props) => {
 const DisplayArticles = () => {
   //receive searchParams from sibling component SearchBar utilizing useNavigate and useLocation from react-router-dom
   const location = useLocation();
+
   //get date 2 weeks ago for the initialSearchParam 'from' value
   const today = new Date();
   const twoWeeksAgo = new Date(today);
@@ -57,14 +58,17 @@ const DisplayArticles = () => {
   const isoDate = twoWeeksAgo.toISOString().split("T")[0];
 
   const [searchParams, setSearchParams] = useState({});
+
   //variables to receive results back from useGetArticles
   const [articles, setArticles] = useState([]);
   const [numResults, setNumResults] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
   //variable to control the state of the card
   const [expandedMap, setExpandedMap] = useState({});
 
+  //receive searchParams from sibling component SearchBar utilizing useNavigate and useLocation from react-router-dom
   useEffect(() => {
     setSearchParams(location.state?.searchParams || {});
   }, [location.state?.searchParams]);

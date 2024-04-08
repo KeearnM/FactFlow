@@ -57,7 +57,7 @@ const Login = ({ handleClose }) => {
   const [registrationEmail, setRegistrationEmail] = useState("");
   const [registrationPassword, setRegistrationPassword] = useState("");
   const [registrationRole, setRegistrationRole] = useState(
-    "66100b626d6defdb0da425bf"
+    "66100b626d6defdb0da425bf" //user role
   ); //its expecting the objectID and not the user or admin...
 
   //to control if Login or Registration screen show at the Modal
@@ -108,7 +108,8 @@ const Login = ({ handleClose }) => {
       userCtx.setAccessToken(res.data.access);
       userCtx.setLoggedUserId(res.data.id);
       const decoded = jwtDecode(res.data.access); //decode to get claims
-      alert("Logged in! Yay");
+      alert("Logged in!");
+      handleClose(); //to close the modal after successful login
       //   const userRes = await fetchData(
       //     `/auth/${decoded.userId}`,
       //     "GET",

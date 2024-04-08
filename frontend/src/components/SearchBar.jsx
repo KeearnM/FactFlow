@@ -238,8 +238,6 @@ const SearchBar = () => {
       paywall: paywall.toString(),
       excludeLabel: excludeLabel.join(", "),
     };
-    console.log("SearchBar");
-    console.log(searchParams);
     //pass the search paraments state to the Main page, where DisplayArticles is being rendered and will capture it
     navigate("/Main", { state: { searchParams } });
   };
