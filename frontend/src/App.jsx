@@ -15,6 +15,7 @@ const Main = React.lazy(() => import("./pages/Main"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 import Layout from "./components/Layout";
 import UserContext from "./context/user";
+import SmartCollection from "./pages/SmartCollection";
 
 function App() {
   const [accessToken, setAccessToken] = useState("");
@@ -38,6 +39,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Navigate replace to="/main" />} />
               <Route path="main" element={<Main />} />
+              <Route path="smartcollection" element={<SmartCollection />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
