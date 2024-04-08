@@ -15,6 +15,7 @@ import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import styles from "./SideBar.module.css";
 import UserContext from "../context/user";
 import useFetch from "../hooks/useFetch";
+import { Link } from "react-router-dom";
 
 // importing icons from MUI Icons
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
@@ -94,6 +95,9 @@ const SideBar = () => {
           // ===WHAT WE WANT TO SHOW ON THE SIDEBAR AFTER LOGIN====
 
           <SubMenu icon={<CreateNewFolderIcon />} label="Feed">
+            <Link to="/SmartCollection">
+              <MenuItem>All Collections</MenuItem>
+            </Link>
             {smartCollection.map((item) => {
               return <MenuItem>{item.topic}</MenuItem>;
             })}
