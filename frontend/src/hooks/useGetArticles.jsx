@@ -37,18 +37,6 @@ const useGetArticles = (
       excludeLabel,
       ...rest
     } = searchParams;
-    console.log("Reached useGetArticles!");
-    console.log("q: " + q);
-    console.log("country: " + country);
-    console.log("sourceGroup: " + sourceGroup);
-    console.log("category: " + category);
-    console.log("topic: " + topic);
-    console.log("from: " + from);
-    console.log("to: " + to);
-    console.log("sortBy: " + sortBy);
-    console.log("showReprints: " + showReprints);
-    console.log("paywall: " + paywall);
-    console.log("excludeLabel: " + excludeLabel);
 
     const fetchData = async () => {
       setIsLoading(true);
@@ -56,7 +44,11 @@ const useGetArticles = (
 
       try {
         const url = new URL(import.meta.env.VITE_PERIGON_ARTICLES_URL);
-        url.searchParams.append("q", q);
+        if (q) {
+          url.searchParams.append("q", q);
+        } else {
+          url.searchParams.append("q", "Latest News");
+        }
         if (country) {
           url.searchParams.append("country", country);
         }
@@ -86,9 +78,16 @@ const useGetArticles = (
         if (to) {
           url.searchParams.append("to", to);
         }
-        url.searchParams.append("sortBy", sortBy);
-        url.searchParams.append("showReprints", showReprints);
-        url.searchParams.append("paywall", paywall);
+        if (sortBy) {
+          url.searchParams.append("sortBy", sortBy);
+        }
+
+        if (showReprints) {
+          url.searchParams.append("showReprints", showReprints);
+        }
+        if (paywall) {
+          url.searchParams.append("paywall", paywall);
+        }
         if (excludeLabel) {
           const excludedLabels = searchParams.excludeLabel.split(", ");
           excludedLabels.forEach((labelItem) => {

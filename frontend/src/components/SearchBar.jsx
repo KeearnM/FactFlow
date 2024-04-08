@@ -225,26 +225,6 @@ const SearchBar = () => {
   };
 
   const handleSearchClick = () => {
-    // const searchParams = [
-    //   { key: "q", value: searchValue },
-    //   {
-    //     key: "country",
-    //     value: selectedCountry ? selectedCountry.countryCode : null,
-    //   },
-    //   {
-    //     key: "sourceGroup",
-    //     value: selectedSource ? selectedSource.sourceCode : null,
-    //   },
-    //   { key: "category", value: selectedCategories.join(", ") },
-    //   { key: "topic", value: selectedTopics.join(", ") },
-    //   { key: "from", value: selectedFromDate },
-    //   { key: "to", value: selectedToDate },
-    //   { key: "sortBy", value: selectedSortBy },
-    //   { key: "showReprints", value: showReprints.toString() },
-    //   { key: "paywall", value: paywall.toString() },
-    //   { key: "excludeLabel", value: excludeLabel.join(", ") },
-    // ];
-
     const searchParams = {
       q: searchValue,
       country: selectedCountry ? selectedCountry.countryCode : null,

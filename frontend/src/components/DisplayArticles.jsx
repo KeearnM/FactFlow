@@ -55,20 +55,6 @@ const DisplayArticles = () => {
   const twoWeeksAgo = new Date(today);
   twoWeeksAgo.setDate(today.getDate() - 14);
   const isoDate = twoWeeksAgo.toISOString().split("T")[0];
-  //initialSearch Param
-  const initialSearchParam = {
-    q: "Latest News",
-    country: null,
-    sourceGroup: null,
-    category: "",
-    topic: "",
-    from: isoDate,
-    to: null,
-    sortBy: "date",
-    showReprints: "false",
-    paywall: "true",
-    excludeLabel: "Non-news, Opinion, Paid News, Roundup, Press Release",
-  };
 
   const [searchParams, setSearchParams] = useState({});
   //variables to receive results back from useGetArticles
@@ -80,24 +66,20 @@ const DisplayArticles = () => {
   const [expandedMap, setExpandedMap] = useState({});
 
   useEffect(() => {
-    setSearchParams(initialSearchParam);
-  }, []);
-
-  useEffect(() => {
     setSearchParams(location.state?.searchParams || {});
   }, [location.state?.searchParams]);
 
-  // useGetArticles(
-  //   searchParams,
-  //   articles,
-  //   setArticles,
-  //   numResults,
-  //   setNumResults,
-  //   isLoading,
-  //   setIsLoading,
-  //   error,
-  //   setError
-  // );
+  useGetArticles(
+    searchParams,
+    articles,
+    setArticles,
+    numResults,
+    setNumResults,
+    isLoading,
+    setIsLoading,
+    error,
+    setError
+  );
 
   //function to set the expanded <> collapsible when clicked
   const handleExpandClick = (articleId) => {
@@ -105,6 +87,10 @@ const DisplayArticles = () => {
       ...prevExpandedMap,
       [articleId]: !prevExpandedMap[articleId],
     }));
+  };
+
+  const handleFactCheckClick = () => {
+    // CALL FOR FACT CHECK MODAL / LOGIC HERE! @Kee Arn
   };
 
   // Render your component based on the state values (isLoading)
@@ -212,7 +198,16 @@ const DisplayArticles = () => {
               <CardContent>
                 <Typography paragraph>{article.summary}</Typography>
               </CardContent>
-              <Button>Fact Check</Button>
+              <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                <Button
+                  size="large"
+                  variant="contained"
+                  onClick={handleFactCheckClick}
+                  style={{ marginLeft: 5, backgroundColor: "darkgreen" }}
+                >
+                  Fact Check
+                </Button>
+              </div>
             </Collapse>
           </Card>
         ))}

@@ -90,8 +90,7 @@ const SideBar = () => {
         <MenuItem icon={<AttractionsOutlinedIcon />}> Entertainment</MenuItem>
 
         {/* render the additional side bar links if user is logged in */}
-        {/* {userCtx && userCtx.role === "user" ? ( */}
-        {userCtx ? (
+        {userCtx.accessToken ? (
           // ===WHAT WE WANT TO SHOW ON THE SIDEBAR AFTER LOGIN====
 
           <SubMenu icon={<CreateNewFolderIcon />} label="Feed">
