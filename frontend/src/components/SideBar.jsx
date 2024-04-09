@@ -49,7 +49,6 @@ const SideBar = () => {
     if (res.ok) {
       userCtx.setSmartCollection(res.data);
     } else {
-      alert(JSON.stringify(res.data));
       console.log(res.data);
     }
   };
