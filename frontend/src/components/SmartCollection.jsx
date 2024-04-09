@@ -3,7 +3,6 @@ import { useContext } from "react";
 import UserContext from "../context/user";
 import useFetch from "../hooks/useFetch";
 import styles from "../components/SmartCollection.module.css";
-
 import { TextField, Box, Button, Grid } from "@mui/material";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
@@ -16,6 +15,7 @@ const SmartCollection = () => {
   const userCtx = useContext(UserContext);
   const fetchData = useFetch();
   const [newCollection, setNewCollection] = useState("");
+  const [updatedCollection, setUpdatedCollection] = useState("");
   const [showUpdateCollectionModal, setShowUpdateCollectionModal] =
     useState(false);
   const [modalData, setModalData] = useState([]);
@@ -42,11 +42,6 @@ const SmartCollection = () => {
   // handle Edit Collection Expand click
   const handleExpandClick = () => {
     setExpanded(!expanded);
-  };
-
-  // close update modal
-  const handleCloseUpdateModal = () => {
-    setShowUpdateCollectionModal(false);
   };
 
   // get smart collection for the specific logged-in user
@@ -186,8 +181,10 @@ const SmartCollection = () => {
             {showUpdateCollectionModal && (
               <UpdateCollectionModal
                 modalData={modalData}
+                updatedCollection={updatedCollection}
+                setUpdatedCollection={setUpdatedCollection}
                 getCollectionByUserID={getCollectionByUserID}
-                handleCloseUpdateModal={handleCloseUpdateModal}
+                setShowUpdateCollectionModal={setShowUpdateCollectionModal}
               />
             )}
           </Grid>
