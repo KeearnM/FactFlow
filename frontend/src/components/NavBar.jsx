@@ -43,7 +43,6 @@ const NavBar = () => {
     userCtx.setAccessToken(null);
     userCtx.setRole(null);
     userCtx.setLoggedUserId(null);
-    alert("Logged out!");
     navigate("/Main");
   };
 
