@@ -13,7 +13,7 @@
 
 import React, { useState, useContext } from "react";
 import styles from "./NavBar.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import UserContext from "../context/user";
 
 // importing icons from MUI Icons
@@ -27,7 +27,7 @@ CREATE NAVBAR & SET ITS NAVIGATION LOGIC
 
 const NavBar = () => {
   const [openLoginModal, setOpenLoginModal] = useState(false);
-
+  const navigate = useNavigate();
   const userCtx = useContext(UserContext);
 
   const handleOpenLoginModal = () => {

@@ -28,6 +28,7 @@ const useGetStories = () => {
 
         url.searchParams.append("nameExists", "true");
         url.searchParams.append("q", "US Elections");
+        //set standard from date to 2 weeks before today
         const twoWeeksAgo = new Date();
         twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
         const isoDate = twoWeeksAgo.toISOString();
@@ -35,7 +36,7 @@ const useGetStories = () => {
         // url.searchParams.append("from", "2023-03-01");
         url.searchParams.append("minClusterSize", "5");
         url.searchParams.append("page", "0");
-        url.searchParams.append("size", "10");
+        url.searchParams.append("size", "20");
         url.searchParams.append("sortBy", "createdAt");
         url.searchParams.append("showNumResults", "false");
         url.searchParams.append("showDuplicates", "false");
@@ -54,7 +55,7 @@ const useGetStories = () => {
           const data = await response.json();
           setNumResults(data.numResults);
           setStories(data.results);
-          console.log(data);
+          // console.log(data);
         } else {
           setError("Failed to load stories");
         }

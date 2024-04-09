@@ -173,14 +173,21 @@ const SideBar = () => {
 
         {/* render the additional side bar links if user is logged in */}
         {userCtx.accessToken ? (
-          <SubMenu icon={<CreateNewFolderIcon />} label="Feed">
-            <Link to="/Feed" className={styles.feed}>
-              <MenuItem>View All</MenuItem>
-            </Link>
-            {userCtx.smartCollection.map((item) => {
-              return <MenuItem>{item.q}</MenuItem>;
-            })}
-          </SubMenu>
+          <Menu>
+            {!collapsed && (
+              <MenuItem>
+                <p className={styles.sidebar}>Your Stories</p>
+              </MenuItem>
+            )}
+            <SubMenu icon={<CreateNewFolderIcon />} label="Feed">
+              <Link to="/Feed" className={styles.feed}>
+                <MenuItem>View/Manage All</MenuItem>
+              </Link>
+              {userCtx.smartCollection.map((item) => {
+                return <MenuItem>{item.q}</MenuItem>;
+              })}
+            </SubMenu>
+          </Menu>
         ) : (
           ""
         )}

@@ -54,6 +54,8 @@ const useGetArticles = (
         }
         if (sourceGroup) {
           url.searchParams.append("sourceGroup", sourceGroup);
+        } else {
+          url.searchParams.append("sourceGroup", "top100");
         }
         if (category) {
           const categories = searchParams.category.split(", ");
