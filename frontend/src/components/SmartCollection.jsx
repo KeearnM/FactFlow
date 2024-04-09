@@ -15,6 +15,25 @@ const SmartCollection = () => {
   console.log(userCtx.loggedUserId);
   console.log(newCollection);
 
+  // get smart collection for the specific logged-in user
+  const getCollectionByUserID = async () => {
+    const id = userCtx.loggedUserId;
+    const res = await fetchData(
+      "/api/" + id,
+      "GET",
+      undefined,
+      userCtx.accessToken
+    );
+
+    if (res.ok) {
+      userCtx.setSmartCollection(res.data);
+    } else {
+      alert(JSON.stringify(res.data));
+      console.log(res.data);
+    }
+  };
+
+  // add new collection to the specific logged-in user
   const addNewCollection = async () => {
     const id = userCtx.loggedUserId;
     const res = await fetchData(
@@ -25,7 +44,7 @@ const SmartCollection = () => {
     );
 
     if (res.ok) {
-      // getCollectionByUserID()
+      getCollectionByUserID();
       setNewCollection([]);
       alert(JSON.stringify(`Collection has been added.`));
     } else {
