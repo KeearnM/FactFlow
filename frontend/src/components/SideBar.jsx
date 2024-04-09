@@ -31,7 +31,7 @@ import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const userCtx = useContext(UserContext);
-  const [smartCollection, setSmartCollection] = useState([]);
+  // const [smartCollection, setSmartCollection] = useState([]); // changed to useContext from App
   const fetchData = useFetch();
 
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ const SideBar = () => {
     );
 
     if (res.ok) {
-      setSmartCollection(res.data);
+      userCtx.setSmartCollection(res.data);
     } else {
       alert(JSON.stringify(res.data));
       console.log(res.data);
@@ -180,10 +180,10 @@ const SideBar = () => {
               </MenuItem>
             )}
             <SubMenu icon={<CreateNewFolderIcon />} label="Feed">
-              <Link to="/Feed">
-                <MenuItem>All Collections</MenuItem>
+              <Link to="/Feed" className={styles.feed}>
+                <MenuItem>View/Manage Collection</MenuItem>
               </Link>
-              {smartCollection.map((item) => {
+              {userCtx.smartCollection.map((item) => {
                 return <MenuItem>{item.q}</MenuItem>;
               })}
             </SubMenu>
