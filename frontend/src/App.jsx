@@ -21,6 +21,7 @@ function App() {
   const [accessToken, setAccessToken] = useState("");
   const [role, setRole] = useState("");
   const [loggedUserId, setLoggedUserId] = useState("");
+  const [smartCollection, setSmartCollection] = useState([]);
 
   return (
     <>
@@ -32,6 +33,8 @@ function App() {
           setRole,
           loggedUserId,
           setLoggedUserId,
+          smartCollection,
+          setSmartCollection,
         }}
       >
         <Suspense fallback={<h1>loading...</h1>}>
