@@ -3,7 +3,6 @@ import { useContext } from "react";
 import UserContext from "../context/user";
 import useFetch from "../hooks/useFetch";
 import styles from "../components/SmartCollection.module.css";
-
 import { TextField, Box, Button, Grid } from "@mui/material";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
@@ -16,8 +15,10 @@ const SmartCollection = () => {
   const userCtx = useContext(UserContext);
   const fetchData = useFetch();
   const [newCollection, setNewCollection] = useState("");
+  const [updatedCollection, setUpdatedCollection] = useState("");
   const [showUpdateCollectionModal, setShowUpdateCollectionModal] =
     useState(false);
+  const [modalData, setModalData] = useState([]);
 
   // for testing purposes -- to delete when completed
   console.log(userCtx.smartCollection);
@@ -41,16 +42,6 @@ const SmartCollection = () => {
   // handle Edit Collection Expand click
   const handleExpandClick = () => {
     setExpanded(!expanded);
-  };
-
-  // open update modal
-  const handleOpenUpdateModal = () => {
-    setShowUpdateCollectionModal(true);
-  };
-
-  // close update modal
-  const handleCloseUpdateModal = () => {
-    setShowUpdateCollectionModal(false);
   };
 
   // get smart collection for the specific logged-in user
@@ -145,19 +136,11 @@ const SmartCollection = () => {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <Grid container spacing={2}>
           <Grid item xs={6} md={6}>
-            {userCtx.smartCollection.map((item, index) => {
+            {userCtx.smartCollection.map((item) => {
               console.log(userCtx.smartCollection);
+
               return (
                 <>
-                  {showUpdateCollectionModal && (
-                    <UpdateCollectionModal
-                      key={index}
-                      id={item._id}
-                      q={item.q}
-                      getCollectionByUserID={getCollectionByUserID}
-                      handleCloseUpdateModal={handleCloseUpdateModal}
-                    />
-                  )}
                   <label className="col-md-3">{item.q}</label>
                   <Button
                     value={item._id}
@@ -168,7 +151,10 @@ const SmartCollection = () => {
                       height: "28px",
                       backgroundColor: "#1976D2",
                     }}
-                    onClick={handleOpenUpdateModal}
+                    onClick={() => {
+                      setModalData(item);
+                      setShowUpdateCollectionModal(true);
+                    }}
                   >
                     Update
                   </Button>
@@ -191,6 +177,16 @@ const SmartCollection = () => {
                 </>
               );
             })}
+
+            {showUpdateCollectionModal && (
+              <UpdateCollectionModal
+                modalData={modalData}
+                updatedCollection={updatedCollection}
+                setUpdatedCollection={setUpdatedCollection}
+                getCollectionByUserID={getCollectionByUserID}
+                setShowUpdateCollectionModal={setShowUpdateCollectionModal}
+              />
+            )}
           </Grid>
         </Grid>
       </Collapse>

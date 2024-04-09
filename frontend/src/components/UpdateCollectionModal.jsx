@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import useFetch from "../hooks/useFetch";
+import UserContext from "../context/user";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -20,10 +22,34 @@ const theme = createTheme({
 });
 
 const UpdateCollectionModal = (props) => {
+  const userCtx = useContext(UserContext);
+  const fetchData = useFetch();
+
+  // update an existing collection from the specific logged-in user
+  const updateCollection = async (id) => {
+    const res = await fetchData(
+      "/api/" + id,
+      "PATCH",
+      { q: props.updatedCollection },
+      userCtx.accessToken
+    );
+
+    if (res.ok) {
+      props.setShowUpdateCollectionModal(false);
+      props.getCollectionByUserID();
+      props.setUpdatedCollection([]);
+    } else {
+      alert(JSON.stringify(res.data));
+      console.log(res.data);
+    }
+  };
+
+  // test to be deleted once app is completed
+  console.log(props.updatedCollection);
+
   return (
     <>
       <Modal
-        key={props.key}
         open={open}
         onClose={props.handleCloseUpdateModal}
         aria-labelledby="update-collection-modal"
@@ -88,19 +114,23 @@ const UpdateCollectionModal = (props) => {
                     margin="normal"
                     required
                     fullWidth
-                    key={props.key}
-                    id={props.id}
-                    label={`${props.q}`}
-                    // onChange={(e) => setLoginEmail(e.target.value)}
+                    id={props.modalData._id}
+                    label={`${props.modalData.q}`}
+                    value={props.updatedCollection}
+                    onChange={(event) => {
+                      props.setUpdatedCollection(event.target.value);
+                    }}
                   />
                 </Grid>
                 <ThemeProvider theme={theme}>
                   <Button
-                    type="submit"
+                    value={props.modalData._id}
                     fullWidth
                     variant="contained"
                     sx={{ mt: 3, mb: 2 }}
-                    // onClick={()=>}
+                    onClick={(event) => {
+                      updateCollection(event.target.value);
+                    }}
                   >
                     Submit
                   </Button>
