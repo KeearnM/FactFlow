@@ -78,6 +78,24 @@ const SmartCollection = () => {
     }
   };
 
+  // delete an existing collection from the specific logged-in user
+  const deleteCollection = async (id) => {
+    const res = await fetchData(
+      "/api/" + id,
+      "DELETE",
+      undefined,
+      userCtx.accessToken
+    );
+
+    if (res.ok) {
+      getCollectionByUserID();
+      setNewCollection([]);
+    } else {
+      alert(JSON.stringify(res.data));
+      console.log(res.data);
+    }
+  };
+
   return (
     <>
       <Box display="flex" alignItems="center">
@@ -92,7 +110,7 @@ const SmartCollection = () => {
           }}
         />
         <Button
-          style={{ marginLeft: 5, height: "54px", backgroundColor: "black" }}
+          style={{ marginLeft: 5, height: "54px", backgroundColor: "green" }}
           size="large"
           variant="contained"
           onClick={addNewCollection}
@@ -120,6 +138,7 @@ const SmartCollection = () => {
                 <>
                   <label className="col-md-3">{item.q}</label>
                   <Button
+                    value={item._id}
                     className="col-md-2"
                     variant="contained"
                     style={{
@@ -131,12 +150,16 @@ const SmartCollection = () => {
                     Update
                   </Button>
                   <Button
+                    value={item._id}
                     className="col-md-2"
                     variant="contained"
                     style={{
                       marginLeft: 5,
                       height: "28px",
                       backgroundColor: "black",
+                    }}
+                    onClick={(event) => {
+                      deleteCollection(event.target.value);
                     }}
                   >
                     Delete
