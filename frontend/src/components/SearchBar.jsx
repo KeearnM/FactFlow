@@ -277,7 +277,7 @@ const SearchBar = () => {
         />
         {/*========== Submit Search Button ==========*/}
         <Button
-          style={{ marginLeft: 5, backgroundColor: "black" }}
+          style={{ marginLeft: 5, height: "55px", backgroundColor: "black" }}
           size="large"
           variant="contained"
           onClick={handleSearchClick}
