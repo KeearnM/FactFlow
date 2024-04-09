@@ -34,6 +34,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CalculateSentiment from "../utils/CalculateSentiment";
 import Button from "@mui/material/Button";
+import FactCheckModal from "./FactCheckModal";
 
 //Expand card logic
 const ExpandMore = styled((props) => {
@@ -58,6 +59,9 @@ const DisplayArticles = () => {
   const isoDate = twoWeeksAgo.toISOString().split("T")[0];
 
   const [searchParams, setSearchParams] = useState({});
+
+  //state to control the modal
+  const [showModal, setShowModal] = useState(false);
 
   //variables to receive results back from useGetArticles
   const [articles, setArticles] = useState([]);
@@ -97,6 +101,11 @@ const DisplayArticles = () => {
 
   const handleFactCheckClick = () => {
     // CALL FOR FACT CHECK MODAL / LOGIC HERE! @Kee Arn
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false); // Close the modal
   };
 
   // Render your component based on the state values (isLoading)
@@ -204,6 +213,13 @@ const DisplayArticles = () => {
               <CardContent>
                 <Typography paragraph>{article.summary}</Typography>
               </CardContent>
+
+              <FactCheckModal
+                open={showModal}
+                onClose={handleCloseModal}
+                story={article.description}
+              ></FactCheckModal>
+
               <div style={{ display: "flex", justifyContent: "flex-end" }}>
                 <Button
                   size="large"

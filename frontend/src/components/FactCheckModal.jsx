@@ -1,13 +1,47 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import CircularProgress from "@mui/material/CircularProgress";
+import useFactCheck from "../hooks/useFactCheck";
 
-const FactCheckModal = (prop) => {
+const FactCheckModal = (props) => {
+  const { loading, result, error } = useFactCheck(props.story);
+  const [displayResult, setDisplayResult] = useState([]);
+  const [claims, setClaims] = useState();
+  const [source, setSource] = useState();
+  const [analysis, setAnalysis] = useState();
+  const [bias, setBias] = useState();
+
+  const stringParse = (geminiRes) => {
+    if (geminiRes.startsWith("```")) {
+      const cleanString = geminiRes.replace(/^```|```$/g, "");
+      if (/^(json|JSON)/i.test(cleanString)) {
+        const parsedStr = cleanString.replace(/^(json|JSON)\s*/, "");
+        const jsonparsed = JSON.parse(parsedStr);
+        console.log(geminiRes); //when using geminiRes sit appears straight away
+        console.log(jsonparsed);
+        setDisplayResult(geminiRes);
+        setClaims(jsonparsed.claims);
+        setSource(jsonparsed.credible_sources);
+        setAnalysis(jsonparsed.fact_check_results.analysis);
+        setBias(jsonparsed.potential_biases);
+      }
+    } else {
+      setDisplayResult(geminiRes);
+    }
+  };
+
+  useEffect(() => {
+    if (result) {
+      stringParse(result);
+    }
+  }, [result]);
+
   return (
     <Modal
-      open={prop.open}
-      onClose={prop.onClose}
+      open={props.open}
+      onClose={props.onClose}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
@@ -29,7 +63,14 @@ const FactCheckModal = (prop) => {
           Fact Check Result
         </Typography>
         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          {prop.result}
+          <h4>Claims</h4>
+          {claims}
+          <h4>Sources</h4>
+          {source}
+          <h4>Analysis</h4>
+          {analysis}
+          <h4>Bias</h4>
+          {bias}
         </Typography>
       </Box>
     </Modal>
