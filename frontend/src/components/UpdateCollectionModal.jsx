@@ -23,7 +23,6 @@ const UpdateCollectionModal = (props) => {
   return (
     <>
       <Modal
-        key={props.key}
         open={open}
         onClose={props.handleCloseUpdateModal}
         aria-labelledby="update-collection-modal"
@@ -88,9 +87,8 @@ const UpdateCollectionModal = (props) => {
                     margin="normal"
                     required
                     fullWidth
-                    key={props.key}
-                    id={props.id}
-                    label={`${props.q}`}
+                    id={props.modalData._id}
+                    label={`${props.modalData.q}`}
                     // onChange={(e) => setLoginEmail(e.target.value)}
                   />
                 </Grid>
