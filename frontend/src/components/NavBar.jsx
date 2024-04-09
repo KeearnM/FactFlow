@@ -73,7 +73,12 @@ const NavBar = () => {
               Main
             </NavLink>
           </li>*/}
-          <li style={{ marginLeft: "auto" }}>
+          <li
+            style={{
+              marginLeft: "auto",
+              marginRight: "2rem",
+            }}
+          >
             {!userCtx.accessToken ? (
               <button
                 className={styles.loginButton}
