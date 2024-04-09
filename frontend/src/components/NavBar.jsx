@@ -11,12 +11,14 @@
  |
  *===========================================================================*/
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
+import UserContext from "../context/user";
 
 // importing icons from MUI Icons
-import LoginIcon from "@mui/icons-material/Login";
+import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
+import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 import Login from "./Login";
 
 /*====================
@@ -26,12 +28,23 @@ CREATE NAVBAR & SET ITS NAVIGATION LOGIC
 const NavBar = () => {
   const [openLoginModal, setOpenLoginModal] = useState(false);
 
+  const userCtx = useContext(UserContext);
+
   const handleOpenLoginModal = () => {
     setOpenLoginModal(true);
   };
 
   const handleCloseLoginModal = () => {
     setOpenLoginModal(false);
+  };
+
+  const handleLogout = () => {
+    // Clear user context or any stored tokens or session data
+    userCtx.setAccessToken(null);
+    userCtx.setRole(null);
+    userCtx.setLoggedUserId(null);
+    alert("Logged out!");
+    navigate("/Main");
   };
 
   return (
@@ -62,12 +75,18 @@ const NavBar = () => {
             </NavLink>
           </li>*/}
           <li style={{ marginLeft: "auto" }}>
-            <button
-              className={styles.loginButton}
-              onClick={handleOpenLoginModal}
-            >
-              Login <LoginIcon />
-            </button>
+            {!userCtx.accessToken ? (
+              <button
+                className={styles.loginButton}
+                onClick={handleOpenLoginModal}
+              >
+                Login <LockOpenOutlinedIcon />
+              </button>
+            ) : (
+              <button className={styles.logoutButton} onClick={handleLogout}>
+                Logout <ExitToAppOutlinedIcon />
+              </button>
+            )}
           </li>
         </ul>
       </nav>

@@ -1,0 +1,1554 @@
+{
+    "status": 200,
+    "numResults": 10000,
+    "results": [
+        {
+            "createdAt": "2024-04-08T09:09:45.487607+00:00",
+            "updatedAt": "2024-04-08T09:31:46.033729+00:00",
+            "initializedAt": "2024-04-08T09:29:23.884281+00:00",
+            "id": "d4fa89184d8a4390b814a5e90f9db006",
+            "name": "Australian Observatory Detects Unusual Magnetar Behavior",
+            "summary": "Radio telescopes have observed a magnetar, XTE J1810-197, that is a neutron star with a powerful magnetic field located nearby Earth. The star, previously dormant, is emitting unusual radio pulses that appear to be circularly polarized, which is unprecedented for magnetars. Researchers have suggested that a superheated plasma above the magnetar's magnetic pole is acting as a polarizing filter, but the exact mechanism is yet to be determined. The observations also revealed systematic changes in the magnetar's radio beam orientation, challenging some models used to explain Fast Radio Bursts.",
+            "summaryReferences": [],
+            "keyPoints": [
+                {
+                    "point": "Researchers detected systematic changes in the magnetar's radio beam orientation, suggesting precession, post X-ray enhanced activity, and radio reactivation.",
+                    "references": [
+                        "1d78b12d038b4bda892c1f8093cd03a2"
+                    ]
+                },
+                {
+                    "point": "The magnetar XTE J1810-197, which was previously dormant for over a decade, has reactivated and emitted radio signals.",
+                    "references": [
+                        "224458ca634f44aaa5d7062a4c268ff4"
+                    ]
+                },
+                {
+                    "point": "The research team observed that the radio emissions from XTE J1810-197 are emitting rapidly changing circular polarization, unlike typical magnetars.",
+                    "references": [
+                        "3ab0835b813643008592bd080e342a4b"
+                    ]
+                }
+            ],
+            "sentiment": {
+                "positive": 0.15239064,
+                "negative": 0.32048932,
+                "neutral": 0.52712005
+            },
+            "uniqueCount": 6,
+            "reprintCount": 0,
+            "totalCount": 6,
+            "countries": [
+                {
+                    "name": "de",
+                    "count": 1
+                },
+                {
+                    "name": "gb",
+                    "count": 1
+                },
+                {
+                    "name": "us",
+                    "count": 2
+                },
+                {
+                    "name": "au",
+                    "count": 1
+                }
+            ],
+            "topCountries": [
+                "us"
+            ],
+            "topics": [],
+            "topTopics": [],
+            "categories": [
+                {
+                    "name": "Science",
+                    "count": 1
+                },
+                {
+                    "name": "Tech",
+                    "count": 1
+                }
+            ],
+            "topCategories": [
+                {
+                    "name": "Science"
+                },
+                {
+                    "name": "Tech"
+                }
+            ],
+            "people": [
+                {
+                    "wikidataId": "Q2779432",
+                    "name": "Michael Kramer",
+                    "count": 1
+                },
+                {
+                    "wikidataId": "Q298913",
+                    "name": "Michael E. Brown",
+                    "count": 2
+                }
+            ],
+            "topPeople": [],
+            "companies": [
+                {
+                    "id": "c0b0129300154dd49a3b6f6dbdd19826",
+                    "name": "Commonwealth Scientific and Industrial Research Organisation",
+                    "domains": [
+                        "csiro.au"
+                    ],
+                    "symbols": [],
+                    "count": 1
+                }
+            ],
+            "topCompanies": [],
+            "locations": [],
+            "topLocations": []
+        },
+        {
+            "createdAt": "2024-04-08T09:08:03.045394+00:00",
+            "updatedAt": "2024-04-08T09:33:38.874121+00:00",
+            "initializedAt": "2024-04-08T09:16:54.936924+00:00",
+            "id": "5656d919b9e7499db52eb0c0ac9f692c",
+            "name": "US Awards TSMC $6.6B for Arizona Expansion",
+            "summary": "The US government will award Taiwan Semiconductor Manufacturing Co. (TSMC) $6.6bn in grants and $5bn in loans to support the expansion of its chip manufacturing operations in Phoenix, Arizona, creating the first major TSMC factory in the US. TSMC will also invest an additional $25bn, bringing its total investment in Arizona to over $65bn. The first two plants' construction is already underway, with production scheduled to start in 2025 and 2028, respectively. The funding will enable TSMC to build a third factory. Once all three factories are operational, they are expected to provide 6,000 direct jobs and additional 20,000 construction jobs.",
+            "summaryReferences": [
+                "8f8fef62daa24ad7bac35ed7739f4e18",
+                "618ea81005d34b4f91677f16d73ccf34",
+                "8c80c25d202140ddb720ed653bd18191",
+                "daa4e9f3c327436ebacbe1ab7ed70a1d",
+                "b8518c7792c5431aa66eccbf694b1c00"
+            ],
+            "keyPoints": [
+                {
+                    "point": "According to Commerce Secretary Gina Raimondo, TSMC's advanced chips support artificial intelligence and national security.",
+                    "references": [
+                        "618ea81005d34b4f91677f16d73ccf34",
+                        "b8518c7792c5431aa66eccbf694b1c00",
+                        "8c80c25d202140ddb720ed653bd18191"
+                    ]
+                },
+                {
+                    "point": "This investment represents the largest foreign direct investment in a new project in U.S. history.",
+                    "references": [
+                        "618ea81005d34b4f91677f16d73ccf34",
+                        "8f8fef62daa24ad7bac35ed7739f4e18",
+                        "b8518c7792c5431aa66eccbf694b1c00",
+                        "8c80c25d202140ddb720ed653bd18191"
+                    ]
+                },
+                {
+                    "point": "TSMC has already created more than 25,000 jobs and attracted 14 semiconductor suppliers for the state of Arizona.",
+                    "references": [
+                        "8c80c25d202140ddb720ed653bd18191",
+                        "8f8fef62daa24ad7bac35ed7739f4e18",
+                        "618ea81005d34b4f91677f16d73ccf34"
+                    ]
+                }
+            ],
+            "sentiment": {
+                "positive": 0.72776324,
+                "negative": 0.04199773,
+                "neutral": 0.23023905
+            },
+            "uniqueCount": 10,
+            "reprintCount": 18,
+            "totalCount": 28,
+            "countries": [
+                {
+                    "name": "us",
+                    "count": 17
+                },
+                {
+                    "name": "in",
+                    "count": 4
+                },
+                {
+                    "name": "sg",
+                    "count": 1
+                },
+                {
+                    "name": "ca",
+                    "count": 3
+                },
+                {
+                    "name": "my",
+                    "count": 1
+                },
+                {
+                    "name": "jp",
+                    "count": 1
+                },
+                {
+                    "name": "gb",
+                    "count": 1
+                }
+            ],
+            "topCountries": [
+                "us"
+            ],
+            "topics": [],
+            "topTopics": [],
+            "categories": [
+                {
+                    "name": "Politics",
+                    "count": 12
+                },
+                {
+                    "name": "Tech",
+                    "count": 4
+                },
+                {
+                    "name": "Business",
+                    "count": 3
+                },
+                {
+                    "name": "World",
+                    "count": 1
+                }
+            ],
+            "topCategories": [
+                {
+                    "name": "Politics"
+                }
+            ],
+            "people": [
+                {
+                    "wikidataId": "Q6279",
+                    "name": "Joe Biden",
+                    "count": 10
+                },
+                {
+                    "wikidataId": "Q5562913",
+                    "name": "Gina Raimondo",
+                    "count": 24
+                },
+                {
+                    "wikidataId": "Q305177",
+                    "name": "Jensen Huang",
+                    "count": 1
+                },
+                {
+                    "wikidataId": "Q6470875",
+                    "name": "Lael Brainard",
+                    "count": 3
+                },
+                {
+                    "wikidataId": "Q357510",
+                    "name": "Mark Kelly",
+                    "count": 1
+                },
+                {
+                    "wikidataId": "Q265852",
+                    "name": "Tim Cook",
+                    "count": 1
+                },
+                {
+                    "wikidataId": "Q22686",
+                    "name": "Donald Trump",
+                    "count": 2
+                },
+                {
+                    "wikidataId": "Q263725",
+                    "name": "Janet Yellen",
+                    "count": 2
+                }
+            ],
+            "topPeople": [
+                {
+                    "wikidataId": "Q5562913",
+                    "name": "Gina Raimondo"
+                }
+            ],
+            "companies": [
+                {
+                    "id": "13a00fdbdb0948c790761cb8b7f8d7f7",
+                    "name": "Systems on Silicon Manufacturing Company Pte. Ltd.",
+                    "domains": [
+                        "ssmc.com"
+                    ],
+                    "symbols": [],
+                    "count": 26
+                },
+                {
+                    "id": "f00818b03b5247d78b0a8706d69209ce",
+                    "name": "Commerce Ventures",
+                    "domains": [
+                        "commerce.vc"
+                    ],
+                    "symbols": [],
+                    "count": 11
+                },
+                {
+                    "id": "16c0e6ea111945fb9c5af03fc7ce6d82",
+                    "name": "Samsung C&T Corporation",
+                    "domains": [
+                        "samsungcnt.com"
+                    ],
+                    "symbols": [
+                        "028260.KS",
+                        "02826K.KS"
+                    ],
+                    "count": 10
+                },
+                {
+                    "id": "4b328f7bf98d4e2cbf83b1c10355ab38",
+                    "name": "Taiwan Semiconductor Manufacturing Company Limited",
+                    "domains": [
+                        "tsmc.com"
+                    ],
+                    "symbols": [
+                        "2330.TW",
+                        "TSM"
+                    ],
+                    "count": 6
+                },
+                {
+                    "id": "a0814c8159d248e680a86a9396001a42",
+                    "name": "BAE Systems plc",
+                    "domains": [
+                        "baesystems.com"
+                    ],
+                    "symbols": [
+                        "BA.L",
+                        "BSP.DE"
+                    ],
+                    "count": 1
+                }
+            ],
+            "topCompanies": [
+                {
+                    "id": "13a00fdbdb0948c790761cb8b7f8d7f7",
+                    "name": "Systems on Silicon Manufacturing Company Pte. Ltd.",
+                    "domains": [
+                        "ssmc.com"
+                    ],
+                    "symbols": []
+                }
+            ],
+            "locations": [
+                {
+                    "state": "AZ",
+                    "city": "Phoenix",
+                    "count": 1
+                }
+            ],
+            "topLocations": []
+        },
+        {
+            "createdAt": "2024-04-08T08:47:11.175606+00:00",
+            "updatedAt": "2024-04-08T09:32:13.588936+00:00",
+            "initializedAt": "2024-04-08T09:12:58.932447+00:00",
+            "id": "0fa65ea1f1de46c387ed04db3613a0e7",
+            "name": "Teenage Boy Stabbed to Death Outside Birmingham Shopping Centre",
+            "summary": "A 15-year-old boy was fatally stabbed at West Bromwich's New Square shopping centre around 9:15 pm, leading to a murder investigation and the closure of the shopping centre. The police are appealing for information on the suspects and are increasing patrols and offering reassurance to the community. The boy's family has been informed of his death, and paramedics were unable to save him.",
+            "summaryReferences": [],
+            "keyPoints": [
+                {
+                    "point": "The murder took place in the West Bromwich town center, specifically at New Square shopping center.",
+                    "references": [
+                        "ff45d74951a845359d4dc38040ebd9e5"
+                    ]
+                },
+                {
+                    "point": "National Express West Midlands had to divert several local services due to the ongoing incident in the area.",
+                    "references": [
+                        "e18982360a2c4e8bb65659d8d9df18ae"
+                    ]
+                },
+                {
+                    "point": "The incident led to the closure of the New Square shopping center, with a spokesperson for the centre providing updates on the situation.",
+                    "references": [
+                        "935a21cb95494c168a5bfe819e2d1403"
+                    ]
+                }
+            ],
+            "sentiment": {
+                "positive": 0.06676069,
+                "negative": 0.6477358,
+                "neutral": 0.2855035
+            },
+            "uniqueCount": 8,
+            "reprintCount": 3,
+            "totalCount": 11,
+            "countries": [
+                {
+                    "name": "gb",
+                    "count": 9
+                },
+                {
+                    "name": "ie",
+                    "count": 1
+                },
+                {
+                    "name": "us",
+                    "count": 1
+                }
+            ],
+            "topCountries": [
+                "gb"
+            ],
+            "topics": [
+                {
+                    "name": "Crime",
+                    "count": 11
+                },
+                {
+                    "name": "Murder",
+                    "count": 7
+                }
+            ],
+            "topTopics": [
+                {
+                    "name": "Crime"
+                },
+                {
+                    "name": "Murder"
+                }
+            ],
+            "categories": [
+                {
+                    "name": "General",
+                    "count": 11
+                }
+            ],
+            "topCategories": [
+                {
+                    "name": "General"
+                }
+            ],
+            "people": [],
+            "topPeople": [],
+            "companies": [
+                {
+                    "id": "f9283446eb784013bf55b66be4806b6b",
+                    "name": "National Express Coventry",
+                    "domains": [
+                        "nxbus.co.uk"
+                    ],
+                    "symbols": [],
+                    "count": 1
+                }
+            ],
+            "topCompanies": [],
+            "locations": [
+                {
+                    "state": "ENG",
+                    "city": "Sandwell",
+                    "count": 9
+                },
+                {
+                    "state": "ENG",
+                    "city": "Birmingham",
+                    "count": 1
+                }
+            ],
+            "topLocations": [
+                {
+                    "state": "ENG",
+                    "city": "Sandwell"
+                }
+            ]
+        },
+        {
+            "createdAt": "2024-04-08T08:28:55.971214+00:00",
+            "updatedAt": "2024-04-08T09:16:57.551461+00:00",
+            "initializedAt": "2024-04-08T08:34:34.743816+00:00",
+            "id": "edae6186d3d643438c3bd8f93c9e5cf2",
+            "name": "Jason Tarry Named Next John Lewis Partnership Chair",
+            "summary": "Jason Tarry, former CEO of Tesco UK and Ireland, has been appointed as the new chairman of the John Lewis Partnership, replacing Sharon White. Tarry brings 33 years of experience at Tesco and is expected to take up the role in September. His appointment was praised by the board for his leadership and strong identification with Partnership values.",
+            "summaryReferences": [],
+            "keyPoints": [
+                {
+                    "point": "The John Lewis Partnership had been searching for a new chair since Sharon White announced she would not seek a second term.",
+                    "references": [
+                        "020419562d114bd9ac26ca5656402f3c"
+                    ]
+                },
+                {
+                    "point": "Potential candidates for the chair position included former Sainsbury’s boss Justin King and departing Marks & Spencer boss Katie Bickerstaffe.",
+                    "references": [
+                        "020419562d114bd9ac26ca5656402f3c"
+                    ]
+                },
+                {
+                    "point": "Jason Tarry expressed admiration for the employee-ownership model of the John Lewis Partnership and the values it stands for.",
+                    "references": [
+                        "020419562d114bd9ac26ca5656402f3c"
+                    ]
+                }
+            ],
+            "sentiment": {
+                "positive": 0.4079429,
+                "negative": 0.22684807,
+                "neutral": 0.36520904
+            },
+            "uniqueCount": 13,
+            "reprintCount": 9,
+            "totalCount": 22,
+            "countries": [
+                {
+                    "name": "gb",
+                    "count": 11
+                },
+                {
+                    "name": "ca",
+                    "count": 2
+                },
+                {
+                    "name": "us",
+                    "count": 6
+                },
+                {
+                    "name": "in",
+                    "count": 1
+                },
+                {
+                    "name": "fr",
+                    "count": 1
+                },
+                {
+                    "name": "au",
+                    "count": 1
+                }
+            ],
+            "topCountries": [
+                "gb"
+            ],
+            "topics": [
+                {
+                    "name": "Business Leaders",
+                    "count": 10
+                },
+                {
+                    "name": "Fashion",
+                    "count": 1
+                },
+                {
+                    "name": "Style",
+                    "count": 1
+                }
+            ],
+            "topTopics": [
+                {
+                    "name": "Business Leaders"
+                }
+            ],
+            "categories": [
+                {
+                    "name": "Business",
+                    "count": 15
+                },
+                {
+                    "name": "Sports",
+                    "count": 1
+                }
+            ],
+            "topCategories": [
+                {
+                    "name": "Business"
+                }
+            ],
+            "people": [
+                {
+                    "wikidataId": "Q5627332",
+                    "name": "Justin King",
+                    "count": 2
+                },
+                {
+                    "wikidataId": "Q7183001",
+                    "name": "Philece Sampler",
+                    "count": 1
+                },
+                {
+                    "wikidataId": "Q45380",
+                    "name": "John Lewis",
+                    "count": 1
+                }
+            ],
+            "topPeople": [],
+            "companies": [
+                {
+                    "id": "39f3f5f9bcfe4aa2937f239f884e83f5",
+                    "name": "Tesco Ireland",
+                    "domains": [
+                        "tesco.ie"
+                    ],
+                    "symbols": [],
+                    "count": 19
+                },
+                {
+                    "id": "72a473ff96374cfbab00a163c601e7be",
+                    "name": "Waitrose & Partners",
+                    "domains": [
+                        "waitrose.com"
+                    ],
+                    "symbols": [],
+                    "count": 10
+                },
+                {
+                    "id": "005b46c68cfe4455a3fc8951dc663fe9",
+                    "name": "John Lewis Partnership",
+                    "domains": [
+                        "johnlewispartnership.co.uk"
+                    ],
+                    "symbols": [],
+                    "count": 19
+                },
+                {
+                    "id": "a17d610c83cc4b508396db10c845817f",
+                    "name": "Partnership Assurance",
+                    "domains": [
+                        "partnership.co.uk"
+                    ],
+                    "symbols": [],
+                    "count": 5
+                },
+                {
+                    "id": "a8d8b068ece24b06b2c74d5b5a2b587f",
+                    "name": "Tesco PLC",
+                    "domains": [
+                        "tescoplc.com"
+                    ],
+                    "symbols": [
+                        "TSCDY",
+                        "TSCO.L"
+                    ],
+                    "count": 1
+                }
+            ],
+            "topCompanies": [
+                {
+                    "id": "39f3f5f9bcfe4aa2937f239f884e83f5",
+                    "name": "Tesco Ireland",
+                    "domains": [
+                        "tesco.ie"
+                    ],
+                    "symbols": []
+                },
+                {
+                    "id": "005b46c68cfe4455a3fc8951dc663fe9",
+                    "name": "John Lewis Partnership",
+                    "domains": [
+                        "johnlewispartnership.co.uk"
+                    ],
+                    "symbols": []
+                },
+                {
+                    "id": "72a473ff96374cfbab00a163c601e7be",
+                    "name": "Waitrose & Partners",
+                    "domains": [
+                        "waitrose.com"
+                    ],
+                    "symbols": []
+                }
+            ],
+            "locations": [],
+            "topLocations": []
+        },
+        {
+            "createdAt": "2024-04-08T08:12:50.273635+00:00",
+            "updatedAt": "2024-04-08T09:29:21.323223+00:00",
+            "initializedAt": "2024-04-08T09:29:21.323228+00:00",
+            "id": "cfd0b86531cf41c28ad0feb8b58d7e6e",
+            "name": "Kamindu Mendis Wins ICC Men's Player of the Month",
+            "summary": null,
+            "summaryReferences": [],
+            "keyPoints": [],
+            "sentiment": {
+                "positive": 0.7813448,
+                "negative": 0.05347826,
+                "neutral": 0.16517696
+            },
+            "uniqueCount": 5,
+            "reprintCount": 1,
+            "totalCount": 6,
+            "countries": [
+                {
+                    "name": "in",
+                    "count": 4
+                },
+                {
+                    "name": "gb",
+                    "count": 1
+                },
+                {
+                    "name": "pk",
+                    "count": 1
+                }
+            ],
+            "topCountries": [
+                "in"
+            ],
+            "topics": [],
+            "topTopics": [],
+            "categories": [],
+            "topCategories": [],
+            "people": [
+                {
+                    "wikidataId": "Q16224322",
+                    "name": "Matt Henry",
+                    "count": 4
+                },
+                {
+                    "wikidataId": "Q22006833",
+                    "name": "Kamindu Mendis",
+                    "count": 4
+                },
+                {
+                    "wikidataId": "Q23007856",
+                    "name": "Prabath Jayasuriya",
+                    "count": 2
+                },
+                {
+                    "wikidataId": "Q21620663",
+                    "name": "Mark Adair",
+                    "count": 4
+                },
+                {
+                    "wikidataId": "Q22004824",
+                    "name": "Wanindu Hasaranga",
+                    "count": 2
+                },
+                {
+                    "wikidataId": "Q27898955",
+                    "name": "Amelia Kerr",
+                    "count": 4
+                },
+                {
+                    "wikidataId": "Q28542240",
+                    "name": "Ashleigh Gardner",
+                    "count": 4
+                },
+                {
+                    "wikidataId": "Q3531887",
+                    "name": "Somachandra de Silva",
+                    "count": 2
+                },
+                {
+                    "wikidataId": "Q20740775",
+                    "name": "Dhananjaya de Silva",
+                    "count": 2
+                },
+                {
+                    "wikidataId": "Q5693931",
+                    "name": "Heather Knight",
+                    "count": 2
+                },
+                {
+                    "wikidataId": "Q106027595",
+                    "name": "Maia Bouchier",
+                    "count": 3
+                },
+                {
+                    "wikidataId": "Q15882395",
+                    "name": "Stina Blackstenius",
+                    "count": 1
+                },
+                {
+                    "wikidataId": "Q20706960",
+                    "name": "Beth Mead",
+                    "count": 1
+                },
+                {
+                    "wikidataId": "Q36103087",
+                    "name": "Lotte Wubben-Moy",
+                    "count": 1
+                },
+                {
+                    "wikidataId": "Q56640871",
+                    "name": "Victoria Pelova",
+                    "count": 1
+                },
+                {
+                    "wikidataId": "Q55642886",
+                    "name": "Anna Leat",
+                    "count": 1
+                }
+            ],
+            "topPeople": [],
+            "companies": [
+                {
+                    "id": "bc41968b47134c9597654bf239ee51a1",
+                    "name": "ICC Holdings, Inc.",
+                    "domains": [
+                        "ir.iccholdingsinc.com"
+                    ],
+                    "symbols": [
+                        "ICCH"
+                    ],
+                    "count": 5
+                }
+            ],
+            "topCompanies": [
+                {
+                    "id": "bc41968b47134c9597654bf239ee51a1",
+                    "name": "ICC Holdings, Inc.",
+                    "domains": [
+                        "ir.iccholdingsinc.com"
+                    ],
+                    "symbols": [
+                        "ICCH"
+                    ]
+                }
+            ],
+            "locations": [
+                {
+                    "count": 1
+                }
+            ],
+            "topLocations": [
+                {}
+            ]
+        },
+        {
+            "createdAt": "2024-04-08T07:48:47.910826+00:00",
+            "updatedAt": "2024-04-08T09:32:08.541024+00:00",
+            "initializedAt": "2024-04-08T08:09:22.569876+00:00",
+            "id": "30c3e14024714dd28eccf52cccab0939",
+            "name": "Enforcement Directorate Questions Delhi Chief Minister's Aide in Excise Policy Scam",
+            "summary": "The Enforcement Directorate has intensified its probe into Delhi's excise policy case, questioning Delhi Chief Minister Arvind Kejriwal's personal assistant Bibhav Kumar under the Prevention of Money Laundering Act (PMLA) and summoning Aam Aadmi Party (AAP) MLA Durgesh Pathak in relation to the now-scrapped Delhi Liquor Policy. Both Kumar and Pathak have been called for questioning in the case.",
+            "summaryReferences": [],
+            "keyPoints": [
+                {
+                    "point": "Delhi Chief Minister Arvind Kejriwal is currently housed at Tihar Jail under money laundering charges related to the Delhi excise policy scam.",
+                    "references": [
+                        "67e81f72470e48ea9ac494d87e64c0b7",
+                        "db60f07601eb4f8a884b97fe9fb1102a"
+                    ]
+                },
+                {
+                    "point": "The statement of Delhi Chief Minister's personal assistant, Bibhav Kumar, has been recorded under the provisions of the Prevention of Money Laundering Act (PMLA).",
+                    "references": [
+                        "957dc4336cff4d219bc0bf063cff16a4",
+                        "53f7859b6cd249d0936a66164f84e401"
+                    ]
+                },
+                {
+                    "point": "The Enforcement Directorate has reportedly intensified its probe into the Delhi excise policy case, further summoning Aam Aadmi Party (AAP) MLA Durgesh Pathak in connection with the now-scrapped Delhi Liquor Policy.",
+                    "references": [
+                        "b9a36f3d93cb43e1bec9e21c7ad122e7"
+                    ]
+                }
+            ],
+            "sentiment": {
+                "positive": 0.06900944,
+                "negative": 0.607936,
+                "neutral": 0.32305452
+            },
+            "uniqueCount": 13,
+            "reprintCount": 12,
+            "totalCount": 25,
+            "countries": [
+                {
+                    "name": "in",
+                    "count": 20
+                },
+                {
+                    "name": "us",
+                    "count": 5
+                }
+            ],
+            "topCountries": [
+                "in"
+            ],
+            "topics": [
+                {
+                    "name": "Scam",
+                    "count": 6
+                }
+            ],
+            "topTopics": [
+                {
+                    "name": "Scam"
+                }
+            ],
+            "categories": [
+                {
+                    "name": "Politics",
+                    "count": 2
+                }
+            ],
+            "topCategories": [],
+            "people": [
+                {
+                    "wikidataId": "Q59155",
+                    "name": "Arvind Kejriwal",
+                    "count": 22
+                },
+                {
+                    "wikidataId": "Q6323498",
+                    "name": "K. Kavitha",
+                    "count": 1
+                },
+                {
+                    "wikidataId": "Q19899404",
+                    "name": "Raghav Chadha",
+                    "count": 1
+                }
+            ],
+            "topPeople": [
+                {
+                    "wikidataId": "Q59155",
+                    "name": "Arvind Kejriwal"
+                }
+            ],
+            "companies": [
+                {
+                    "id": "50a3663b904b45218f63061a73370a07",
+                    "name": "Ed Meier",
+                    "domains": [
+                        "edmeier.de"
+                    ],
+                    "symbols": [],
+                    "count": 1
+                }
+            ],
+            "topCompanies": [],
+            "locations": [
+                {
+                    "state": "DL",
+                    "count": 15
+                },
+                {
+                    "city": "Delhi",
+                    "count": 12
+                },
+                {
+                    "state": "IN-DL",
+                    "city": "Delhi",
+                    "count": 1
+                },
+                {
+                    "state": "DL",
+                    "city": "New Delhi",
+                    "count": 11
+                }
+            ],
+            "topLocations": [
+                {
+                    "state": "DL"
+                },
+                {
+                    "city": "Delhi"
+                },
+                {
+                    "state": "DL",
+                    "city": "New Delhi"
+                }
+            ]
+        },
+        {
+            "createdAt": "2024-04-08T07:46:36.451718+00:00",
+            "updatedAt": "2024-04-08T09:33:57.981641+00:00",
+            "initializedAt": "2024-04-08T09:18:29.971700+00:00",
+            "id": "c864ab0fc29d4a0db938a13003ce0efd",
+            "name": "Morgan Wallen arrested",
+            "summary": "Singer Morgan Wallen was arrested and charged with three counts of reckless endangerment and disorderly conduct after throwing a chair from the rooftop of Chief’s Bar in Nashville. The bar staff informed police, who then reviewed surveillance footage of Wallen throwing the chair, confirming the incident. Wallen's next court date is set for May 3rd, ten days before his 31st birthday.",
+            "summaryReferences": [],
+            "keyPoints": [
+                {
+                    "point": "Morgan Wallen's bond was set at $15,250.",
+                    "references": [
+                        "5f50b451ef644db4b8d1c1d640ff003b"
+                    ]
+                },
+                {
+                    "point": "Morgan Wallen was set to headline Nashville’s Nissan Stadium on the same date as his court appearance.",
+                    "references": [
+                        "5f50b451ef644db4b8d1c1d640ff003b"
+                    ]
+                },
+                {
+                    "point": "Morgan Wallen recently returned to the road for his One Night At A Time World Tour.",
+                    "references": [
+                        "5f50b451ef644db4b8d1c1d640ff003b"
+                    ]
+                }
+            ],
+            "sentiment": {
+                "positive": 0.11941909,
+                "negative": 0.5495537,
+                "neutral": 0.3310272
+            },
+            "uniqueCount": 6,
+            "reprintCount": 3,
+            "totalCount": 9,
+            "countries": [
+                {
+                    "name": "us",
+                    "count": 8
+                },
+                {
+                    "name": "pk",
+                    "count": 1
+                }
+            ],
+            "topCountries": [
+                "us"
+            ],
+            "topics": [
+                {
+                    "name": "Country Music",
+                    "count": 1
+                },
+                {
+                    "name": "Crime",
+                    "count": 1
+                },
+                {
+                    "name": "Theater",
+                    "count": 1
+                }
+            ],
+            "topTopics": [
+                {
+                    "name": "Country Music"
+                },
+                {
+                    "name": "Crime"
+                },
+                {
+                    "name": "Theater"
+                }
+            ],
+            "categories": [
+                {
+                    "name": "Entertainment",
+                    "count": 9
+                },
+                {
+                    "name": "General",
+                    "count": 1
+                }
+            ],
+            "topCategories": [
+                {
+                    "name": "Entertainment"
+                }
+            ],
+            "people": [
+                {
+                    "wikidataId": "Q975911",
+                    "name": "Eric Church",
+                    "count": 5
+                }
+            ],
+            "topPeople": [
+                {
+                    "wikidataId": "Q975911",
+                    "name": "Eric Church"
+                }
+            ],
+            "companies": [],
+            "topCompanies": [],
+            "locations": [
+                {
+                    "state": "TN",
+                    "city": "Nashville",
+                    "count": 6
+                },
+                {
+                    "state": "TN",
+                    "count": 4
+                },
+                {
+                    "state": "TN",
+                    "city": "Nashville-Davidson",
+                    "count": 1
+                },
+                {
+                    "state": "TN",
+                    "county": "Davidson County",
+                    "city": "Nashville-Davidson",
+                    "count": 7
+                }
+            ],
+            "topLocations": [
+                {
+                    "state": "TN",
+                    "county": "Davidson County",
+                    "city": "Nashville-Davidson"
+                },
+                {
+                    "state": "TN",
+                    "city": "Nashville"
+                },
+                {
+                    "state": "TN"
+                }
+            ]
+        },
+        {
+            "createdAt": "2024-04-08T07:44:39.008454+00:00",
+            "updatedAt": "2024-04-08T09:32:43.873368+00:00",
+            "initializedAt": "2024-04-08T08:09:22.634781+00:00",
+            "id": "89b59806e3d241ae8c62420ad15afca1",
+            "name": "Supreme Court Rejects Plea in PM Modi Defamation Case",
+            "summary": "The Supreme Court rejected AAP leader Sanjay Singh's plea to quash defamation case summons related to comments on Prime Minister Modi's educational qualification. The court determined that the high court had already observed that all contentions available to the parties were kept open and the trial judge would not be influenced by any observations made in the order. In addition, Singh's argument that the complaint ought to have been filed by the Public Prosecutor was not accepted. Singh and Delhi Chief Minister Arvind Kejriwal are accused of making defamatory statements against Gujarat University in connection with the Prime Minister's academic degree.",
+            "summaryReferences": [],
+            "keyPoints": [],
+            "sentiment": {
+                "positive": 0.07138812,
+                "negative": 0.648508,
+                "neutral": 0.2801039
+            },
+            "uniqueCount": 12,
+            "reprintCount": 4,
+            "totalCount": 16,
+            "countries": [
+                {
+                    "name": "in",
+                    "count": 13
+                },
+                {
+                    "name": "us",
+                    "count": 3
+                }
+            ],
+            "topCountries": [
+                "in"
+            ],
+            "topics": [
+                {
+                    "name": "Supreme Court",
+                    "count": 5
+                },
+                {
+                    "name": "Academia",
+                    "count": 1
+                }
+            ],
+            "topTopics": [
+                {
+                    "name": "Supreme Court"
+                }
+            ],
+            "categories": [
+                {
+                    "name": "Politics",
+                    "count": 5
+                },
+                {
+                    "name": "World",
+                    "count": 1
+                }
+            ],
+            "topCategories": [
+                {
+                    "name": "Politics"
+                }
+            ],
+            "people": [
+                {
+                    "wikidataId": "Q1058",
+                    "name": "Narendra Modi",
+                    "count": 12
+                },
+                {
+                    "wikidataId": "Q111396551",
+                    "name": "Sanjay Singh Gangwar",
+                    "count": 11
+                },
+                {
+                    "wikidataId": "Q6251376",
+                    "name": "Rebecca Pratt",
+                    "count": 2
+                },
+                {
+                    "wikidataId": "Q59155",
+                    "name": "Arvind Kejriwal",
+                    "count": 10
+                }
+            ],
+            "topPeople": [
+                {
+                    "wikidataId": "Q1058",
+                    "name": "Narendra Modi"
+                },
+                {
+                    "wikidataId": "Q111396551",
+                    "name": "Sanjay Singh Gangwar"
+                },
+                {
+                    "wikidataId": "Q59155",
+                    "name": "Arvind Kejriwal"
+                }
+            ],
+            "companies": [
+                {
+                    "id": "7e092fd434d84f578c00ed881352829d",
+                    "name": "Putnam Municipal Opportunities Trust",
+                    "domains": [
+                        "putnam.com"
+                    ],
+                    "symbols": [
+                        "PMO"
+                    ],
+                    "count": 1
+                },
+                {
+                    "id": "1f3b98bafc9a4253a5c28f41495d019b",
+                    "name": "GU",
+                    "domains": [
+                        "gu-global.com"
+                    ],
+                    "symbols": [],
+                    "count": 1
+                },
+                {
+                    "id": "fd35d4dc8d594988aaa62a6dbab651b0",
+                    "name": "Press Trust of India",
+                    "domains": [
+                        "ptinews.com"
+                    ],
+                    "symbols": [],
+                    "count": 1
+                },
+                {
+                    "id": "e14f08a57a7744599984b42fc4152232",
+                    "name": "HC Group Inc.",
+                    "domains": [
+                        "hcgroup.com"
+                    ],
+                    "symbols": [
+                        "2280.HK"
+                    ],
+                    "count": 2
+                }
+            ],
+            "topCompanies": [],
+            "locations": [
+                {
+                    "state": "GJ",
+                    "count": 7
+                },
+                {
+                    "state": "DL",
+                    "city": "New Delhi",
+                    "count": 6
+                }
+            ],
+            "topLocations": [
+                {
+                    "state": "GJ"
+                },
+                {
+                    "state": "DL",
+                    "city": "New Delhi"
+                }
+            ]
+        },
+        {
+            "createdAt": "2024-04-08T07:30:02.823509+00:00",
+            "updatedAt": "2024-04-08T09:10:11.479149+00:00",
+            "initializedAt": "2024-04-08T08:47:09.400852+00:00",
+            "id": "e2d90a3a94f0422ea1bc5a2fa5cdd8d4",
+            "name": "India Assisting Five Nations in Developing Early Warning Systems",
+            "summary": "India is assisting Nepal, Maldives, Sri Lanka, Bangladesh, and Mauritius in developing early warning systems to reduce the impact of extreme weather events, aligning with the 'Early Warnings for All' initiative by the United Nations. The effort aims to ensure that everyone is protected by life-saving early warning systems by 2027. Financial and technical support will be provided to these countries to enhance their meteorological observations. The initiative will involve the establishment of meteorological observatories, access to numerical models, and a decision support system by India and the respective nations.",
+            "summaryReferences": [],
+            "keyPoints": [
+                {
+                    "point": "India is actively involved in supporting five out of the 30 countries identified in the first phase of the initiative. The IMD director general emphasized the critical need for early warning systems in countries lacking the capacity to provide timely alerts about extreme weather events.",
+                    "references": [
+                        "5d8234bd0b594ac1b1372d31ef67c417"
+                    ]
+                },
+                {
+                    "point": "India and other nations have pledged to offer technical expertise to bolster meteorological observations in the countries being assisted. This includes setting up meteorological observatories, allowing access to numerical models, creating a decision support system, and providing computing power.",
+                    "references": [
+                        "bbbf49ed4bc84476891ce6c0b4377303"
+                    ]
+                },
+                {
+                    "point": "The IMD aims to empower neighboring nations to mitigate the impact of extreme weather events by providing forecasts, warnings, and assistance in developing systems for data exchange and warning dissemination.",
+                    "references": [
+                        "33278d1fad864ac2b11729c80447d19a"
+                    ]
+                }
+            ],
+            "sentiment": {
+                "positive": 0.16597418,
+                "negative": 0.39770317,
+                "neutral": 0.43632266
+            },
+            "uniqueCount": 6,
+            "reprintCount": 6,
+            "totalCount": 12,
+            "countries": [
+                {
+                    "name": "in",
+                    "count": 11
+                },
+                {
+                    "name": "us",
+                    "count": 1
+                }
+            ],
+            "topCountries": [
+                "in"
+            ],
+            "topics": [],
+            "topTopics": [],
+            "categories": [
+                {
+                    "name": "Science",
+                    "count": 1
+                },
+                {
+                    "name": "Weather",
+                    "count": 4
+                },
+                {
+                    "name": "World",
+                    "count": 1
+                }
+            ],
+            "topCategories": [
+                {
+                    "name": "Weather"
+                }
+            ],
+            "people": [],
+            "topPeople": [],
+            "companies": [
+                {
+                    "id": "03f0511c1e9e4c4b8f7c1253a73b9ea7",
+                    "name": "IMD Startup Competition",
+                    "domains": [
+                        "imd.org"
+                    ],
+                    "symbols": [],
+                    "count": 10
+                },
+                {
+                    "id": "fd35d4dc8d594988aaa62a6dbab651b0",
+                    "name": "Press Trust of India",
+                    "domains": [
+                        "ptinews.com"
+                    ],
+                    "symbols": [],
+                    "count": 1
+                },
+                {
+                    "id": "110a77c06afc40f18154661715632621",
+                    "name": "GVS S.p.A.",
+                    "domains": [
+                        "gvs.com"
+                    ],
+                    "symbols": [
+                        "GVS.MI"
+                    ],
+                    "count": 1
+                }
+            ],
+            "topCompanies": [
+                {
+                    "id": "03f0511c1e9e4c4b8f7c1253a73b9ea7",
+                    "name": "IMD Startup Competition",
+                    "domains": [
+                        "imd.org"
+                    ],
+                    "symbols": []
+                }
+            ],
+            "locations": [
+                {
+                    "count": 2
+                },
+                {
+                    "state": "DL",
+                    "city": "New Delhi",
+                    "count": 2
+                }
+            ],
+            "topLocations": [
+                {},
+                {
+                    "state": "DL",
+                    "city": "New Delhi"
+                }
+            ]
+        },
+        {
+            "createdAt": "2024-04-08T07:28:50.806686+00:00",
+            "updatedAt": "2024-04-08T09:31:56.187799+00:00",
+            "initializedAt": "2024-04-08T08:51:18.772206+00:00",
+            "id": "46ff80b141b643719a558899a5da410f",
+            "name": "Alibaba Cloud Cuts Prices for Global AI Push",
+            "summary": "Alibaba Cloud is reducing prices on core public cloud products outside of China by an average of 23% to support global AI growth. The announcement was made during a virtual summit and aims to make cloud infrastructure more affordable for AI development. The price cuts are now available to customers in Singapore, Japan, Indonesia, the United Arab Emirates, Germany, and the US.",
+            "summaryReferences": [],
+            "keyPoints": [
+                {
+                    "point": "Alibaba Cloud's new pricing strategy aims to support long-term AI growth in the global market.",
+                    "references": [
+                        "503b6fb67138476cbdeac7ddca7c0ea7"
+                    ]
+                },
+                {
+                    "point": "Alibaba Cloud President mentioned that only 4% of organizations currently have generative AI in mature enterprise-wide production.",
+                    "references": [
+                        "503b6fb67138476cbdeac7ddca7c0ea7"
+                    ]
+                },
+                {
+                    "point": "Alibaba Cloud is implementing price cuts for the third time over the past 12 months to attract developers to build data-intensive AI models and applications.",
+                    "references": [
+                        "bbb277c0cfc747d69512a60ac65edf9d"
+                    ]
+                }
+            ],
+            "sentiment": {
+                "positive": 0.12098298,
+                "negative": 0.6226961,
+                "neutral": 0.2563209
+            },
+            "uniqueCount": 5,
+            "reprintCount": 26,
+            "totalCount": 31,
+            "countries": [
+                {
+                    "name": "us",
+                    "count": 13
+                },
+                {
+                    "name": "gb",
+                    "count": 1
+                },
+                {
+                    "name": "de",
+                    "count": 1
+                },
+                {
+                    "name": "ca",
+                    "count": 4
+                },
+                {
+                    "name": "in",
+                    "count": 5
+                },
+                {
+                    "name": "lk",
+                    "count": 1
+                },
+                {
+                    "name": "au",
+                    "count": 1
+                },
+                {
+                    "name": "sg",
+                    "count": 1
+                },
+                {
+                    "name": "cn",
+                    "count": 1
+                },
+                {
+                    "name": "bh",
+                    "count": 1
+                },
+                {
+                    "name": "pk",
+                    "count": 1
+                }
+            ],
+            "topCountries": [
+                "us"
+            ],
+            "topics": [
+                {
+                    "name": "Markets",
+                    "count": 1
+                },
+                {
+                    "name": "AI",
+                    "count": 7
+                }
+            ],
+            "topTopics": [
+                {
+                    "name": "AI"
+                }
+            ],
+            "categories": [
+                {
+                    "name": "Tech",
+                    "count": 12
+                },
+                {
+                    "name": "Finance",
+                    "count": 1
+                },
+                {
+                    "name": "Business",
+                    "count": 1
+                }
+            ],
+            "topCategories": [
+                {
+                    "name": "Tech"
+                }
+            ],
+            "people": [],
+            "topPeople": [],
+            "companies": [
+                {
+                    "id": "02da9f9e6b144c91a95f9f8d3ab27e10",
+                    "name": "Alibaba Cloud",
+                    "domains": [
+                        "in.alibabacloud.com"
+                    ],
+                    "symbols": [],
+                    "count": 22
+                },
+                {
+                    "id": "2e6aa32adb304b148ae42ed177ca1767",
+                    "name": "Alibaba Group Holding Limited",
+                    "domains": [
+                        "alibabagroup.com"
+                    ],
+                    "symbols": [
+                        "9988.HK",
+                        "AHLA.DE",
+                        "BABA",
+                        "BABA.SW"
+                    ],
+                    "count": 24
+                }
+            ],
+            "topCompanies": [
+                {
+                    "id": "2e6aa32adb304b148ae42ed177ca1767",
+                    "name": "Alibaba Group Holding Limited",
+                    "domains": [
+                        "alibabagroup.com"
+                    ],
+                    "symbols": [
+                        "9988.HK",
+                        "AHLA.DE",
+                        "BABA",
+                        "BABA.SW"
+                    ]
+                },
+                {
+                    "id": "02da9f9e6b144c91a95f9f8d3ab27e10",
+                    "name": "Alibaba Cloud",
+                    "domains": [
+                        "in.alibabacloud.com"
+                    ],
+                    "symbols": []
+                }
+            ],
+            "locations": [
+                {
+                    "state": "ZJ",
+                    "city": "Hangzhou City",
+                    "count": 2
+                }
+            ],
+            "topLocations": []
+        }
+    ]
+}

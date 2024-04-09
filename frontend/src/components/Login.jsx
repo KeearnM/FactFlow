@@ -110,6 +110,7 @@ const Login = ({ handleClose }) => {
       const decoded = jwtDecode(res.data.access); //decode to get claims
       alert("Logged in!");
       handleClose(); //to close the modal after successful login
+
       //   const userRes = await fetchData(
       //     `/auth/${decoded.userId}`,
       //     "GET",
