@@ -190,7 +190,7 @@ const SideBar = () => {
             )}
             <SubMenu icon={<CreateNewFolderIcon />} label="Feed">
               <Link to="/Feed" className={styles.feed}>
-                <MenuItem>View/Manage Collections</MenuItem>
+                <MenuItem>View/Manage All</MenuItem>
               </Link>
               {userCtx.smartCollection.map((item) => {
                 return (
