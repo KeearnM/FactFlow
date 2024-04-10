@@ -1,13 +1,21 @@
 /*=============================================================================
- | Purpose:  USE REACT-ROUTER-DOM COMPONENTS TO CREATE A CUSTOMIZABLE TOP
- |           NAVIGATION BAR THAT WILL ALSO INCLUDE THE APP LOGO AND LOGIN
- |           BUTTON.
+ | Purpose:  THIS FUNCTION DEFINES A NAVIGATION BAR COMPONENT FOR THE APP.
+ |           THE NAVIGATION BAR DISPLAYS A LOGO LINKING TO THE MAIN PAGE AND 
+ |           EITHER A LOGIN BUTTON OR A LOGOUT BUTTON BASED ON THE USER'S 
+ |           AUTHENTICATION STATUS. THE NAVIGATION BAR ALSO CONTAINS THE 
+ |           FUNCTIONALITY TO OPEN A LOGIN MODAL WHEN THE LOGIN BUTTON IS 
+ |           CLICKED AND TO LOG THE USER OUT WHEN THE LOGOUT BUTTON IS CLICKED.
  |           DOCUMENTATION: https://www.npmjs.com/package/react-router-dom
  |           ICONS FROM MATERIAL UI: https://mui.com/material-ui/material-icons/
  |
- | Input / Parameters:  NA.
+ | Input / Parameters:  THE FUNCTION DOES NOT TAKE EXTERNAL PROPS AS INPUT. 
+ |                      HOWEVER, IT UTILIZES CONTEXT FROM UserContext TO CHECK 
+ |                      THE USER'S AUTHENTICATION STATUS AND MANAGE USER DATA.
  |   
- | Output / Returns:  NAVIGATES XXXXXX <<<< UPDATE LATER
+ | Output / Returns:  THE FUNCTION RETURNS A NAVIGATION BAR COMPONENT THAT CAN BE
+ |                    RENDERED ON THE WEBPAGE. IT DISPLAYS THE APPLICATION LOGO,
+ |                    A LOGIN BUTTON OR LOGOUT BUTTON, AND CONDITIONALLY RENDERS
+ |                    A LOGIN MODAL WHEN THE LOGIN BUTTON IS CLICKED.
  |
  *===========================================================================*/
 
@@ -65,14 +73,6 @@ const NavBar = () => {
               ></img>
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink
-              className={(navData) => (navData.isActive ? styles.active : "")}
-              to="/main"
-            >
-              Main
-            </NavLink>
-          </li>*/}
           <li
             style={{
               marginLeft: "auto",
@@ -94,7 +94,7 @@ const NavBar = () => {
           </li>
         </ul>
       </nav>
-      {/* Render the Login component conditionally */}
+      {/*========== Render the Login component conditionally ==========*/}
       {openLoginModal && <Login handleClose={handleCloseLoginModal} />}
     </header>
   );

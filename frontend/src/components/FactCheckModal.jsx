@@ -1,3 +1,24 @@
+/*=============================================================================
+ | Purpose:  THIS FUNCTION DEFINES A MODAL COMPONENT FOR DISPLAYING FACT-CHECK
+ |           RESULTS TO THE USER. THE COMPONENT FETCHES FACT-CHECKING DATA
+ |           USING THE useFactCheck HOOK BASED ON A GIVEN STORY PROP. IT PARSES
+ |           THE RESULTING DATA AND PRESENTS IT IN A STRUCTURED FORMAT WITHIN
+ |           THE MODAL, INCLUDING CLAIMS, SOURCES, ANALYSIS, AND BIAS.
+ |
+ | Input / Parameters:  THE FUNCTION TAKES A 'props' OBJECT AS INPUT, WITH AN
+ |                      'open' PROPERTY INDICATING THE MODAL'S VISIBILITY AND
+ |                      AN 'onClose' FUNCTION FOR HANDLING MODAL CLOSE EVENTS.
+ |                      THE 'props.story' PROPERTY IS USED TO FETCH FACT-CHECKING
+ |                      DATA.
+ |   
+ | Output / Returns:  THE FUNCTION RETURNS A MODAL COMPONENT THAT DISPLAYS
+ |                    FACT-CHECKING RESULTS TO THE USER. THE MODAL WILL SHOW
+ |                    A LOADING INDICATOR IF FACT-CHECKING DATA IS BEING
+ |                    FETCHED, AND ONCE LOADED, IT WILL DISPLAY THE CLAIMS,
+ |                    SOURCES, ANALYSIS, AND BIAS RELATED TO THE STORY.
+ |
+ *===========================================================================*/
+
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";

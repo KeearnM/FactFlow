@@ -1,3 +1,32 @@
+/*=============================================================================
+ | Purpose:  THIS COMPONENT IS RESPONSIBLE FOR RENDERING A MODAL THAT ALLOWS
+ |           USERS TO UPDATE AN EXISTING COLLECTION. IT UTILIZES REACT,
+ |           MUI (MATERIAL-UI), AND CONTEXT TO INTERACT WITH THE USER INTERFACE,
+ |           FETCH DATA, AND MANAGE STATE RELATED TO THE COLLECTION UPDATE.
+ |
+ | Input / Parameters:  THE COMPONENT EXPECTS THE FOLLOWING INPUT PROPS:
+ |           - updatedCollection: A STRING REPRESENTING THE UPDATED COLLECTION 
+ |                                NAME OR CONTENT.
+ |           - modalData: AN OBJECT CONTAINING DATA ABOUT THE COLLECTION TO BE 
+ |                         UPDATED, INCLUDING ITS ID (modalData._id) AND NAME 
+ |                         (modalData.q).
+ |           - setShowUpdateCollectionModal: A FUNCTION TO CONTROL THE MODAL'S 
+ |                                           VISIBILITY.
+ |           - handleCloseUpdateModal: A FUNCTION TO CLOSE THE MODAL.
+ |           - getCollectionByUserID: A FUNCTION TO REFRESH THE USER'S 
+ |                                     COLLECTION DATA AFTER AN UPDATE.
+ |           - setUpdatedCollection: A FUNCTION TO UPDATE THE updatedCollection 
+ |                                   STATE WITH THE USER'S INPUT.
+ |           - accessToken: A TOKEN USED FOR AUTHENTICATION.
+ |   
+ | Output / Returns:  THE COMPONENT DOES NOT RETURN ANY VALUE DIRECTLY, BUT 
+ |                    IT PROVIDES A MODAL INTERFACE THAT ENABLES USERS TO 
+ |                    UPDATE THEIR COLLECTIONS. ON SUCCESSFUL COLLECTION UPDATE, 
+ |                    THE MODAL IS CLOSED, AND THE USER'S COLLECTION DATA IS 
+ |                    REFRESHED.
+ |
+ *===========================================================================*/
+
 import React, { useContext } from "react";
 import useFetch from "../hooks/useFetch";
 import UserContext from "../context/user";

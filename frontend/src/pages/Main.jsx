@@ -1,5 +1,4 @@
 import React from "react";
-import DisplayStories from "../components/DisplayStories";
 import DisplayArticles from "../components/DisplayArticles";
 import SearchBar from "../components/SearchBar";
 

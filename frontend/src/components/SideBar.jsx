@@ -1,12 +1,22 @@
 /*=============================================================================
- | Purpose:  USE REACT-PRO-SIDEBAR COMPONENTS TO CREATE A HIGH LEVEL AND
- |           CUSTOMIZABLE SIDE NAVIGATION
+ | Purpose:  THIS COMPONENT SERVES AS THE MAIN SIDEBAR NAVIGATION COMPONENT
+ |           FOR THE APP. IT PROVIDES NAVIGATION OPTIONS FOR DIFFERENT CATEGORIES
+ |           SUCH AS FINANCE, SPORTS, BUSINESS, POLITICS, TECH, AND ENTERTAINMENT.
+ |           IT ALSO DISPLAYS A FEED SECTION WITH PERSONALIZED TOPICS FOR LOGGED-IN
+ |           USERS, ALLOWING THEM TO VIEW OR MANAGE THEIR SMART COLLECTIONS.
  |           DOCUMENTATION: https://www.npmjs.com/package/react-pro-sidebar
  |           ICONS FROM MATERIAL UI: https://mui.com/material-ui/material-icons/
  |
- | Input / Parameters:  NA.
+ | Input / Parameters:  THIS COMPONENT DOES NOT TAKE ANY DIRECT INPUT PROPS. 
+ |                      HOWEVER, IT USES CONTEXT FROM UserContext TO ACCESS USER 
+ |                      DATA SUCH AS loggedUserId, accessToken, AND smartCollection.
+ |                      IT ALSO USES THE useFetch HOOK TO FETCH DATA FROM THE API.
  |   
- | Output / Returns:  NAVIGATES XXXXXX <<<< UPDATE LATER
+ | Output / Returns:  THE COMPONENT DOES NOT RETURN ANY VALUE DIRECTLY. INSTEAD,
+ |                    IT RENDERS A SIDEBAR UI THAT PROVIDES NAVIGATION OPTIONS
+ |                    FOR DIFFERENT CATEGORIES AND A FEED SECTION FOR LOGGED-IN 
+ |                    USERS. IT ALSO ALLOWS USERS TO NAVIGATE TO DIFFERENT 
+ |                    ROUTES BASED ON THEIR SELECTIONS.
  |
  *===========================================================================*/
 
@@ -31,7 +41,6 @@ import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const userCtx = useContext(UserContext);
-  // const [smartCollection, setSmartCollection] = useState([]); // changed to useContext from App
   const fetchData = useFetch();
 
   const navigate = useNavigate();
@@ -55,7 +64,6 @@ const SideBar = () => {
 
   useEffect(() => {
     getCollectionByUserID();
-    // console.log(userCtx.loggedUserId);
   }, [userCtx.loggedUserId]);
 
   const toggleSidebar = () => {
@@ -180,7 +188,7 @@ const SideBar = () => {
 
         <br />
 
-        {/* render the additional side bar links if user is logged in */}
+        {/*========== render the additional side bar links if user is logged in ========== */}
         {userCtx.accessToken ? (
           <Menu>
             {!collapsed && (

@@ -1,11 +1,34 @@
 /*=============================================================================
- | Purpose:  FETCH ARTICLE DATA FROM PERIGON API USING PARAMETERS PASSED AS 
- |           PROPS TO TAILOR THE API CALL.
+ | Purpose:  THIS CUSTOM HOOK IS DESIGNED TO FETCH AND MANAGE ARTICLES BASED
+ |           ON THE PROVIDED SEARCH PARAMETERS. IT ENSURES THAT THE ARTICLES 
+ |           ARE FETCHED BASED ON VARIOUS FILTERS SUCH AS QUERY, COUNTRY, 
+ |           SOURCE GROUP, CATEGORY, TOPIC, DATE RANGE, SORTING, AND MORE.
+ |           THE HOOK HANDLES LOADING STATES, ERROR HANDLING, AND UPDATES
+ |           THE NUMBER OF RESULTS AND ARTICLES ACCORDINGLY.  
  |           API DOC: https://docs.goperigon.com/reference/all-news
  |
- | Input / Parameters:  SEARCH TERM (Q), FROM ().
+ | Input / Parameters:  THE HOOK REQUIRES THE FOLLOWING INPUTS:
+ |           - searchParams: AN OBJECT CONTAINING VARIOUS SEARCH PARAMETERS 
+ |                           SUCH AS QUERY (q), COUNTRY, SOURCE GROUP, 
+ |                           CATEGORY, TOPIC, DATE RANGE, SORTING CRITERIA, 
+ |                           AND MORE.
+ |           - articles: A STATE VARIABLE TO STORE THE FETCHED ARTICLES.
+ |           - setArticles: A FUNCTION TO UPDATE THE ARTICLES STATE.
+ |           - numResults: A STATE VARIABLE TO STORE THE TOTAL NUMBER OF 
+ |                         RESULTS.
+ |           - setNumResults: A FUNCTION TO UPDATE THE numResults STATE.
+ |           - isLoading: A STATE VARIABLE TO MANAGE THE LOADING STATE.
+ |           - setIsLoading: A FUNCTION TO UPDATE THE isLoading STATE.
+ |           - error: A STATE VARIABLE TO STORE ANY ERRORS ENCOUNTERED.
+ |           - setError: A FUNCTION TO UPDATE THE ERROR STATE.
  |   
- | Output / Returns:  DESCRIBE THE OUTPUT IT PRODUCES.
+ | Output / Returns:  THE HOOK RETURNS AN OBJECT CONTAINING:
+ |           - articles: THE FETCHED ARTICLES BASED ON THE SEARCH PARAMETERS.
+ |           - numResults: THE TOTAL NUMBER OF RESULTS FETCHED.
+ |           - isLoading: A BOOLEAN INDICATING WHETHER THE DATA IS CURRENTLY 
+ |                        BEING FETCHED.
+ |           - error: ANY ERROR MESSAGES ENCOUNTERED DURING THE FETCHING 
+ |                    PROCESS.
  |
  *===========================================================================*/
 

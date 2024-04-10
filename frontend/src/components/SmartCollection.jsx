@@ -1,4 +1,25 @@
-import React, { useEffect, useState } from "react";
+/*=============================================================================
+ | Purpose:  THIS COMPONENT SERVES AS A UI COMPONENT THAT ALLOWS USERS TO
+ |           MANAGE THEIR SMART COLLECTIONS. IT ENABLES USERS TO ADD, UPDATE,
+ |           AND DELETE COLLECTIONS OF STORIES BASED ON THEIR INTERESTS OR
+ |           TOPICS OF CHOICE. THE COMPONENT INTERACTS WITH THE BACKEND API
+ |           TO PERFORM THESE CRUD OPERATIONS.
+ |
+ | Input / Parameters:  THIS COMPONENT DOES NOT TAKE ANY DIRECT INPUT PROPS.
+ |                      HOWEVER, IT DOES USE CONTEXT FROM UserContext TO ACCESS
+ |                      USER DATA SUCH AS loggedUserId AND smartCollection. IT
+ |                      ALSO USES THE useFetch HOOK TO FETCH DATA FROM THE API.
+ |   
+ | Output / Returns:  THE COMPONENT DOES NOT RETURN ANY VALUE DIRECTLY. INSTEAD,
+ |                    IT RENDERS A USER INTERFACE THAT DISPLAYS A LIST OF
+ |                    SMART COLLECTIONS, ALLOWING USERS TO ADD NEW COLLECTIONS,
+ |                    UPDATE EXISTING ONES, AND DELETE COLLECTIONS. ON
+ |                    SUCCESSFUL INTERACTIONS, IT FETCHES AND UPDATES THE
+ |                    COLLECTION DATA VIA getCollectionByUserID FUNCTION.
+ |
+ *===========================================================================*/
+
+import React, { useState } from "react";
 import { useContext } from "react";
 import UserContext from "../context/user";
 import useFetch from "../hooks/useFetch";
@@ -20,11 +41,6 @@ const SmartCollection = () => {
   const [showUpdateCollectionModal, setShowUpdateCollectionModal] =
     useState(false);
   const [modalData, setModalData] = useState([]);
-
-  // for testing purposes -- to delete when completed
-  // console.log(userCtx.smartCollection);
-  // console.log(userCtx.loggedUserId);
-  // console.log(newCollection);
 
   const ExpandMore = styled((props) => {
     const { expand, ...other } = props;

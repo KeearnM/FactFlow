@@ -107,24 +107,8 @@ const Login = ({ handleClose }) => {
       userCtx.setAccessToken(res.data.access);
       userCtx.setLoggedUserId(res.data.id);
       const decoded = jwtDecode(res.data.access); //decode to get claims
+      userCtx.setRole(decoded.role); //get role from claims
       handleClose(); //to close the modal after successful login
-
-      //   const userRes = await fetchData(
-      //     `/auth/${decoded.userId}`,
-      //     "GET",
-      //     {},
-      //     { Authorization: `Bearer ${res.data.access}` }
-      //   );
-      //   if (userRes.ok) {
-      //     const populatedUser = userRes.data;
-      //     userCtx.setRole(decoded.role); //get your role from your claims
-      //     alert("Login!");
-      //     console.log(userCtx.role);
-      //     handleClose(); //to close the modal after successful login
-      //   } else {
-      //     console.log("Error fetching user data");
-      //     console.log(userRes.data);
-      //   }
     } else {
       alert(JSON.stringify(res.data));
     }
@@ -136,10 +120,7 @@ const Login = ({ handleClose }) => {
     if (showLogin) {
       loginUser(); //if login call the login endpoint
     } else if (!showLogin) {
-      console.log(
-        `registrationFirstName= ${registrationFirstName} registrationLastName= ${registrationLastName} registrationEmail= ${registrationEmail} registrationPassword= ${registrationPassword}`
-      );
-      registerUser(); //if registration call the registration endpoint
+      registerUser(); //if registration is truthy call the registration endpoint
     }
   };
 

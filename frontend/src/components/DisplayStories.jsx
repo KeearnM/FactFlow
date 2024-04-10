@@ -1,3 +1,26 @@
+/*=============================================================================
+ | Purpose:  THIS FUNCTION DEFINES A COMPONENT TO DISPLAY A LIST OF STORIES
+ |           RETRIEVED FROM AN EXTERNAL SOURCE. IT UTILIZES THE useGetStories
+ |           HOOK TO FETCH STORIES BASED ON THE PROVIDED SEARCH PARAMETERS.
+ |           THE COMPONENT RENDERS EACH STORY AS A CARD WITH DETAILS SUCH AS
+ |           STORY NAME, SUMMARY, UPDATED DATE, SENTIMENT, AND KEY POINTS.
+ |           USERS CAN EXPAND INDIVIDUAL CARDS TO VIEW KEY POINTS ASSOCIATED
+ |           WITH EACH STORY.
+ |
+ | Input / Parameters:  THE FUNCTION DOES NOT TAKE ANY EXPLICIT INPUT PROPS.
+ |                      HOWEVER, IT USES THE 'useLocation' HOOK FROM
+ |                      'react-router-dom' TO RECEIVE SEARCH PARAMETERS FROM
+ |                      THE PARENT COMPONENTS. THESE SEARCH PARAMETERS ARE
+ |                      THEN USED TO FETCH THE RELEVANT STORIES.
+ |   
+ | Output / Returns:  THE FUNCTION RETURNS A UI COMPONENT THAT DISPLAYS A
+ |                    LIST OF STORIES IN A MASONRY LAYOUT. EACH STORY IS
+ |                    REPRESENTED BY A CARD CONTAINING ITS DETAILS, INCLUDING
+ |                    NAME, SUMMARY, DATE, SENTIMENT, AND KEY POINTS. USERS
+ |                    CAN EXPAND THESE CARDS TO VIEW THE KEY POINTS.
+ |
+ *===========================================================================*/
+
 import React, { useEffect, useState } from "react";
 import useGetStories from "/src/hooks/useGetStories";
 import FormatDate from "/src/utils/FormatDate";
@@ -139,8 +162,10 @@ const DisplayStories = () => {
               unmountOnExit
             >
               <CardContent>
+                <Typography paragraph className="text-center">
+                  Key Points:
+                </Typography>
                 <Typography paragraph>
-                  <p className="text-center">Key Points:</p>
                   {story.keyPoints.map((keyPoint, index) => (
                     <div key={index}>
                       &#8226; {keyPoint.point}

@@ -13,7 +13,7 @@
 import React from "react";
 import NavBar from "./NavBar";
 import SideBar from "./SideBar";
-import { Routes } from "react-router-dom";
+// import { Routes } from "react-router-dom";
 
 const Layout = ({ children }) => {
   return (

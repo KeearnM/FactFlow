@@ -1,11 +1,29 @@
 /*=============================================================================
- | Purpose:  FETCH STORIES DATA FROM PERIGON API USING PARAMETERS PASSED AS 
- |           PROPS TO TAILOR THE API CALL.
+ | Purpose:  CUSTOM HOOK TO FETCH STORIES DATA FROM PERIGON API USING PARAMETERS  
+ |           PASSED AS PROPS TO TAILOR THE API CALL. IT ENSURES THAT THE STORIES
+ |           ARE FETCHED ONLY WHEN THE SEARCH QUERY CHANGES. ALSO MANAGE LOADING
+ |           STATES, ERROR HANDLING AND NUM OF RESULTS ACCORDINGLY
  |           API DOC: https://docs.goperigon.com/reference/stories-1
  |
- | Input / Parameters:  .
- |   
- | Output / Returns:  DESCRIBE THE OUTPUT IT PRODUCES.
+ | Input / Parameters:  The hook requires the following inputs:
+ |           - searchParams: An object containing search parameters, notably 
+ |                           the query (q).
+ |           - stories: A state variable to store the fetched stories.
+ |           - setStories: A function to update the stories state.
+ |           - numResults: A state variable to store the total number of 
+ |                         results.
+ |           - setNumResults: A function to update the numResults state.
+ |           - isLoading: A state variable to manage the loading state.
+ |           - setIsLoading: A function to update the isLoading state.
+ |           - error: A state variable to store any errors encountered.
+ |           - setError: A function to update the error state.
+ | Output / Returns:  The hook returns an object containing:
+ |           - stories: The fetched stories based on the search parameters.
+ |           - numResults: The total number of results fetched.
+ |           - isLoading: A boolean indicating whether the data is currently 
+ |                        being fetched.
+ |           - error: Any error messages encountered during the fetching 
+ |                    process.
  |
  *===========================================================================*/
 

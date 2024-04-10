@@ -1,13 +1,23 @@
 /*=============================================================================
- | Purpose:  EXPLAIN WHAT THIS FUNCTION DOES TO SUPPORT THE CORRECT
- |           OPERATION OF THE PROGRAM, AND HOW IT DOES IT.
+ | Purpose:  THIS CUSTOM HOOK UTILIZES GOOGLE'S GENERATIVE AI TO PERFORM A
+ |           FACT-CHECK ON AN ARTICLE. IT APPLIES SAFETY SETTINGS TO ENSURE
+ |           THAT THE GENERATED CONTENT ADHERES TO CERTAIN HARMFUL CONTENT 
+ |           GUIDELINES. THE HOOK TAKES AN ARTICLE AS INPUT, REQUESTS A 
+ |           FACT-CHECK ANALYSIS FROM THE GENERATIVE MODEL, AND RETRIEVES
+ |           THE RESULTING FACT-CHECKED DATA.
  |           API DOC: Takes in a article and return the fact check result from gemini
  |
- | Input / Parameters:  DESCRIBE THE INPUT IT REQUIRES. => the article will be the input
- |
+ | Input / Parameters:  THE HOOK REQUIRES THE FOLLOWING INPUTS:
+ |           - article: A STRING REPRESENTING THE ARTICLE THAT NEEDS TO BE 
+ |                      FACT-CHECKED.
  |   
- | Output / Returns:  DESCRIBE THE OUTPUT IT PRODUCES. => the result via the result state
- | example: const { factCheck, loading, result, error } = useFactCheck();
+ | Output / Returns:  THE HOOK RETURNS AN OBJECT CONTAINING:
+ |           - loading: A BOOLEAN INDICATING WHETHER THE FACT-CHECK IS 
+ |                      CURRENTLY IN PROGRESS.
+ |           - result: THE RESULT OF THE FACT-CHECK, WHICH IS A TEXTUAL 
+ |                     REPRESENTATION OF THE FACT-CHECKED ARTICLE.
+ |           - error: ANY ERROR MESSAGES ENCOUNTERED DURING THE FACT-CHECKING 
+ |                    PROCESS.
  |
  *===========================================================================*/
 

@@ -1,3 +1,28 @@
+/*=============================================================================
+ | Purpose:  THIS FUNCTION DEFINES A SEARCH BAR COMPONENT FOR THE APPLICATION.
+ |           THE SEARCH BAR ALLOWS USERS TO INPUT SEARCH TERMS AND APPLY VARIOUS
+ |           FILTERS SUCH AS COUNTRY, SOURCE, CATEGORY, TOPIC, DATE RANGE, AND
+ |           SORTING OPTIONS TO REFINE THEIR SEARCH. IT ALSO PROVIDES ADVANCED
+ |           SEARCH OPTIONS THAT CAN BE EXPANDED TO INCLUDE ADDITIONAL FILTERS.
+ |
+ | Input / Parameters:  THE FUNCTION DOES NOT TAKE EXTERNAL PROPS AS INPUT.
+ |                      HOWEVER, IT MANAGES STATE FOR:
+ |                      - SEARCH INPUT VALUE
+ |                      - SELECTED COUNTRY AND SOURCE FROM DROPDOWN
+ |                      - SELECTED CATEGORIES AND TOPICS FROM CHECKBOXES
+ |                      - SELECTED DATE RANGE
+ |                      - SORT BY OPTION (DATE OR RELEVANCE)
+ |                      - REFINEMENT CHECKBOXES FOR SHOWING REPRINTS, PAYWALL, 
+ |                        AND EXCLUDING LABELS.
+ |
+ | Output / Returns:  THE FUNCTION RETURNS A SEARCH BAR COMPONENT THAT CAN BE
+ |                    RENDERED IN THE MAIN PAGE. WHEN THE SEARCH BUTTON IS 
+ |                    CLICKED, IT NAVIGATES TO THE MAIN PAGE AND PASSES THE 
+ |                    SEARCH PARAMETERS AS STATE, WHICH WILL THEN BE USED TO
+ |                    FETCH AND DISPLAY RELEVANT ARTICLES.
+ |
+ *===========================================================================*/
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -22,11 +47,8 @@ import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
 import Collapse from "@mui/material/Collapse";
 import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
-// import ExpandLessOutlinedIcon from "@mui/icons-material/ExpandLessOutlined";
-// import MoreVertIcon from "@mui/icons-material/MoreVert";
 import IconButton from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
 
