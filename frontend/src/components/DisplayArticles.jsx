@@ -53,9 +53,6 @@ const DisplayArticles = () => {
   const location = useLocation();
   const [searchParams, setSearchParams] = useState({});
 
-  //state to control the modal
-  const [showModal, setShowModal] = useState(false);
-
   //variables to receive results back from useGetArticles
   const [articles, setArticles] = useState([]);
   const [numResults, setNumResults] = useState(0);
@@ -91,13 +88,16 @@ const DisplayArticles = () => {
     }));
   };
 
-  // Function to open fact check modal
-  const handleFactCheckClick = () => {
-    setShowModal(true);
+  //modal controllers
+
+  const [openModalId, setOpenModalId] = useState(null);
+
+  const handleOpenModal = (articleId) => {
+    setOpenModalId(articleId);
   };
 
   const handleCloseModal = () => {
-    setShowModal(false); // Close the modal
+    setOpenModalId(null);
   };
 
   // Render your component based on the state values (isLoading)
@@ -210,17 +210,27 @@ const DisplayArticles = () => {
                 <Typography paragraph>{article.summary}</Typography>
               </CardContent>
 
-              <FactCheckModal
+              {/* <FactCheckModal
                 open={showModal}
                 onClose={handleCloseModal}
                 story={article.description}
-              ></FactCheckModal>
+              ></FactCheckModal> */}
+
+              {openModalId && (
+                <FactCheckModal
+                  key={openModalId}
+                  open={openModalId === article.articleId}
+                  onClose={handleCloseModal}
+                  articleId={openModalId}
+                  story={article.description}
+                />
+              )}
 
               <div style={{ display: "flex", justifyContent: "flex-end" }}>
                 <Button
                   size="large"
                   variant="contained"
-                  onClick={handleFactCheckClick}
+                  onClick={() => handleOpenModal(article.articleId)}
                   style={{ marginLeft: 5, backgroundColor: "darkgreen" }}
                 >
                   Fact Check
