@@ -258,7 +258,7 @@ const SearchBar = () => {
         subheader="FROM NEWS SOURCES TAILORED FOR YOU"
       />
       <InputLabel style={{ marginLeft: 14, fontSize: "14px" }}>
-        Get fancy with the use of words like AND, OR, NOT. You may use
+        Tip: Get fancy with the use of words like AND, OR, NOT. You may use
         "quotation marks" to search for an exact phrase for an improved search
         accuracy.
       </InputLabel>

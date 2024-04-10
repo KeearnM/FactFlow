@@ -124,9 +124,16 @@ const SmartCollection = () => {
         is.
         <br />
         <br />
-        Add a topic into your collection and get bite-sized content at your
-        fingertips.
+        <strong>
+          Add a topic into your collection and get bite-sized content at your
+          fingertips.
+        </strong>
         <br />
+      </InputLabel>
+      <InputLabel style={{ marginLeft: 14, fontSize: "14px" }}>
+        Tip: Get fancy with the use of words like AND, OR, NOT. <br /> You may
+        use "quotation marks" to search for an exact phrase for an improved
+        search accuracy.
       </InputLabel>
 
       <Box display="flex" alignItems="center">
