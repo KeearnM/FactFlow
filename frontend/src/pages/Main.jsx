@@ -6,7 +6,6 @@ import SearchBar from "../components/SearchBar";
 const Main = () => {
   return (
     <div>
-      {/* <DisplayStories></DisplayStories> */}
       <SearchBar></SearchBar>
       <DisplayArticles></DisplayArticles>
     </div>

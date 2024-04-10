@@ -68,7 +68,6 @@ const Login = ({ handleClose }) => {
     const res = await fetchData("/roles");
     if (res.ok) {
       setRoles(res.data);
-      console.log("Got Roles!" + res.data);
     } else {
       console.log(res.data);
     }
@@ -108,7 +107,6 @@ const Login = ({ handleClose }) => {
       userCtx.setAccessToken(res.data.access);
       userCtx.setLoggedUserId(res.data.id);
       const decoded = jwtDecode(res.data.access); //decode to get claims
-      alert("Logged in!");
       handleClose(); //to close the modal after successful login
 
       //   const userRes = await fetchData(
@@ -136,7 +134,6 @@ const Login = ({ handleClose }) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     if (showLogin) {
-      console.log(`loginEmail= ${loginEmail} loginPassword= ${loginPassword}`);
       loginUser(); //if login call the login endpoint
     } else if (!showLogin) {
       console.log(
