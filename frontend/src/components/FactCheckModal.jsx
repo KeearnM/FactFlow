@@ -8,9 +8,9 @@ import useFactCheck from "../hooks/useFactCheck";
 const FactCheckModal = (props) => {
   const { loading, result, error } = useFactCheck(props.story);
   const [displayResult, setDisplayResult] = useState([]);
-  const [claims, setClaims] = useState();
+  const [claims, setClaims] = useState([]);
   const [source, setSource] = useState();
-  const [analysis, setAnalysis] = useState();
+  const [analysis, setAnalysis] = useState([]);
   const [bias, setBias] = useState();
 
   const stringParse = (geminiRes) => {
@@ -24,13 +24,24 @@ const FactCheckModal = (props) => {
         setDisplayResult(geminiRes);
         setClaims(jsonparsed.claims);
         setSource(jsonparsed.credible_sources);
-        setAnalysis(jsonparsed.fact_check_results.analysis);
+        setAnalysis(jsonparsed.analysis);
         setBias(jsonparsed.potential_biases);
       }
     } else {
       setDisplayResult(geminiRes);
     }
   };
+
+  // function renderArrayWithSpaces(array) {
+  //   return array.map((item, index, arr) => (
+  //     <>
+  //       {item}
+  //       {index < arr.length - 1 && (
+  //         <span style={{ marginRight: "10px" }}> </span>
+  //       )}
+  //     </>
+  //   ));
+  // }
 
   useEffect(() => {
     if (result) {

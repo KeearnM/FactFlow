@@ -14,7 +14,7 @@
 import React, { useState, useEffect } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const useFactCheckv2 = (article) => {
+const useFactCheck = (article) => {
   const API_KEY = import.meta.env.VITE_GEMINI_KEY;
   const genAI = new GoogleGenerativeAI(API_KEY);
 
@@ -40,16 +40,10 @@ const useFactCheckv2 = (article) => {
             safetySettings,
           });
 
-          // const promptRequest =
-          //   "can you extract the claims from this article and do a fact check on them with external sources and also display each with the headers [claims], [Source] and [Verification], no using the article itself as an source";
-          // const prompt = article + promptRequest;
-
-          // const prompt = `Fact-check this article for me, please include a source for every claim and make sure the source is external and not from the article itself, for every claim indicate if its true or false as well, return the data in a JSON object: [${article}]`;
           const prompt = `I found this article [${article}]. Can you help me fact-check this  and return the analysis in a consistent JSON format?
              In the JSON file, include the following fields:
              claims: get the claims of the article.
-             credible_sources: List of credible sources (academic journals, established news organizations, government websites) found that discuss the topic.
-             fact_check_results: An object with two properties:
+             credible_sources:String of credible sources (academic journals, established news organizations, government websites) found that discuss the topic, a list of the names of sources in a string format will do.
              claim_supported: Boolean value (true/false) indicating if the claim is supported by the credible sources.
              analysis: Text explaining the analysis and potential reasons behind the fact check result (e.g., evidence for/against the claim, identified biases).
              potential_biases: (Optional) List any potential biases identified in the article or the credible sources found.`;
@@ -69,4 +63,4 @@ const useFactCheckv2 = (article) => {
   return { loading, result, error };
 };
 
-export default useFactCheckv2;
+export default useFactCheck;
