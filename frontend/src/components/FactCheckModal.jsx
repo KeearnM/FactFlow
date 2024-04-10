@@ -59,29 +59,39 @@ const FactCheckModal = (props) => {
           color: "text.primary",
         }}
       >
-        <Typography id="modal-modal-title" variant="h6" component="h2">
-          Fact Check Result
-        </Typography>
-        {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          <h4>Claims</h4>
-          {claims}
-          <h4>Sources</h4>
-          {source}
-          <h4>Analysis</h4>
-          {analysis}
-          <h4>Bias</h4>
-          {bias}
-        </Typography> */}
-        <div id="modal-modal-description" sx={{ mt: 2 }}>
-          <Typography variant="h6">Claims</Typography>
-          {claims}
-          <Typography variant="h6">Sources</Typography>
-          {source}
-          <Typography variant="h6">Analysis</Typography>
-          {analysis}
-          <Typography variant="h6">Bias</Typography>
-          {bias}
-        </div>
+        {loading ? (
+          <CircularProgress /> // Display loading indicator
+        ) : (
+          <>
+            <Typography
+              id="modal-modal-title"
+              variant="h5"
+              component="h2"
+              sx={{ mb: 2 }}
+              color="primary"
+            >
+              Fact Check Result
+            </Typography>
+            <div id="modal-modal-description" sx={{ mt: 2 }}>
+              <Typography variant="h6" sx={{ mt: 1 }}>
+                Claims
+              </Typography>
+              <Typography variant="body1">{claims}</Typography>
+              <Typography variant="h6" sx={{ mt: 1 }}>
+                Sources
+              </Typography>
+              <Typography variant="body1">{source}</Typography>
+              <Typography variant="h6" sx={{ mt: 1 }}>
+                Analysis
+              </Typography>
+              <Typography variant="body1">{analysis}</Typography>
+              <Typography variant="h6" sx={{ mt: 1 }}>
+                Bias
+              </Typography>
+              <Typography variant="body1">{bias}</Typography>
+            </div>
+          </>
+        )}
       </Box>
     </Modal>
   );
