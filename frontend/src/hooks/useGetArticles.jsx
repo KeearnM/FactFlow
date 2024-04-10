@@ -103,7 +103,8 @@ const useGetArticles = (
         url.searchParams.append("size", "40");
         url.searchParams.append("showNumResults", "false");
 
-        console.log(url.toString());
+        //uncomment to check the final URL to be sent
+        // console.log(url.toString());
 
         const response = await fetch(url, {
           method: "GET",
@@ -117,7 +118,6 @@ const useGetArticles = (
           const data = await response.json();
           setNumResults(data.numResults);
           setArticles(data.articles);
-          console.log(data);
         } else {
           setError("Failed to load articles");
         }

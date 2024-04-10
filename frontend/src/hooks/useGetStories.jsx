@@ -59,7 +59,8 @@ const useGetStories = (
         url.searchParams.append("showNumResults", "false");
         url.searchParams.append("showDuplicates", "false");
 
-        console.log(url.toString());
+        //uncomment to check the final URL to be sent
+        // console.log(url.toString());
 
         const response = await fetch(url, {
           method: "GET",
@@ -73,7 +74,6 @@ const useGetStories = (
           const data = await response.json();
           setNumResults(data.numResults);
           setStories(data.results);
-          console.log(data);
         } else {
           setError("Failed to load stories");
         }
