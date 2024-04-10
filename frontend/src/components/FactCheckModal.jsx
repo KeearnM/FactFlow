@@ -62,7 +62,7 @@ const FactCheckModal = (props) => {
         <Typography id="modal-modal-title" variant="h6" component="h2">
           Fact Check Result
         </Typography>
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+        {/* <Typography id="modal-modal-description" sx={{ mt: 2 }}>
           <h4>Claims</h4>
           {claims}
           <h4>Sources</h4>
@@ -71,7 +71,17 @@ const FactCheckModal = (props) => {
           {analysis}
           <h4>Bias</h4>
           {bias}
-        </Typography>
+        </Typography> */}
+        <div id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography variant="h6">Claims</Typography>
+          {claims}
+          <Typography variant="h6">Sources</Typography>
+          {source}
+          <Typography variant="h6">Analysis</Typography>
+          {analysis}
+          <Typography variant="h6">Bias</Typography>
+          {bias}
+        </div>
       </Box>
     </Modal>
   );
