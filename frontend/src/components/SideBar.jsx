@@ -170,17 +170,19 @@ const SideBar = () => {
           Entertainment
         </MenuItem>
 
+        <br />
+
         {/* render the additional side bar links if user is logged in */}
         {userCtx.accessToken ? (
           <Menu>
             {!collapsed && (
               <MenuItem>
-                <p className={styles.sidebar}>Your Stories</p>
+                <p className={styles.sidebar}>For You</p>
               </MenuItem>
             )}
             <SubMenu icon={<CreateNewFolderIcon />} label="Feed">
               <Link to="/Feed" className={styles.feed}>
-                <MenuItem>View/Manage Collection</MenuItem>
+                <MenuItem>View/Manage Collections</MenuItem>
               </Link>
               {userCtx.smartCollection.map((item) => {
                 return <MenuItem>{item.q}</MenuItem>;
