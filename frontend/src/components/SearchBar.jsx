@@ -245,8 +245,15 @@ const SearchBar = () => {
   return (
     <Card style={{ backgroundColor: "whitesmoke" }} elevation={0}>
       <CardHeader
-        title="Find News from the best sources, tailored to you"
-        subheader="If you want to get fancy you can use operators like AND, OR, NOT or quotation marks (embrace your search phrase with them for exact match) to further refine your search."
+        titleTypographyProps={{
+          fontSize: 36,
+          fontWeight: 700,
+        }}
+        subheaderTypographyProps={{
+          fontSize: 18,
+        }}
+        title="BE INFORMED AND INSPIRED"
+        subheader="FROM NEWS SOURCES TAILORED FOR YOU"
       />
 
       <Box display="flex" alignItems="center">
@@ -286,6 +293,11 @@ const SearchBar = () => {
           Search
         </Button>
       </Box>
+      <InputLabel style={{ marginLeft: 0, fontSize: "14px" }}>
+        Get fancy with the use of words like AND, OR, NOT. You may use
+        "quotation marks" to search for an exact phrase for an improved search
+        accuracy.
+      </InputLabel>
       {/*========== To expand for Advanced Search ==========*/}
       <CardActions>
         <small>Advanced Search</small>
