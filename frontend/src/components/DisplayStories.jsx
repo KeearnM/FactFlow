@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useGetStories from "/src/hooks/useGetStories";
 import FormatDate from "/src/utils/FormatDate";
 import "/src/components/Display.css";
+import { useLocation } from "react-router-dom";
 
 // importing icons from MUI Icons
 import BlurOnOutlinedIcon from "@mui/icons-material/BlurOnOutlined";
-import LinkIcon from "@mui/icons-material/Link";
 
 //importing card related components from MUI
 import { styled } from "@mui/material/styles";
@@ -14,7 +14,6 @@ import {
   Typography,
   Card,
   CardHeader,
-  CardMedia,
   CardContent,
   CardActions,
   Collapse,
@@ -22,7 +21,6 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CalculateSentiment from "../utils/CalculateSentiment";
-import Button from "@mui/material/Button";
 
 //Expand card logic
 const ExpandMore = styled((props) => {
@@ -37,9 +35,36 @@ const ExpandMore = styled((props) => {
 }));
 
 const DisplayStories = () => {
-  const { stories, numResults, isLoading, error } = useGetStories();
+  //receive searchParams from sibling component SideBar utilizing useNavigate and useLocation from react-router-dom
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useState({});
+
+  //variables to receive results back from useGetStories
+  const [stories, setStories] = useState([]);
+  const [numResults, setNumResults] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   //variable to control the state of the card
   const [expandedMap, setExpandedMap] = useState({});
+
+  //receive searchParams from sibling component SearchBar utilizing useNavigate and useLocation from react-router-dom
+  useEffect(() => {
+    setSearchParams(location.state?.searchParams || {});
+  }, [location.state?.searchParams]);
+
+  //runs as the page opens for the first time
+  useGetStories(
+    searchParams,
+    stories,
+    setStories,
+    numResults,
+    setNumResults,
+    isLoading,
+    setIsLoading,
+    error,
+    setError
+  );
 
   //function to set the expanded <> collapsible when clicked
   const handleExpandClick = (articleId) => {

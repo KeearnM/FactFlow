@@ -119,7 +119,7 @@ const useGetArticles = (
           setArticles(data.articles);
           console.log(data);
         } else {
-          setError("Failed to load stories");
+          setError("Failed to load articles");
         }
       } catch (error) {
         setError(error.message);

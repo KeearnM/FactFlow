@@ -103,9 +103,17 @@ const SideBar = () => {
         };
         break;
     }
-
     // Pass the search parameters state to the Main page
     navigate("/Main", { state: { searchParams } });
+  };
+
+  const handleFeedMenuItemClick = (feedMenuItem) => {
+    let searchParams = {};
+    searchParams = {
+      q: feedMenuItem,
+    };
+    // Pass the search parameters state to the Main page
+    navigate("/Feed", { state: { searchParams } });
   };
 
   return (
@@ -185,7 +193,14 @@ const SideBar = () => {
                 <MenuItem>View/Manage Collections</MenuItem>
               </Link>
               {userCtx.smartCollection.map((item) => {
-                return <MenuItem>{item.q}</MenuItem>;
+                return (
+                  <MenuItem
+                    key={item.q}
+                    onClick={() => handleFeedMenuItemClick(item.q)}
+                  >
+                    {item.q}
+                  </MenuItem>
+                );
               })}
             </SubMenu>
           </Menu>

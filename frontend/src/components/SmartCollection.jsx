@@ -21,9 +21,9 @@ const SmartCollection = () => {
   const [modalData, setModalData] = useState([]);
 
   // for testing purposes -- to delete when completed
-  console.log(userCtx.smartCollection);
-  console.log(userCtx.loggedUserId);
-  console.log(newCollection);
+  // console.log(userCtx.smartCollection);
+  // console.log(userCtx.loggedUserId);
+  // console.log(newCollection);
 
   const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -112,6 +112,7 @@ const SmartCollection = () => {
             setNewCollection(event.target.value);
           }}
         />
+        {/*========== Add Button ==========*/}
         <Button
           style={{ marginLeft: 5, height: "54px", backgroundColor: "#0db38e" }}
           size="large"
@@ -137,7 +138,7 @@ const SmartCollection = () => {
         <Grid container spacing={2}>
           <Grid item xs={6} md={6}>
             {userCtx.smartCollection.map((item) => {
-              console.log(userCtx.smartCollection);
+              // console.log(userCtx.smartCollection);
 
               return (
                 <>

@@ -51,13 +51,6 @@ const ExpandMore = styled((props) => {
 const DisplayArticles = () => {
   //receive searchParams from sibling component SearchBar utilizing useNavigate and useLocation from react-router-dom
   const location = useLocation();
-
-  //get date 2 weeks ago for the initialSearchParam 'from' value
-  const today = new Date();
-  const twoWeeksAgo = new Date(today);
-  twoWeeksAgo.setDate(today.getDate() - 14);
-  const isoDate = twoWeeksAgo.toISOString().split("T")[0];
-
   const [searchParams, setSearchParams] = useState({});
 
   //state to control the modal
@@ -78,18 +71,17 @@ const DisplayArticles = () => {
   }, [location.state?.searchParams]);
 
   //runs as the page opens for the first time
-
-  // useGetArticles(
-  //   searchParams,
-  //   articles,
-  //   setArticles,
-  //   numResults,
-  //   setNumResults,
-  //   isLoading,
-  //   setIsLoading,
-  //   error,
-  //   setError
-  // );
+  useGetArticles(
+    searchParams,
+    articles,
+    setArticles,
+    numResults,
+    setNumResults,
+    isLoading,
+    setIsLoading,
+    error,
+    setError
+  );
 
   //function to set the expanded <> collapsible when clicked
   const handleExpandClick = (articleId) => {
@@ -99,8 +91,8 @@ const DisplayArticles = () => {
     }));
   };
 
+  // Function to open fact check modal
   const handleFactCheckClick = () => {
-    // CALL FOR FACT CHECK MODAL / LOGIC HERE! @Kee Arn
     setShowModal(true);
   };
 
@@ -119,7 +111,11 @@ const DisplayArticles = () => {
 
   return (
     <div>
-      <h3 className="text-center">Top Articles</h3>
+      {searchParams ? (
+        <h3 className="text-center">Top {searchParams.q} Articles</h3>
+      ) : (
+        <h3 className="text-center">Top Articles</h3>
+      )}
       <p className="text-center">Found {numResults} Articles</p>
 
       <Masonry columns={3} spacing={2}>

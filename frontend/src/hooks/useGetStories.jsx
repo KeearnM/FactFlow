@@ -9,16 +9,28 @@
  |
  *===========================================================================*/
 
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
-const useGetStories = () => {
-  const [stories, setStories] = useState([]);
-  const [numResults, setNumResults] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-
+const useGetStories = (
+  searchParams,
+  stories,
+  setStories,
+  numResults,
+  setNumResults,
+  isLoading,
+  setIsLoading,
+  error,
+  setError
+) => {
+  const lastQRef = useRef(null);
   useEffect(() => {
+    const { q } = searchParams;
+
+    // Check if q is the same as the last value
+    if (lastQRef.current === q) {
+      return; // Do nothing if q is the same as the last value
+    }
+
     const fetchData = async () => {
       setIsLoading(true);
       setError(null);
@@ -26,14 +38,20 @@ const useGetStories = () => {
       try {
         const url = new URL(import.meta.env.VITE_PERIGON_STORIES_URL);
 
-        url.searchParams.append("nameExists", "true");
-        url.searchParams.append("q", "US Elections");
+        if (q) {
+          url.searchParams.append("q", q);
+        } else {
+          url.searchParams.append("q", "Markets from this week");
+        }
+
         //set standard from date to 2 weeks before today
         const twoWeeksAgo = new Date();
         twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
         const isoDate = twoWeeksAgo.toISOString();
         url.searchParams.append("from", isoDate);
-        // url.searchParams.append("from", "2023-03-01");
+
+        //parameters that will always be present
+        url.searchParams.append("nameExists", "true");
         url.searchParams.append("minClusterSize", "5");
         url.searchParams.append("page", "0");
         url.searchParams.append("size", "20");
@@ -55,7 +73,7 @@ const useGetStories = () => {
           const data = await response.json();
           setNumResults(data.numResults);
           setStories(data.results);
-          // console.log(data);
+          console.log(data);
         } else {
           setError("Failed to load stories");
         }
@@ -67,7 +85,8 @@ const useGetStories = () => {
     };
 
     fetchData();
-  }, []);
+    lastQRef.current = searchParams.q; // Update the lastQRef with the current q value
+  }, [[searchParams, setStories, setNumResults, setIsLoading, setError]]);
 
   return { stories, numResults, isLoading, error };
 };

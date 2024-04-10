@@ -7,7 +7,7 @@ const Feed = () => {
     <div>
       <SmartCollection></SmartCollection>
       <br />
-      {/* <DisplayStories></DisplayStories> */}
+      <DisplayStories></DisplayStories>
     </div>
   );
 };
