@@ -113,7 +113,7 @@ const SmartCollection = () => {
           }}
         />
         <Button
-          style={{ marginLeft: 5, height: "54px", backgroundColor: "green" }}
+          style={{ marginLeft: 5, height: "54px", backgroundColor: "#0db38e" }}
           size="large"
           variant="contained"
           onClick={addNewCollection}
@@ -122,7 +122,7 @@ const SmartCollection = () => {
         </Button>
       </Box>
       <CardActions>
-        <small>Edit Collection</small>
+        <small>Edit Collections</small>
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
