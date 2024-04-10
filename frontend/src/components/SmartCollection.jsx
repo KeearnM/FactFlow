@@ -3,7 +3,8 @@ import { useContext } from "react";
 import UserContext from "../context/user";
 import useFetch from "../hooks/useFetch";
 import styles from "../components/SmartCollection.module.css";
-import { TextField, Box, Button, Grid } from "@mui/material";
+import { TextField, Box, Button, Grid, InputLabel } from "@mui/material";
+import CardHeader from "@mui/material/CardHeader";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
@@ -101,12 +102,46 @@ const SmartCollection = () => {
 
   return (
     <>
+      <CardHeader
+        titleTypographyProps={{
+          fontSize: 36,
+          fontWeight: 700,
+          color: "#0db38e",
+        }}
+        subheaderTypographyProps={{
+          fontSize: 18,
+          fontWeight: 700,
+        }}
+        title="STORIES FOR YOU"
+        subheader="A PERSONALISED NEWS FEED BASED ON YOUR INTEREST"
+      />
+      <InputLabel style={{ marginLeft: 14, fontSize: "14px" }}>
+        <strong>What are Stories? </strong>
+        <br /> A Story is a cluster of individual articles covering the same
+        event or topic.
+        <br /> Think of it like a summary obtained from multiple news sources.
+        <br /> The cluster size simply indicates how widely reported that topic
+        is.
+        <br />
+        <br />
+        <strong>
+          Add a topic into your collection and get bite-sized content at your
+          fingertips.
+        </strong>
+        <br />
+      </InputLabel>
+      <InputLabel style={{ marginLeft: 14, fontSize: "14px" }}>
+        Tip: Get fancy with the use of words like AND, OR, NOT. <br /> You may
+        use "quotation marks" to search for an exact phrase for an improved
+        search accuracy.
+      </InputLabel>
+
       <Box display="flex" alignItems="center">
         {/*========== New Collection Input ==========*/}
         <TextField
-          style={{ width: "30%" }}
+          style={{ width: "50%", marginLeft: 14 }}
           id="outlined-controlled"
-          label="Add New Collection"
+          label="Add New Topic"
           value={newCollection}
           onChange={(event) => {
             setNewCollection(event.target.value);
@@ -122,8 +157,8 @@ const SmartCollection = () => {
           Add
         </Button>
       </Box>
-      <CardActions>
-        <small>Edit Collections</small>
+      <CardActions style={{ marginLeft: 8 }}>
+        <small>Edit Collection</small>
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}

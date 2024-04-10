@@ -248,18 +248,24 @@ const SearchBar = () => {
         titleTypographyProps={{
           fontSize: 36,
           fontWeight: 700,
+          color: "#0db38e",
         }}
         subheaderTypographyProps={{
           fontSize: 18,
+          fontWeight: 700,
         }}
         title="BE INFORMED AND INSPIRED"
         subheader="FROM NEWS SOURCES TAILORED FOR YOU"
       />
-
+      <InputLabel style={{ marginLeft: 14, fontSize: "14px" }}>
+        Tip: Get fancy with the use of words like AND, OR, NOT. You may use
+        "quotation marks" to search for an exact phrase for an improved search
+        accuracy.
+      </InputLabel>
       <Box display="flex" alignItems="center">
         {/*========== Search Input ==========*/}
         <TextField
-          style={{ width: "100%" }}
+          style={{ width: "100%", marginLeft: 14 }}
           size="large"
           id="search-input"
           variant="outlined"
@@ -293,13 +299,9 @@ const SearchBar = () => {
           Search
         </Button>
       </Box>
-      <InputLabel style={{ marginLeft: 0, fontSize: "14px" }}>
-        Get fancy with the use of words like AND, OR, NOT. You may use
-        "quotation marks" to search for an exact phrase for an improved search
-        accuracy.
-      </InputLabel>
+
       {/*========== To expand for Advanced Search ==========*/}
-      <CardActions>
+      <CardActions style={{ marginLeft: 8 }}>
         <small>Advanced Search</small>
         <ExpandMore
           expand={expanded}
