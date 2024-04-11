@@ -29,29 +29,45 @@ import useFactCheck from "../hooks/useFactCheck";
 const FactCheckModal = (props) => {
   const { loading, result, error } = useFactCheck(props.story);
   const [displayResult, setDisplayResult] = useState([]);
-  const [claims, setClaims] = useState();
+  const [claims, setClaims] = useState([]);
   const [source, setSource] = useState();
-  const [analysis, setAnalysis] = useState();
+  const [analysis, setAnalysis] = useState([]);
   const [bias, setBias] = useState();
 
   const stringParse = (geminiRes) => {
     if (geminiRes.startsWith("```")) {
       const cleanString = geminiRes.replace(/^```|```$/g, "");
       if (/^(json|JSON)/i.test(cleanString)) {
-        const parsedStr = cleanString.replace(/^(json|JSON)\s*/, "");
-        const jsonparsed = JSON.parse(parsedStr);
-        console.log(geminiRes); //when using geminiRes sit appears straight away
-        console.log(jsonparsed);
-        setDisplayResult(geminiRes);
-        setClaims(jsonparsed.claims);
-        setSource(jsonparsed.credible_sources);
-        setAnalysis(jsonparsed.fact_check_results.analysis);
-        setBias(jsonparsed.potential_biases);
+        try {
+          const parsedStr = cleanString.replace(/^(json|JSON)\s*/, "");
+          console.log(parsedStr);
+          const jsonparsed = JSON.parse(parsedStr);
+          // console.log(geminiRes);
+          console.log(jsonparsed);
+          setDisplayResult(geminiRes);
+          setClaims(jsonparsed.claims);
+          setSource(jsonparsed.credible_sources);
+          setAnalysis(jsonparsed.analysis);
+          setBias(jsonparsed.potential_biases);
+        } catch (error) {
+          console.log("error parsing JSON");
+        }
       }
     } else {
       setDisplayResult(geminiRes);
     }
   };
+
+  // function renderArrayWithSpaces(array) {
+  //   return array.map((item, index, arr) => (
+  //     <>
+  //       {item}
+  //       {index < arr.length - 1 && (
+  //         <span style={{ marginRight: "10px" }}> </span>
+  //       )}
+  //     </>
+  //   ));
+  // }
 
   useEffect(() => {
     if (result) {
