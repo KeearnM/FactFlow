@@ -136,7 +136,7 @@ The Register Controller manages user registration by securely storing hashed pas
 
 #### Controllers
 
-###### Auth Controllers 
+##### Auth Controllers 
 - **seedUsers** this controller seeds the database with dummy data for testing purposes
 - **register** this controller creates new entry in the Auth Schema, it requires a firstName, lastName, password, role fields. The password field is encrypted using bcrypt and the role field defaults to "user" if nothing is submitted for it
 - **login** this controller request a email and password field than check both fields against the database. Once verified a access code and refresh code is generated using JWT (JSON web token). The user id is also sent back as part of the response
@@ -157,7 +157,7 @@ The Register Controller manages user registration by securely storing hashed pas
 
 #### Routers
 
-###### Auth Routers
+##### Auth Routers
 - **PUT/register** Runs the register controller, it uses validators (validateRegister) that forces the user to enter an email and enter a password between 8 and 50 characters
 - **POST/login** Runs the login controller, it uses validators that makes sure the email and password field are not empty
 - **POST/refresh** Runs the refresh controller, it is protected by the authUser middleware and has validators to make sure a refresh token is submitted
