@@ -137,16 +137,22 @@ The Register Controller manages user registration by securely storing hashed pas
 
 #### Controllers
 
-##### Auth Controllers 
-- **seedUsers** this controller seeds the database with dummy data for testing purposes
+##### Auth Controllers
+
+- **seedUsers** this controller seeds the database with dummy user data for testing purposes
 - **register** this controller creates new entry in the Auth Schema, it requires a firstName, lastName, password, role fields. The password field is encrypted using bcrypt and the role field defaults to "user" if nothing is submitted for it
 - **login** this controller request a email and password field than check both fields against the database. Once verified a access code and refresh code is generated using JWT (JSON web token). The user id is also sent back as part of the response
 - **refresh** this controller request a refresh token and once the refresh token is recieved and verified, sends a newly signed access token in a response
 - **update** receive an id from params and using the data from in the body, updates the user that the id references
 - **getAllAuth** fetches all the auth collection from mongoDB
+- **seedSmartCollection** this controller seeds the database with dummy Smart Collection data for testing purposes
+- **getAllSmartCollections** fetches all the Smart Collection entries from mongoDB
+- **addSmartCollection** add a new Smart Collection into the database with a reference to Auth
+- **patchSmartCollection** update a new Smart Collection into the database with a reference to Auth
+- **deleteSmartCollection** delete a new Smart Collection into the database with a reference to Auth
+- **getCollectionByUserID** fetches all Smart Collection entries from the database (for the currently logged-in user) with a reference to Auth
 
-
-#### Middleware 
+#### Middleware
 
 - **AuthAdmin & AuthUser** For our middleware we made use of two functions, authUser and authAdmin to protect our routes. The purpose of these functions are to authenticate users based on a JWT (JSON web token) in the authorization header, then depending if the users are authorized, they are either allow proceed to the next function or return an error response. The authAdmin function also check if the user has an "admin" role before allowing the user to proceed.
 
@@ -154,11 +160,12 @@ The Register Controller manages user registration by securely storing hashed pas
 
 - **Auth Schema** Our first schema is an Auth Schema which contains all our user information, including firstName, lastName, email, hash (our encrypted password), and a role field that references the role schema to determine the appropriate user role. The password is stored securely using bcrypt.
 - **Role Schema** The Role Schema consists of a single field, "role," which defines the user's role within the system. This schema is referenced by the Auth Schema to assign the appropriate role to each user.
-- **SmartCollection Schema** 
+- **SmartCollection Schema** This schema stores the user's input and passes it on to the frontend as part of our API request, as a search parameter.
 
 #### Routers
 
 ##### Auth Routers
+
 - **PUT/register** Runs the register controller, it uses validators (validateRegister) that forces the user to enter an email and enter a password between 8 and 50 characters
 - **POST/login** Runs the login controller, it uses validators that makes sure the email and password field are not empty
 - **POST/refresh** Runs the refresh controller, it is protected by the authUser middleware and has validators to make sure a refresh token is submitted
@@ -166,12 +173,29 @@ The Register Controller manages user registration by securely storing hashed pas
 - **GET/allUser** Runs the allUser controller and retrieves all users. Requires admin authentication as it is protected by the authAdmin middleware. Authenticates the user as an admin, and then retrieves all user data
 - **PATCH/update/:id** This route receives and id as an parameter and updates the user that the id references using our update controller. Requires admin authentication as it is protected by the authAdmin middleware.
 
+##### SmartCollection Routers
+
+- **GET/api/seed** Seeds the database with dummy smartCollection data. This route is used for testing purposes or populating initial data.
+- **GET/api** Runs the getAllSmartCollection controller
+- **PUT/api/:id** Runs the addSmartCollection controller, it uses the validateIdInParam and validateAddSmartCollectionData.
+- **PATCH/api/:id** Runs the patchSmartCollection controller, it uses the validateIdInParam, validateUpdateSmartCollectionData.
+- **DELETE/api/:id** Runs the deleteSmartCollection controller, it uses the validateIdInParam to validate as well.
+- **GET/api/:id** Runs the getCollectionByUserID controller, using validateIdInParam to ensure that the collection is added to the user that is currently logged in.
+
 #### Validators
 
 ##### Auth Validators
+
 - **validateRegister** A validator that prevents the email field from being empty and password field to have at least 8 - 50 characters
 - **validateLogin** A validator that prevents the email and password field from being empty
-- **validateRefresh** A validator that make sure a refresh token is submitted 
+- **validateRefresh** A validator that make sure a refresh token is submitted
+
+##### SmartCollection Validators
+
+- **validateIdInParam** A validator ensures that the id is not empty when passed as through as a parameter, and has at least 24 characters
+- **validateIdInBody** A validator ensures that the id is not empty when passed as through in the body, and has at least 24 characters
+- **validateAddSmartCollectionData** A validator that prevents the q parameter from being empty to have at least 1 - 30 characters
+- **validateUpdateSmartCollectionData** A validator that prevents the q parameter from being empty to have at least 1 - 30 characters
 
 ### Frontend
 
