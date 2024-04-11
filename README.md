@@ -23,7 +23,8 @@ at increasing trust in reliable news sources.
 
 ### Postman Collection
 
-We created and exported a Postman collection with all the endpoints we created on the backend so you can run to check registration, login and Smart Collections (Stories) CRUD, along with seeds to facilitate testing. Get it here: [FactFlow Postman Collection]()
+We created and exported a Postman collection with all the endpoints we created on the backend so you can run to check registration, login and Smart Collections (Stories) CRUD, along with seeds to facilitate testing.
+Download it here to import in Postman: [FactFlow Postman Collection](/public/FactFlow.postman_collection.json)
 
 ![Postman_Env](/public/postman_environment.png)
 
