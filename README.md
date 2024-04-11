@@ -134,9 +134,9 @@ We created and exported a Postman collection with all the endpoints we created o
 
 The Register Controller manages user registration by securely storing hashed passwords and usernames in the Auth collection of MongoDB, after validating the registration data. On the other hand, the Login Controller authenticates users by verifying their credentials against the MongoDB data. Upon successful authentication, it issues a JWT access token, enabling authorized access to protected routes.
 
-#### controllers
+#### Controllers
 
-##### Auth Controllers 
+###### Auth Controllers 
 - **seedUsers** this controller seeds the database with dummy data for testing purposes
 - **register** this controller creates new entry in the Auth Schema, it requires a firstName, lastName, password, role fields. The password field is encrypted using bcrypt and the role field defaults to "user" if nothing is submitted for it
 - **login** this controller request a email and password field than check both fields against the database. Once verified a access code and refresh code is generated using JWT (JSON web token). The user id is also sent back as part of the response
@@ -145,19 +145,19 @@ The Register Controller manages user registration by securely storing hashed pas
 - **getAllAuth** fetches all the auth collection from mongoDB
 
 
-#### middleware 
+#### Middleware 
 
 - **AuthAdmin & AuthUser** For our middleware we made use of two functions, authUser and authAdmin to protect our routes. The purpose of these functions are to authenticate users based on a JWT (JSON web token) in the authorization header, then depending if the users are authorized, they are either allow proceed to the next function or return an error response. The authAdmin function also check if the user has an "admin" role before allowing the user to proceed.
 
-#### models
+#### Models
 
 - **Auth Schema** Our first schema is an Auth Schema which contains all our user information, including firstName, lastName, email, hash (our encrypted password), and a role field that references the role schema to determine the appropriate user role. The password is stored securely using bcrypt.
 - **Role Schema** The Role Schema consists of a single field, "role," which defines the user's role within the system. This schema is referenced by the Auth Schema to assign the appropriate role to each user.
 - **SmartCollection Schema** 
 
-#### routers
+#### Routers
 
-##### Auth Routers
+###### Auth Routers
 - **PUT/register** Runs the register controller, it uses validators (validateRegister) that forces the user to enter an email and enter a password between 8 and 50 characters
 - **POST/login** Runs the login controller, it uses validators that makes sure the email and password field are not empty
 - **POST/refresh** Runs the refresh controller, it is protected by the authUser middleware and has validators to make sure a refresh token is submitted
@@ -165,9 +165,9 @@ The Register Controller manages user registration by securely storing hashed pas
 - **GET/allUser** Runs the allUser controller and retrieves all users. Requires admin authentication as it is protected by the authAdmin middleware. Authenticates the user as an admin, and then retrieves all user data
 - **PATCH/update/:id** This route receives and id as an parameter and updates the user that the id references using our update controller. Requires admin authentication as it is protected by the authAdmin middleware.
 
-#### validators
+#### Validators
 
-#### Auth Validators
+##### Auth Validators
 - **validateRegister** A validator that prevents the email field from being empty and password field to have at least 8 - 50 characters
 - **validateLogin** A validator that prevents the email and password field from being empty
 - **validateRefresh** A validator that make sure a refresh token is submitted 
