@@ -73,6 +73,9 @@ const UpdateCollectionModal = (props) => {
     }
   };
 
+  const handleCloseUpdateModal = () => {
+    props.setShowUpdateCollectionModal(false);
+  };
   // test to be deleted once app is completed
   console.log(props.updatedCollection);
 
@@ -115,7 +118,7 @@ const UpdateCollectionModal = (props) => {
             >
               <IconButton
                 aria-label="close"
-                onClick={props.handleCloseUpdateModal}
+                onClick={handleCloseUpdateModal}
                 sx={{
                   position: "absolute",
                   top: 0,
